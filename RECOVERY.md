@@ -1,0 +1,127 @@
+# Memulihkan dan melanjutkan penelitian
+
+## 1. Ambil repo beserta riwayat
+
+Pada komputer Linux dengan Git, Python 3.10+, dan ripgrep:
+
+```bash
+git clone https://github.com/dinzzxyz/abl_root_non_efisp.git
+cd abl_root_non_efisp
+git log --oneline --decorate --all
+```
+
+Jika GitHub tidak dapat dijangkau, ekstrak ZIP backup yang diunduh. Untuk
+memulihkan riwayat dari bundle pada aset rilis:
+
+```bash
+git clone SM8750-research-history-2026-11-06.bundle recovered-research
+cd recovered-research
+git remote set-url origin https://github.com/dinzzxyz/abl_root_non_efisp.git
+```
+
+Bundle merupakan snapshot saat dibuat. Commit setelah snapshot tetap harus
+diambil dari remote atau bundle yang lebih baru.
+
+## 2. Ambil masukan asli
+
+Gunakan `gpt.zip` asli dari berkas percakapan/backup pribadi. Periksa SHA-256
+terhadap `INPUTS.json`. Jangan menganggap file dengan nama sama pasti identik.
+Firmware OEM dan loader EDL tidak disalin ke repo publik ini.
+
+```bash
+sha256sum /path/to/gpt.zip
+```
+
+Jika ZIP asli hilang, manifest tetap menyimpan hash tiap anggota. Untuk
+reproduksi penuh tetap dibutuhkan byte firmware yang sama; hasil analisis saja
+tidak dapat menggantikan masukan asli.
+
+## 3. Siapkan dependensi dan source acuan
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+git clone https://github.com/SuperTurtleDev/gbl_root_canoe.git ../gbl_root_canoe
+git -C ../gbl_root_canoe checkout 4ef438cfde42943694fde5753bbf5d8c0b4ec02e
+```
+
+Source upstream cukup di-checkout pada commit yang dipin untuk mengulang
+analisis. Tidak perlu membangun atau menjalankan firmware untuk langkah ini.
+
+## 4. Ulangi hasil dan verifikasi
+
+```bash
+.venv/bin/python src/analyze.py /path/to/gpt.zip --out generated
+.venv/bin/python src/trace_paths.py /path/to/gpt.zip --upstream ../gbl_root_canoe --out generated/continued
+.venv/bin/python src/recover_patch.py /path/to/gpt.zip
+.venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --log generated/verification.txt
+```
+
+Verifikasi membandingkan seluruh byte hasil patch, menolak basis salah,
+memeriksa GUID volume, digest SHA-384, call edges, dan deklarasi protokol.
+Semua berlangsung offline terhadap berkas. Lulus verifikasi bukan hasil uji HP.
+
+## 5. Baca bukti dengan ruang alamat yang tepat
+
+| Bentuk alamat | Contoh | Cara membaca |
+|---|---|---|
+| Offset file ELF | `abl.elf:0x1078` | Posisi dalam file ABL yang dikompresi |
+| Offset buffer dekompresi | `LZMA output:0x8` | Posisi setelah stream dibuka |
+| Offset PE payload | `boot.efi:0x3A72C` | Lokasi instruksi patch pada PE engineering |
+| RVA modul | `QcomBds RVA 0x5254` | Alamat relatif image PE QcomBds |
+| Nilai FDT | CN `xbl_config.elf:0x242D8` | Awal string LinuxLoader di property DT |
+
+Jangan menerapkan offset PE langsung ke file ELF, atau memakai alamat
+engineering pada CN tanpa pemetaan ulang.
+
+## 6. Mengumpulkan informasi Android
+
+Salin `tools/collect_readonly.sh` ke `/sdcard/Download/` pada HP yang sedang
+berfungsi. Dari shell Android/Termux:
+
+```bash
+su -c 'sh /sdcard/Download/collect_readonly.sh' > sm8750-device-info.txt
+```
+
+Collector hanya mencetak properti build, daftar link partisi, visibilitas EFI,
+dan BootOrder/BootNext/AttemptUSBFirst bila dapat dibaca. Ia tidak mengubah
+status lock, menulis partisi, memasang filesystem, atau me-reboot HP.
+Tidak terlihatnya `/sys/firmware/efi` tidak membuktikan UEFI tidak digunakan
+pada tahap boot sebelumnya.
+
+Log PIL/UEFI masih perlu diperoleh melalui fasilitas logging yang benar-benar
+tersedia pada perangkat. Jangan menganggap `dmesg` Android sudah mencakup
+seluruh log sebelum kernel.
+
+## 7. Menyimpan perkembangan berikutnya
+
+Kerjakan perubahan baru pada branch penelitian:
+
+```bash
+git switch -c research/next-step
+git add src tools evidence README.md LAPORAN.md RESEARCH_CONTINUED.md HANDOFF.md HISTORY.md
+git diff --cached --stat
+git commit -m "Describe the concrete research result"
+git push -u origin research/next-step
+```
+
+Tambahkan bukti baru dan batas pengujiannya ke HISTORY.md/HANDOFF.md. Jangan
+menandai port sebagai bekerja sebelum ada log dan hasil runtime yang sesuai.
+
+Untuk membuat snapshot riwayat di luar repo:
+
+```bash
+git bundle create ../SM8750-research-history-2026-11-06.bundle --all
+git bundle verify ../SM8750-research-history-2026-11-06.bundle
+```
+
+## 8. Status koneksi GitHub pada sesi penelitian ini
+
+Koneksi plugin berhasil membaca akun `dinzzxyz` dan menemukan repo tujuan.
+Percobaan create README melalui koneksi itu mendapat HTTP 403 `Resource not
+accessible by integration`. Setelah pengguna menyelesaikan login browser
+GitHub CLI, push Git langsung berhasil untuk commit awal.
+
+Kredensial tidak disertakan dalam source, bundle, atau ZIP. Pada sesi baru,
+gunakan koneksi yang memang mempunyai izin menulis; tidak perlu menempelkan
+password atau token ke percakapan.

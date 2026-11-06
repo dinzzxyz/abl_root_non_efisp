@@ -1,0 +1,7 @@
+saat hasil patch yaitu boot.efi di folder result ku flash sebagai abl dengan command
+fastboot flash abl_ab boot.efi
+lalu ku reboot ke bootloader untuk ngecek apakah fake lock nya work 
+fastboot reboot bootloader
+namun hp nya malah brick, walaupun masih ada logo poco tanpa ada pad lock yang menandakan abl nya berhasil di patch dan work fake lock nya
+yang di perlukan adalah superfastboot sekarang. namun seperti yang kamu tau, annibale snapdragon 8 elite atau SM8750 tidak ada efisp partition
+yang menandakan bahkan superfastboot dari github tidak bisa kita masukkan sembarangan kita harus mencari tau path dari patch nya terlebih dahulu.

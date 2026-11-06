@@ -4,6 +4,13 @@ Tanggal: 6 November 2026. Status: **analisis statis dan rekonstruksi patch**.
 Paket ini berisi source alat analisis, bukti, dan catatan pengembangan.
 Belum merupakan port SuperFastboot yang dapat di-flash.
 
+Repo: https://github.com/dinzzxyz/abl_root_non_efisp
+
+Untuk memulai dari workspace kosong, baca [RECOVERY.md](RECOVERY.md).
+Untuk melanjutkan penelitian, mulai dari [HANDOFF.md](HANDOFF.md) dan
+[RESEARCH_CONTINUED.md](RESEARCH_CONTINUED.md). Riwayat temuan ada di
+[HISTORY.md](HISTORY.md), sedangkan riwayat perubahan lengkap tersedia di Git.
+
 ## Hasil utama
 
 1. `result/boot.efi` dapat direproduksi **identik byte demi byte** dari
@@ -31,9 +38,14 @@ dan tahap pengembangan berikutnya.
 | `src/fwlib.py` | Ekstraksi PE dari LZMA, pembacaan FDT dan nama FFS |
 | `src/analyze.py` | Mengulang penelusuran secara offline dari `gpt.zip` |
 | `src/recover_patch.py` | Rekonstruksi persis hasil patch lama dengan validasi hash |
+| `src/trace_paths.py` | Namespace ABL FV, digest ELF, dan inventaris protokol |
+| `src/verify_research.py` | Pemeriksaan regresi offline yang dapat dijalankan ulang |
+| `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
 | `evidence/` | Hasil analisis, hash, konfigurasi terpilih, dan disassembly |
 | `VALIDATION.txt` | Hasil verifikasi terhadap berkas masukan yang diberikan |
 | `UPSTREAM.json` | Repo dan commit acuan yang diperiksa |
+| `INPUTS.json` | Hash ZIP masukan dan setiap anggotanya |
+| `context/` | Prompt dan laporan uji asli dari pengguna |
 
 Tidak ada skrip dari ZIP masukan yang dieksekusi. Alat analisis tidak
 menjalankan `fastboot`, `adb`, `su`, atau membuka perangkat blok.
@@ -42,6 +54,8 @@ menjalankan `fastboot`, `adb`, `su`, atau membuka perangkat blok.
 
 Gunakan Python 3.10+ pada komputer Linux. Tempatkan ZIP masukan asli di luar
 repo ini; firmware dan loader OEM tidak disertakan dalam source yang dibagikan.
+Git dan ripgrep juga diperlukan untuk analisis lanjutan. Semua contoh
+restorasi dan checkout source acuan ada di RECOVERY.md.
 
 ```bash
 python3 -m venv .venv
@@ -60,6 +74,12 @@ Untuk menyimpan salinan payload yang identik dengan hasil lama:
 Salinan itu tetap **payload PE/EFI**, bukan image ABL yang sudah dikemas dan
 diautentikasi. Alat menolak firmware dengan hash berbeda.
 
+Setelah source acuan dipulihkan sesuai RECOVERY.md, jalankan seluruh pemeriksaan:
+
+```bash
+.venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --log generated/verification.txt
+```
+
 ## Catatan untuk pengembangan lintas perangkat
 
 Pisahkan empat lapis: format image OEM, titik masuk EFI yang benar-benar
@@ -76,16 +96,17 @@ Paket source ini dapat dimasukkan ke repo GitHub. Repo publik sebaiknya berisi
 source, hash, dan hasil penelitian, tanpa firmware OEM, loader EDL, kredensial,
 atau data identitas perangkat. ZIP masukan asli diperlukan untuk reproduksi.
 
-Setelah integrasi GitHub di ChatGPT terhubung dan repo tujuan dipilih,
-source dapat disimpan ke branch penelitian beserta riwayat commit.
-Belum ada push ke akun pengguna dalam pekerjaan ini.
-
-`history.bundle` dalam paket unduhan memuat snapshot riwayat Git sebelum
-pengemasan. Untuk memulihkannya ke folder baru:
+Snapshot awal sudah dipush sebagai commit
+`fffb031ef92a1c1549aefec5337aa1a959a5a062`. Kelanjutan penelitian dicatat dalam
+commit berikutnya. Aset rilis memuat ZIP source dan bundle riwayat Git untuk
+pemulihan. Untuk memulihkan bundle ke folder baru:
 
 ```bash
-git clone history.bundle recovered-research
+git clone SM8750-research-history-2026-11-06.bundle recovered-research
 ```
+
+Keberhasilan push ini menggunakan login GitHub CLI yang diselesaikan pengguna;
+koneksi plugin semula dapat membaca tetapi menolak write dengan HTTP 403.
 
 ## Sumber dan lisensi
 

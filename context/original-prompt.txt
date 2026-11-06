@@ -1,0 +1,8 @@
+https://github.com/SuperTurtleDev/gbl_root_canoe
+buka repo tersebut lalu baca lah untuk panduan nya, tolong buatkan port nya dari SM8850 ke SM8750, aku sudah pernah minta ai lain untuk patch nya namun aku lupa backup cadangan raw project nya sehingga hanya aja result patch saja yang tersisa,
+jika masih kurang coba ke forum xda ini https://xdaforums.com/t/efisp-root-gbl_root_canoe-fake-locked-bl-superfastboot-bds-8-gen-5-8-elite-gen-5.4786301/ disitu juga tertera cara nya,
+patch sudah benar. path 35 patch sudah berhasil namun yang belum adalah implementasi superfastboot dari SM8850 (Snapdragon 8 Elite Gen 5), SM8850 ada partisi efisp yang di gunakan sebagai jembatan untuk superfastboot, sementara SM8750 tidak ada.
+kamu cek saja folder cn (ROM Annibale atau Poco F8 Pro 3.0.307.0 CN) itu ada isi nya (seharusnya semuanya sudah ada yang kamu butuhkan disana) lalu eng rom yang dimana sama aja isinya namun aku kurang tau apakah eng rom itu rom os3 atau os2 karena hanya tertera 15, asumsiku itu android 15.
+lalu folder result, isinya boot.efi yang ku flash ke partisi abl ku, lebih lengkapnya baca ke test.txt
+lalu ada file 8750 no auth Xiaomi, itu yang ku gunakan untuk unbrick, aku ada kabel edl jadi aman untuk test
+setelah itu ada magisk_module.zip, itu isinya file boot.efi dan efisp sepertinya, untuk Poco F8 Ultra yang notaben nya SM8850 atau 8 Elite Gen 5. mungkin bisa kamu pakai untuk membandingkan path dari patch nya.

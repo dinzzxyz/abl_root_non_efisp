@@ -1,0 +1,2 @@
+# Historical user notes retain their original CRLF and trailing spaces.
+context/original-*.txt -text -whitespace

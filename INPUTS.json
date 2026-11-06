@@ -1,0 +1,153 @@
+{
+  "archive_name": "gpt.zip",
+  "archive_size_bytes": 14805624,
+  "archive_sha256": "d0c633efc4fe7cf3ed29a396dc4d444a9c93d18e825c53c26ca47f7feb37251b",
+  "private_input_required": true,
+  "members": [
+    {
+      "name": "magisk_module.zip",
+      "size_bytes": 6738499,
+      "sha256": "1ca76dc80cd5f43422ffea98b0778981cd30dd3e87cc8fe1df11ef6e491494ac"
+    },
+    {
+      "name": "result/boot.efi",
+      "size_bytes": 1183744,
+      "sha256": "d7456c0e5d6d102cad963ea9c27f4b5fc3c999d6ebce5ade058efd52c352ef83"
+    },
+    {
+      "name": "result/prompt.txt",
+      "size_bytes": 1443,
+      "sha256": "a42de8c5f10f28b9d64322e46132057bc40dc3433add8acf49e10b3bc553a17a"
+    },
+    {
+      "name": "result/test.txt",
+      "size_bytes": 645,
+      "sha256": "760c1e605877d2229146ba39be98cb5900d4cc2a4b3b24ae84954f980b9f47ae"
+    },
+    {
+      "name": "cn/abl.elf",
+      "size_bytes": 335672,
+      "sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309"
+    },
+    {
+      "name": "cn/flash_all.bat",
+      "size_bytes": 6416,
+      "sha256": "3b5385b4bd758b6ad421021bcf979a775a13ed93a1ffcc8451d171b9b16d4333"
+    },
+    {
+      "name": "cn/flash_gen_crc_list.py",
+      "size_bytes": 8850,
+      "sha256": "558caa679dc3606e2e68589d10bb59b1136e4413e4897aa19c11d37530e25d64"
+    },
+    {
+      "name": "cn/flash_gen_md5_list.py",
+      "size_bytes": 1954,
+      "sha256": "9d944fde4287c2ea50ba03f6d1a6b573334c2ff834648c897979c7a32e7f0719"
+    },
+    {
+      "name": "cn/misc.txt",
+      "size_bytes": 164,
+      "sha256": "2c8967e56b705a462842b52b68daa0767964953dd22f86c298fe2db682bf849c"
+    },
+    {
+      "name": "cn/uefi.elf",
+      "size_bytes": 2839004,
+      "sha256": "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a"
+    },
+    {
+      "name": "cn/uefi_sec.mbn",
+      "size_bytes": 200792,
+      "sha256": "36fd2ad71634ba6228d78916710b9e90e028de0f5209a1f67365af6b6be5334d"
+    },
+    {
+      "name": "cn/XblRamdump.elf",
+      "size_bytes": 938612,
+      "sha256": "a949861f2144a46bdf25c6f7648cdfcb7a760d1d5b33d2f961099adbef4ef5f2"
+    },
+    {
+      "name": "cn/xbl_config.elf",
+      "size_bytes": 345376,
+      "sha256": "9aaa24e583aee396382d1df9939f46de259faa563961aa9ba775e2978683a8df"
+    },
+    {
+      "name": "cn/xbl_s.melf",
+      "size_bytes": 1188180,
+      "sha256": "8a1fc6ac3495df034c4dfd1ac82a49ddd9546e197e2871eb2dd9b0dfb058d040"
+    },
+    {
+      "name": "cn/xbl_sc_test_mode.bin",
+      "size_bytes": 65536,
+      "sha256": "f28e157b99098d300b47743888da372f0a7f7e1fe01f148162648bd0d1e4fd69"
+    },
+    {
+      "name": "cn/xbl_s_devprg_ns.melf",
+      "size_bytes": 1714124,
+      "sha256": "78634d375a59efeb93d537839302cba6e790255ef41933ec5781c56f884bafe3"
+    },
+    {
+      "name": "eng rom/abl.elf",
+      "size_bytes": 335672,
+      "sha256": "e0182863905a313c09d386c71d99dc23f469716ffa7ac58e9024ee106b37c70d"
+    },
+    {
+      "name": "eng rom/flash_all.bat",
+      "size_bytes": 6416,
+      "sha256": "3b5385b4bd758b6ad421021bcf979a775a13ed93a1ffcc8451d171b9b16d4333"
+    },
+    {
+      "name": "eng rom/flash_gen_crc_list.py",
+      "size_bytes": 8850,
+      "sha256": "558caa679dc3606e2e68589d10bb59b1136e4413e4897aa19c11d37530e25d64"
+    },
+    {
+      "name": "eng rom/flash_gen_md5_list.py",
+      "size_bytes": 1954,
+      "sha256": "9d944fde4287c2ea50ba03f6d1a6b573334c2ff834648c897979c7a32e7f0719"
+    },
+    {
+      "name": "eng rom/misc.txt",
+      "size_bytes": 88,
+      "sha256": "ae7b88103a6b24db819b28b6037d04ad1ae63cb794db6e86d3b782ee2a199166"
+    },
+    {
+      "name": "eng rom/uefi.elf",
+      "size_bytes": 2839004,
+      "sha256": "4158985fafb8f93c7a4d5f76e5c35b5f83fa758bf6ff40bbda1c7db4ae9b84c6"
+    },
+    {
+      "name": "eng rom/uefi_sec.mbn",
+      "size_bytes": 200792,
+      "sha256": "98aa2c3006175868828d9248d02a40e80ca356a3505b009c96a6ef30f7cd496f"
+    },
+    {
+      "name": "eng rom/XblRamdump.elf",
+      "size_bytes": 938612,
+      "sha256": "c1440b2005f2105d47ec4bbff56601cb248ec3431e97a474dd19d0b7f585aec9"
+    },
+    {
+      "name": "eng rom/xbl_config.elf",
+      "size_bytes": 345376,
+      "sha256": "402321d3209b79baaed975c16bd5ab008bdf9d309b33407b89232115be6aa1f6"
+    },
+    {
+      "name": "eng rom/xbl_s.melf",
+      "size_bytes": 1188180,
+      "sha256": "962bb89604d349a7c6478f795ffce00224c6561eb60f677679c479f09718afda"
+    },
+    {
+      "name": "eng rom/xbl_sc_test_mode.bin",
+      "size_bytes": 65536,
+      "sha256": "f28e157b99098d300b47743888da372f0a7f7e1fe01f148162648bd0d1e4fd69"
+    },
+    {
+      "name": "eng rom/xbl_s_devprg_ns.melf",
+      "size_bytes": 1714124,
+      "sha256": "0b934131cf8a7f94864ec454dfd68e5e7cc9581b43c240bc1cbdf572875bd6a0"
+    },
+    {
+      "name": "8750_noauth_Xiaomi.zip",
+      "size_bytes": 710433,
+      "sha256": "365ef5812709bca28c9d8c0b5f7bdb29e47c1b10fce2a6c1eb177dfd94983f96"
+    }
+  ]
+}
