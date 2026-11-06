@@ -10,6 +10,7 @@ import zipfile
 from pathlib import Path
 
 from fwlib import largest_pe, read_member
+from map_bootstate import analyze_image
 from recover_patch import reproduce
 from trace_paths import audit_hash_segment
 
@@ -33,6 +34,8 @@ def main():
             ("analyze.py", ["--out", str(generated)]),
             ("trace_paths.py", ["--upstream", str(args.upstream),
                                 "--out", str(generated / "continued")]),
+            ("map_bootstate.py", ["--out", str(generated / "bootstate")]),
+            ("trace_diagnostics.py", ["--out", str(generated / "bootstate")]),
         ]:
             run = subprocess.run([sys.executable, str(project / "src" / script),
                                   str(args.archive), *options],
@@ -48,6 +51,39 @@ def main():
         require(sum(a != b for a, b in zip(eng, supplied)) == 9,
                 "Unexpected number of changed bytes")
         results.append("PASS: patch recovery is byte-identical; 9 changed bytes")
+        maps = {tag: json.loads((generated / f"bootstate/{tag}_bootstate_map.json").read_text())
+                for tag in ("cn", "eng")}
+        for tag, report in maps.items():
+            require(report["counts"] == {
+                "upstream_mask_hits": 0, "structural_bootstate_hits": 1,
+                "source_template_hits": 1, "local_sink_hits": 1,
+                "device_state_string_dispatch_hits": 1}, "Ambiguous or changed structural anchors")
+            require(len(report["candidate_edits"]) == 4 and
+                    report["changed_byte_count"] == (10 if tag == "cn" else 9),
+                    "Unexpected candidate edit count")
+            require(not report["candidate_container_created"], "Unexpected firmware output")
+        require(maps["eng"]["byte_identical_to_supplied_result"], "Engineering calibration missing")
+        require(maps["cn"]["source"]["getter_rva"] == "0x24874" and
+                maps["cn"]["bootstate"]["test_rva"] == "0x3b76c" and
+                maps["cn"]["candidate_pe_sha256"] ==
+                "9b55fb1ee70b3519a947160033d4d9929edf6d045d6dbc0c4e39b23fdf8fffc5",
+                "Documented CN candidate changed")
+        results.append("PASS: unique structural anchors in CN/ENG; engineering calibration is byte-identical")
+        for name, original in (("CN", cn), ("engineering", eng)):
+            mutation = original[:100] + bytes([original[100] ^ 1]) + original[101:]
+            try:
+                analyze_image(mutation)
+            except ValueError as error:
+                require("Unknown PE hash" in str(error), "Mutation failed for an unexpected reason")
+            else:
+                raise RuntimeError("Structural analyzer accepted altered " + name)
+        results.append("PASS: structural analyzer refuses one-byte mutations of both identified builds")
+        diagnostics = json.loads((generated / "bootstate/cn_oem_diagnostics.json").read_text())
+        require(diagnostics["registration"]["entry_count"] == 34 and
+                diagnostics["registration"]["selected_entries"]["oem uefilog"]["handler_rva"] ==
+                "0x82abc" and diagnostics["uefilog_argument_branch"]["argument_marker"] == "save",
+                "CN diagnostic dispatch or argument branch changed")
+        results.append("PASS: 34-entry CN command table and diagnostic save branch match input bytes")
         for name, data in (("CN firmware", cn),
                            ("one-byte engineering mutation", eng[:100] +
                             bytes([eng[100] ^ 1]) + eng[101:])):

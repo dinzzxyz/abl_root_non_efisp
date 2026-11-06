@@ -5,5 +5,23 @@
   "license": "GPL-3.0",
   "input_archive_sha256": "d0c633efc4fe7cf3ed29a396dc4d444a9c93d18e825c53c26ca47f7feb37251b",
   "source_notes": "Upstream was cloned for inspection; no upstream firmware or complete vendored tree is redistributed in this package.",
-  "xda_status": "Web retrieval failed; direct HTTP 403; contents not verified."
+  "xda_status": "Web retrieval failed; direct HTTP 403; contents not verified.",
+  "additional_references": [
+    {
+      "repository": "https://github.com/REG-Linux/FreeABL",
+      "commit": "63fd0a0544ef167fcdb26fade67a08e2a601b3a1",
+      "reviewed_files": ["README.md", "build.sh", ".gitmodules"],
+      "scope": "SM8750 listed as build only; ELF32 wrapper and qtestsign v7 are not device authentication evidence",
+      "device_validation_by_this_research": false
+    },
+    {
+      "repository": "https://github.com/REG-Linux/edk2-freeabl",
+      "commit": "4cd7fb389e22d7a3761308006fc6d79410be9ddf",
+      "reviewed_blobs": {
+        "QcomModulePkg/Include/Library/DeviceInfo.h": "09f596b7c2273be27f65325949fb543d5e57e4ac",
+        "QcomModulePkg/Library/BootLib/DeviceInfo.c": "a2f80542ebcadecf9e8b7b4adfcf15e0e8e57956"
+      },
+      "scope": "Semantic comparator for the inferred DeviceInfo getter; not claimed as OEM build source"
+    }
+  ]
 }

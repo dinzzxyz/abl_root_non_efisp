@@ -1,0 +1,73 @@
+source: file offsets and PE RVAs are listed separately
+file   0x3a720 / RVA   0x3a720: bf5a00f9         str     xzr, [x21, #0xb0]
+file   0x3a724 / RVA   0x3a724: a08203ad         stp     q0, q0, [x21, #0x70]
+file   0x3a728 / RVA   0x3a728: a08204ad         stp     q0, q0, [x21, #0x90]
+file   0x3a72c / RVA   0x3a72c: 62a7ff97         bl      #0x244b4
+file   0x3a730 / RVA   0x3a730: 00e4006f         movi    v0.2d, #0000000000000000
+file   0x3a734 / RVA   0x3a734: 1f1c0072         tst     w0, #0xff
+file   0x3a738 / RVA   0x3a738: f803002a         mov     w24, w0
+file   0x3a73c / RVA   0x3a73c: 68008052         mov     w8, #3
+file   0x3a740 / RVA   0x3a740: f4079f1a         cset    w20, ne
+
+getter: file offsets and PE RVAs are listed separately
+file   0x244b4 / RVA   0x244b4: ff8300d1         sub     sp, sp, #0x20
+file   0x244b8 / RVA   0x244b8: fe0b00f9         str     x30, [sp, #0x10]
+file   0x244bc / RVA   0x244bc: 48060090         adrp    x8, #0xec000
+file   0x244c0 / RVA   0x244c0: 290700d0         adrp    x9, #0x10a000
+file   0x244c4 / RVA   0x244c4: e9060094         bl      #0x26068
+file   0x244c8 / RVA   0x244c8: 20156539         ldrb    w0, [x9, #0x945]
+file   0x244cc / RVA   0x244cc: c7060094         bl      #0x25fe8
+file   0x244d0 / RVA   0x244d0: 61000054         b.ne    #0x244dc
+file   0x244d4 / RVA   0x244d4: fe0b40f9         ldr     x30, [sp, #0x10]
+file   0x244d8 / RVA   0x244d8: 0e070014         b       #0x26110
+file   0x244dc / RVA   0x244dc: e873ff97         bl      #0x147c
+
+DeviceInfo initialization: file offsets and PE RVAs are listed separately
+file   0x253e4 / RVA   0x253e4: 330700b0         adrp    x19, #0x10a000
+file   0x253e8 / RVA   0x253e8: 73e22491         add     x19, x19, #0x938
+file   0x253ec / RVA   0x253ec: 56030094         bl      #0x26144
+file   0x253f0 / RVA   0x253f0: f1e6ff97         bl      #0x1efb4
+file   0x253f4 / RVA   0x253f4: 000900b4         cbz     x0, #0x25514
+file   0x253f8 / RVA   0x253f8: f571ff97         bl      #0x1bcc
+
+magic arguments: file offsets and PE RVAs are listed separately
+file   0x26144 / RVA   0x26144: a2018052         mov     w2, #0xd
+file   0x26148 / RVA   0x26148: 410300b0         adrp    x1, #0x8f000
+file   0x2614c / RVA   0x2614c: 21c83291         add     x1, x1, #0xcb2
+file   0x26150 / RVA   0x26150: e00313aa         mov     x0, x19
+file   0x26154 / RVA   0x26154: c0035fd6         ret
+
+boot state: file offsets and PE RVAs are listed separately
+file   0x3baa0 / RVA   0x3baa0: e81b40f9         ldr     x8, [sp, #0x30]
+file   0x3baa4 / RVA   0x3baa4: 1f1d0072         tst     w8, #0xff
+file   0x3baa8 / RVA   0x3baa8: 60000054         b.eq    #0x3bab4
+file   0x3baac / RVA   0x3baac: 28008052         mov     w8, #1
+file   0x3bab0 / RVA   0x3bab0: 05000014         b       #0x3bac4
+file   0x3bab4 / RVA   0x3bab4: 28034039         ldrb    w8, [x25]
+file   0x3bab8 / RVA   0x3bab8: 1f010071         cmp     w8, #0
+file   0x3babc / RVA   0x3babc: e8079f1a         cset    w8, ne
+file   0x3bac0 / RVA   0x3bac0: 08791f53         lsl     w8, w8, #1
+file   0x3bac4 / RVA   0x3bac4: e92f40b9         ldr     w9, [sp, #0x2c]
+file   0x3bac8 / RVA   0x3bac8: 683a04b9         str     w8, [x19, #0x438]
+file   0x3bacc / RVA   0x3bacc: 3f1d0072         tst     w9, #0xff
+
+local sink: file offsets and PE RVAs are listed separately
+file   0x3bad4 / RVA   0x3bad4: ea1b40f9         ldr     x10, [sp, #0x30]
+file   0x3bad8 / RVA   0x3bad8: 34008052         mov     w20, #1
+file   0x3badc / RVA   0x3badc: 290740f9         ldr     x9, [x25, #8]
+file   0x3bae0 / RVA   0x3bae0: 1a048052         mov     w26, #0x20
+file   0x3bae4 / RVA   0x3bae4: f75340f9         ldr     x23, [sp, #0xa0]
+file   0x3bae8 / RVA   0x3bae8: bf5e00f9         str     xzr, [x21, #0xb8]
+file   0x3baec / RVA   0x3baec: ea030139         strb    w10, [sp, #0x40]
+
+device-state strings: file offsets and PE RVAs are listed separately
+file   0x46be8 / RVA   0x46be8: e90200b0         adrp    x9, #0xa3000
+file   0x46bec / RVA   0x46bec: 298d2a91         add     x9, x9, #0xaa3
+file   0x46bf0 / RVA   0x46bf0: 6a0200b0         adrp    x10, #0x93000
+file   0x46bf4 / RVA   0x46bf4: 4a190e91         add     x10, x10, #0x386
+file   0x46bf8 / RVA   0x46bf8: 210200f0         adrp    x1, #0x8d000
+file   0x46bfc / RVA   0x46bfc: 21c81e91         add     x1, x1, #0x7b2
+file   0x46c00 / RVA   0x46c00: e00313aa         mov     x0, x19
+file   0x46c04 / RVA   0x46c04: 1f010071         cmp     w8, #0
+file   0x46c08 / RVA   0x46c08: 4201899a         csel    x2, x10, x9, eq
+file   0x46c0c / RVA   0x46c0c: 98000094         bl      #0x46e6c

@@ -14,6 +14,8 @@ Hasil diagnostik HP dan pemeriksaan berikutnya ada di
 [DEVICE_FINDINGS.md](DEVICE_FINDINGS.md).
 Analisis hash firmware/GPT dari collector fase 2 ada di
 [BOOT_METADATA_FINDINGS.md](BOOT_METADATA_FINDINGS.md).
+Pemetaan kandidat Boot State CN dan handler diagnostik OEM ada di
+[BOOTSTATE_FINDINGS.md](BOOTSTATE_FINDINGS.md).
 
 ## Hasil utama
 
@@ -31,6 +33,10 @@ Analisis hash firmware/GPT dari collector fase 2 ada di
 5. `BootNext`, `BootOrder`, dan fallback `\EFI\BOOT\BOOTAA64.EFI` memang ada
    dalam QcomBds. Namun pemanggilan aplikasi bawaan terjadi lebih dulu.
    Kode itu tidak membuktikan ada jalur boot alternatif yang sudah bisa dipakai.
+6. Pemindaian bentuk instruksi menemukan satu blok Boot State pada setiap ABL
+   meski mask patcher upstream menghasilkan nol hit. Metode itu merekonstruksi
+   seluruh byte hasil engineering lama dan menghasilkan resep kandidat CN:
+   10 byte / empat rentang, belum diuji runtime dan tidak diekspor sebagai image.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -45,6 +51,8 @@ dan tahap pengembangan berikutnya.
 | `src/trace_paths.py` | Namespace ABL FV, digest ELF, dan inventaris protokol |
 | `src/verify_research.py` | Pemeriksaan regresi offline yang dapat dijalankan ulang |
 | `src/analyze_boot_metadata.py` | Perbandingan laporan prefix hash, ukuran dan GPT |
+| `src/map_bootstate.py` | Anchor struktural CN/engineering, byte kandidat dan kalibrasi |
+| `src/trace_diagnostics.py` | Tabel OEM CN dan cabang argumen handler log |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
 | `tools/collect_boot_metadata.sh` | Hash firmware terpasang, ukuran dan GPT type GUID |
 | `evidence/` | Hasil analisis, hash, konfigurasi terpilih, dan disassembly |

@@ -52,6 +52,18 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
     tersedia. Type GUID uefivarstore cocok dengan konstanta VariableDxe CN.
 14. Probe patcher upstream pada CN dan engineering berhenti karena pola Boot
     State tidak ditemukan. Tidak ada output patch lengkap dari percobaan ini.
+15. Memetakan satu blok Boot State secara struktural pada setiap ABL. Mask
+    upstream gagal karena bentuk CBZ/stack load berbeda dari TST/B.EQ/direct
+    LDRB yang digunakan dua input ini.
+16. Menemukan analog empat lokasi patch pada CN: 0x3A398, 0x3B774, 0x3B7B8,
+    0x45674 dalam PE hasil ekstraksi. Kandidatnya mengubah 10 byte, dihitung
+    dalam memori saja. Metode yang sama menghasilkan engineering lama persis.
+17. Menghubungkan getter dengan byte ke-13 sesudah basis DeviceInfo/magic;
+    source DeviceInfo pembanding mendukung inferensi IsUnlocked. Detail dan
+    batas dataflow tercatat di BOOTSTATE_FINDINGS.md.
+18. Memetakan tabel 34 command CN dan handler lkmsg/lpmsg/uefilog. Handler
+    uefilog mempunyai cabang argumen save, sehingga belum dianggap hanya
+    membaca. Tidak ada command OEM dieksekusi.
 
 ## Status yang belum boleh dianggap selesai
 
@@ -62,8 +74,10 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
   daftar variabel EFI belum diperiksa. Tidak ditemukan ESP pada data enam LUN.
 - Properti boot dikonfirmasi dimodifikasi modul. Status lock independen belum
   diperiksa; hash prefix firmware sudah cocok dengan CN.
-- Pola boot-state CN belum dipetakan lengkap; patcher upstream gagal pada
-  tahap tersebut. Resep 9 byte lama hanya untuk basis engineering yang dipin.
+- Empat lokasi kandidat CN sudah dipetakan, tetapi dataflow lintas seluruh
+  CFG/alias dan efek runtime belum dibuktikan. Patcher upstream asli tetap
+  gagal pada dua basis. Resep 9 byte lama khusus engineering yang dipin;
+  kandidat CN 10 byte tidak menyediakan container ABL atau entry SuperFastboot.
 - File `8750_noauth_Xiaomi.zip` adalah bahan pemulihan dari pengguna;
   kompatibilitas dan keberhasilan unbrick tidak diuji dalam pekerjaan ini.
 
@@ -91,7 +105,10 @@ Sesudah itu baru pilih media payload dan uji ABI/protokol BDS.
 
 Identitas build, hash prefix komponen boot, dan metadata GPT sekarang tersedia.
 Baca BOOT_METADATA_FINDINGS.md serta evidence/device_2026_11_06 terlebih dahulu.
-Lanjutkan analisis entry EFI, provider variable storage dan pola boot-state CN.
+Baca BOOTSTATE_FINDINGS.md serta evidence/bootstate_2026_11_06 untuk hasil baru.
+Lanjutkan analisis entry EFI, autentikasi PIL dan provider log/variable storage.
+Jangan menyamakan handler log OEM dengan perintah yang bebas efek tulis:
+uefilog mempunyai cabang save. Belum ada resep transfer log USB yang diuji.
 Tidak ada tes tambahan yang diminta kepada pengguna pada akhir checkpoint ini.
 
 Jangan mengulang flashing PE mentah ke ABL berdasarkan hilangnya padlock.

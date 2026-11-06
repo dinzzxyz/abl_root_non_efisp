@@ -63,3 +63,21 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
   anchor Boot State tidak ditemukan; tidak ada output patch lengkap.
 - Menambahkan parser laporan yang dapat diulang, pengujian, bukti dan
   BOOT_METADATA_FINDINGS.md. Tidak meminta tes flash atau pencopotan modul.
+
+## 2026-11-06 — pemetaan struktural Boot State CN dan handler log
+
+- Menemukan satu blok TST/B.EQ/MOV/LDRB/CMP/CSET/LSL pada setiap ABL;
+  mendokumentasikan alasan mask CBZ upstream menghasilkan nol hit.
+- Memetakan getter dengan byte ke-13 struktur DeviceInfo dan magic yang sama;
+  membandingkan definisi IsUnlocked pada source publik yang dipin.
+- Menurunkan empat rentang kandidat CN yang mengubah 10 byte. Hasil hanya
+  dihitung dalam memori, tanpa menulis PE/ELF atau mengakses perangkat.
+- Mengalibrasi metode yang sama terhadap engineering: semua byte identik
+  dengan result/boot.efi lama (9 byte berbeda dari aslinya).
+- Menambahkan pengujian penolakan branch salah, register sink yang ditimpa,
+  pemisahan file offset/RVA, dan encoder ADRP melintasi batas page.
+- Memetakan loop registrasi 34 command CN dan handler lkmsg/lpmsg/uefilog.
+  Menemukan cabang save di uefilog; tidak menandainya sebagai hanya membaca.
+- Menambahkan BOOTSTATE_FINDINGS.md, dua alat analisis, JSON, disassembly,
+  dan pemeriksaan regresi. Entry EFI/autentikasi serta runtime tetap belum
+  terbukti; tidak ada image flashable atau command OEM yang diuji.

@@ -54,12 +54,19 @@ analisis. Tidak perlu membangun atau menjalankan firmware untuk langkah ini.
 .venv/bin/python src/analyze.py /path/to/gpt.zip --out generated
 .venv/bin/python src/trace_paths.py /path/to/gpt.zip --upstream ../gbl_root_canoe --out generated/continued
 .venv/bin/python src/recover_patch.py /path/to/gpt.zip
+.venv/bin/python src/map_bootstate.py /path/to/gpt.zip --out generated/bootstate
+.venv/bin/python src/trace_diagnostics.py /path/to/gpt.zip --out generated/bootstate
 .venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --log generated/verification.txt
 ```
 
 Verifikasi membandingkan seluruh byte hasil patch, menolak basis salah,
 memeriksa GUID volume, digest SHA-384, call edges, dan deklarasi protokol.
 Semua berlangsung offline terhadap berkas. Lulus verifikasi bukan hasil uji HP.
+BOOTSTATE_FINDINGS.md menjelaskan hasil pemetaan struktural dan batasnya.
+Dua alat baru hanya mengeluarkan JSON/disassembly; kandidat CN dihitung dalam
+memori dan tidak dibuat menjadi file firmware. Source pembanding DeviceInfo
+dipin dalam summary bukti; tidak dibutuhkan koneksi online untuk mengulang
+pemindaian terhadap ZIP asli.
 
 Untuk mengulang analisis laporan collector v2 yang sudah diterima:
 

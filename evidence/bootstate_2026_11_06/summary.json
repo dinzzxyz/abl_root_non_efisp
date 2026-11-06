@@ -1,0 +1,17 @@
+{
+  "method": "Decode role/branch anchors; calibrate against supplied engineering result",
+  "upstream_revision": "4ef438cfde42943694fde5753bbf5d8c0b4ec02e",
+  "deviceinfo_reference_repo": "https://github.com/REG-Linux/edk2-freeabl",
+  "deviceinfo_reference_revision": "4cd7fb389e22d7a3761308006fc6d79410be9ddf",
+  "deviceinfo_reference_blobs": {
+    "QcomModulePkg/Include/Library/DeviceInfo.h": "09f596b7c2273be27f65325949fb543d5e57e4ac",
+    "QcomModulePkg/Library/BootLib/DeviceInfo.c": "a2f80542ebcadecf9e8b7b4adfcf15e0e8e57956"
+  },
+  "engineering_calibration": "byte-identical to supplied result/boot.efi",
+  "cn_runtime_validation": false,
+  "firmware_files_written": false,
+  "input_hashes": {
+    "cn": "75e9d6122d708948c6a5f0b9774a061aa25ebb7a279fbe020ad8835400b065d2",
+    "eng": "6270557b012660bd4d876a68368321d17a08efdb2e5a7d931a9f99346da736c7"
+  }
+}

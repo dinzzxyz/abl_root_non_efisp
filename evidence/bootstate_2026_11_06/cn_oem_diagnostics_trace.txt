@@ -1,0 +1,191 @@
+CN LinuxLoader diagnostic paths; static evidence, no OEM commands executed
+
+registration loop
+file   0x7e248 / RVA   0x7e248: f3031faa         mov     x19, xzr
+file   0x7e24c / RVA   0x7e24c: 940300f0         adrp    x20, #0xf1000
+file   0x7e250 / RVA   0x7e250: 94422691         add     x20, x20, #0x990
+file   0x7e254 / RVA   0x7e254: 7f8208f1         cmp     x19, #0x220
+file   0x7e258 / RVA   0x7e258: c0000054         b.eq    #0x7e270
+file   0x7e25c / RVA   0x7e25c: 8802138b         add     x8, x20, x19
+file   0x7e260 / RVA   0x7e260: 000541a9         ldp     x0, x1, [x8, #0x10]
+file   0x7e264 / RVA   0x7e264: 17010094         bl      #0x7e6c0
+file   0x7e268 / RVA   0x7e268: 73420091         add     x19, x19, #0x10
+file   0x7e26c / RVA   0x7e26c: faffff17         b       #0x7e254
+
+oem lkmsg
+file   0x829fc / RVA   0x829fc: ffc300d1         sub     sp, sp, #0x30
+file   0x82a00 / RVA   0x82a00: fe1300f9         str     x30, [sp, #0x20]
+file   0x82a04 / RVA   0x82a04: 480300b0         adrp    x8, #0xeb000
+file   0x82a08 / RVA   0x82a08: 600000f0         adrp    x0, #0x91000
+file   0x82a0c / RVA   0x82a0c: 00700d91         add     x0, x0, #0x35c
+file   0x82a10 / RVA   0x82a10: 680d0094         bl      #0x85fb0
+file   0x82a14 / RVA   0x82a14: 1f1c0072         tst     w0, #0xff
+file   0x82a18 / RVA   0x82a18: 40010054         b.eq    #0x82a40
+file   0x82a1c / RVA   0x82a1c: c00d0094         bl      #0x8611c
+file   0x82a20 / RVA   0x82a20: e00b40f9         ldr     x0, [sp, #0x10]
+file   0x82a24 / RVA   0x82a24: e60bfe97         bl      #0x59bc
+file   0x82a28 / RVA   0x82a28: 490300b0         adrp    x9, #0xeb000
+file   0x82a2c / RVA   0x82a2c: e80f40f9         ldr     x8, [sp, #0x18]
+file   0x82a30 / RVA   0x82a30: 5b0c0094         bl      #0x85b9c
+file   0x82a34 / RVA   0x82a34: 21010054         b.ne    #0x82a58
+file   0x82a38 / RVA   0x82a38: fe1340f9         ldr     x30, [sp, #0x20]
+file   0x82a3c / RVA   0x82a3c: ca0d0014         b       #0x86164
+file   0x82a40 / RVA   0x82a40: 490300b0         adrp    x9, #0xeb000
+file   0x82a44 / RVA   0x82a44: e80f40f9         ldr     x8, [sp, #0x18]
+file   0x82a48 / RVA   0x82a48: 550c0094         bl      #0x85b9c
+file   0x82a4c / RVA   0x82a4c: 61000054         b.ne    #0x82a58
+file   0x82a50 / RVA   0x82a50: fe1340f9         ldr     x30, [sp, #0x20]
+file   0x82a54 / RVA   0x82a54: b20c0014         b       #0x85d1c
+file   0x82a58 / RVA   0x82a58: 89fafd97         bl      #0x147c
+
+oem lpmsg
+file   0x82a5c / RVA   0x82a5c: ffc300d1         sub     sp, sp, #0x30
+file   0x82a60 / RVA   0x82a60: fe1300f9         str     x30, [sp, #0x20]
+file   0x82a64 / RVA   0x82a64: 480300b0         adrp    x8, #0xeb000
+file   0x82a68 / RVA   0x82a68: 400000f0         adrp    x0, #0x8d000
+file   0x82a6c / RVA   0x82a6c: 00781b91         add     x0, x0, #0x6de
+file   0x82a70 / RVA   0x82a70: 500d0094         bl      #0x85fb0
+file   0x82a74 / RVA   0x82a74: 1f1c0072         tst     w0, #0xff
+file   0x82a78 / RVA   0x82a78: 40010054         b.eq    #0x82aa0
+file   0x82a7c / RVA   0x82a7c: a80d0094         bl      #0x8611c
+file   0x82a80 / RVA   0x82a80: e00b40f9         ldr     x0, [sp, #0x10]
+file   0x82a84 / RVA   0x82a84: ce0bfe97         bl      #0x59bc
+file   0x82a88 / RVA   0x82a88: 490300b0         adrp    x9, #0xeb000
+file   0x82a8c / RVA   0x82a8c: e80f40f9         ldr     x8, [sp, #0x18]
+file   0x82a90 / RVA   0x82a90: 430c0094         bl      #0x85b9c
+file   0x82a94 / RVA   0x82a94: 21010054         b.ne    #0x82ab8
+file   0x82a98 / RVA   0x82a98: fe1340f9         ldr     x30, [sp, #0x20]
+file   0x82a9c / RVA   0x82a9c: b20d0014         b       #0x86164
+file   0x82aa0 / RVA   0x82aa0: 490300b0         adrp    x9, #0xeb000
+file   0x82aa4 / RVA   0x82aa4: e80f40f9         ldr     x8, [sp, #0x18]
+file   0x82aa8 / RVA   0x82aa8: 3d0c0094         bl      #0x85b9c
+file   0x82aac / RVA   0x82aac: 61000054         b.ne    #0x82ab8
+file   0x82ab0 / RVA   0x82ab0: fe1340f9         ldr     x30, [sp, #0x20]
+file   0x82ab4 / RVA   0x82ab4: 9a0c0014         b       #0x85d1c
+file   0x82ab8 / RVA   0x82ab8: 71fafd97         bl      #0x147c
+
+oem uefilog
+file   0x82abc / RVA   0x82abc: ff8301d1         sub     sp, sp, #0x60
+file   0x82ac0 / RVA   0x82ac0: fe2300f9         str     x30, [sp, #0x40]
+file   0x82ac4 / RVA   0x82ac4: f44f05a9         stp     x20, x19, [sp, #0x50]
+file   0x82ac8 / RVA   0x82ac8: 480300b0         adrp    x8, #0xeb000
+file   0x82acc / RVA   0x82acc: 89030090         adrp    x9, #0xf2000
+file   0x82ad0 / RVA   0x82ad0: f40300aa         mov     x20, x0
+file   0x82ad4 / RVA   0x82ad4: 200300f0         adrp    x0, #0xe9000
+file   0x82ad8 / RVA   0x82ad8: e2230091         add     x2, sp, #8
+file   0x82adc / RVA   0x82adc: e1031faa         mov     x1, xzr
+file   0x82ae0 / RVA   0x82ae0: 08210091         add     x8, x8, #8
+file   0x82ae4 / RVA   0x82ae4: 29a10491         add     x9, x9, #0x128
+file   0x82ae8 / RVA   0x82ae8: 080140f9         ldr     x8, [x8]
+file   0x82aec / RVA   0x82aec: e81f00f9         str     x8, [sp, #0x38]
+file   0x82af0 / RVA   0x82af0: 280140f9         ldr     x8, [x9]
+file   0x82af4 / RVA   0x82af4: 08a140f9         ldr     x8, [x8, #0x140]
+file   0x82af8 / RVA   0x82af8: 00c03c91         add     x0, x0, #0xf30
+file   0x82afc / RVA   0x82afc: 00013fd6         blr     x8
+file   0x82b00 / RVA   0x82b00: 4003f8b7         tbnz    x0, #0x3f, #0x82b68
+file   0x82b04 / RVA   0x82b04: 93060091         add     x19, x20, #1
+file   0x82b08 / RVA   0x82b08: c00000f0         adrp    x0, #0x9d000
+file   0x82b0c / RVA   0x82b0c: 007c0c91         add     x0, x0, #0x31f
+file   0x82b10 / RVA   0x82b10: da0d0094         bl      #0x86278
+file   0x82b14 / RVA   0x82b14: 200500b4         cbz     x0, #0x82bb8
+file   0x82b18 / RVA   0x82b18: 00009252         mov     w0, #0x9000
+file   0x82b1c / RVA   0x82b1c: 2000a072         movk    w0, #1, lsl #16
+file   0x82b20 / RVA   0x82b20: 3b0bfe97         bl      #0x580c
+file   0x82b24 / RVA   0x82b24: 600500b4         cbz     x0, #0x82bd0
+file   0x82b28 / RVA   0x82b28: f40300aa         mov     x20, x0
+file   0x82b2c / RVA   0x82b2c: e1430091         add     x1, sp, #0x10
+file   0x82b30 / RVA   0x82b30: f60d0094         bl      #0x86308
+file   0x82b34 / RVA   0x82b34: e80740f9         ldr     x8, [sp, #8]
+file   0x82b38 / RVA   0x82b38: e0430091         add     x0, sp, #0x10
+file   0x82b3c / RVA   0x82b3c: e2130091         add     x2, sp, #4
+file   0x82b40 / RVA   0x82b40: e10314aa         mov     x1, x20
+file   0x82b44 / RVA   0x82b44: 080540f9         ldr     x8, [x8, #8]
+file   0x82b48 / RVA   0x82b48: 00013fd6         blr     x8
+file   0x82b4c / RVA   0x82b4c: 8004f8b7         tbnz    x0, #0x3f, #0x82bdc
+file   0x82b50 / RVA   0x82b50: e10740b9         ldr     w1, [sp, #4]
+file   0x82b54 / RVA   0x82b54: e00314aa         mov     x0, x20
+file   0x82b58 / RVA   0x82b58: 840b0094         bl      #0x85968
+file   0x82b5c / RVA   0x82b5c: e00314aa         mov     x0, x20
+file   0x82b60 / RVA   0x82b60: 970bfe97         bl      #0x59bc
+file   0x82b64 / RVA   0x82b64: 19000014         b       #0x82bc8
+file   0x82b68 / RVA   0x82b68: 490c0094         bl      #0x85c8c
+file   0x82b6c / RVA   0x82b6c: 1f1c0072         tst     w0, #0xff
+file   0x82b70 / RVA   0x82b70: e0010054         b.eq    #0x82bac
+file   0x82b74 / RVA   0x82b74: b311fe97         bl      #0x7240
+file   0x82b78 / RVA   0x82b78: 1f1c0072         tst     w0, #0xff
+file   0x82b7c / RVA   0x82b7c: c1000054         b.ne    #0x82b94
+file   0x82b80 / RVA   0x82b80: 050c0094         bl      #0x85b94
+file   0x82b84 / RVA   0x82b84: 1f1c0072         tst     w0, #0xff
+file   0x82b88 / RVA   0x82b88: 60000054         b.eq    #0x82b94
+file   0x82b8c / RVA   0x82b8c: e622fe97         bl      #0xb724
+file   0x82b90 / RVA   0x82b90: fc0b0094         bl      #0x85b80
+file   0x82b94 / RVA   0x82b94: 000c0094         bl      #0x85b94
+file   0x82b98 / RVA   0x82b98: 1f1c0072         tst     w0, #0xff
+file   0x82b9c / RVA   0x82b9c: 80000054         b.eq    #0x82bac
+file   0x82ba0 / RVA   0x82ba0: e10000f0         adrp    x1, #0xa1000
+file   0x82ba4 / RVA   0x82ba4: 211c1d91         add     x1, x1, #0x747
+file   0x82ba8 / RVA   0x82ba8: 300c0094         bl      #0x85c68
+file   0x82bac / RVA   0x82bac: e00000b0         adrp    x0, #0x9f000
+file   0x82bb0 / RVA   0x82bb0: 00703691         add     x0, x0, #0xd9c
+file   0x82bb4 / RVA   0x82bb4: 31000014         b       #0x82c78
+file   0x82bb8 / RVA   0x82bb8: e80740f9         ldr     x8, [sp, #8]
+file   0x82bbc / RVA   0x82bbc: 080940f9         ldr     x8, [x8, #0x10]
+file   0x82bc0 / RVA   0x82bc0: 00013fd6         blr     x8
+file   0x82bc4 / RVA   0x82bc4: 4003f8b7         tbnz    x0, #0x3f, #0x82c2c
+file   0x82bc8 / RVA   0x82bc8: 1d0c0094         bl      #0x85c3c
+file   0x82bcc / RVA   0x82bcc: 2c000014         b       #0x82c7c
+file   0x82bd0 / RVA   0x82bd0: 600000f0         adrp    x0, #0x91000
+file   0x82bd4 / RVA   0x82bd4: 00fc0d91         add     x0, x0, #0x37f
+file   0x82bd8 / RVA   0x82bd8: 28000014         b       #0x82c78
+file   0x82bdc / RVA   0x82bdc: 2c0c0094         bl      #0x85c8c
+file   0x82be0 / RVA   0x82be0: 1f1c0072         tst     w0, #0xff
+file   0x82be4 / RVA   0x82be4: e0010054         b.eq    #0x82c20
+file   0x82be8 / RVA   0x82be8: 9611fe97         bl      #0x7240
+file   0x82bec / RVA   0x82bec: 1f1c0072         tst     w0, #0xff
+file   0x82bf0 / RVA   0x82bf0: c1000054         b.ne    #0x82c08
+file   0x82bf4 / RVA   0x82bf4: e80b0094         bl      #0x85b94
+file   0x82bf8 / RVA   0x82bf8: 1f1c0072         tst     w0, #0xff
+file   0x82bfc / RVA   0x82bfc: 60000054         b.eq    #0x82c08
+file   0x82c00 / RVA   0x82c00: c922fe97         bl      #0xb724
+file   0x82c04 / RVA   0x82c04: df0b0094         bl      #0x85b80
+file   0x82c08 / RVA   0x82c08: e30b0094         bl      #0x85b94
+file   0x82c0c / RVA   0x82c0c: 1f1c0072         tst     w0, #0xff
+file   0x82c10 / RVA   0x82c10: 80000054         b.eq    #0x82c20
+file   0x82c14 / RVA   0x82c14: 810000f0         adrp    x1, #0x95000
+file   0x82c18 / RVA   0x82c18: 21c83191         add     x1, x1, #0xc72
+file   0x82c1c / RVA   0x82c1c: 130c0094         bl      #0x85c68
+file   0x82c20 / RVA   0x82c20: 400000b0         adrp    x0, #0x8b000
+file   0x82c24 / RVA   0x82c24: 00783491         add     x0, x0, #0xd1e
+file   0x82c28 / RVA   0x82c28: 14000014         b       #0x82c78
+file   0x82c2c / RVA   0x82c2c: 180c0094         bl      #0x85c8c
+file   0x82c30 / RVA   0x82c30: 1f1c0072         tst     w0, #0xff
+file   0x82c34 / RVA   0x82c34: e0010054         b.eq    #0x82c70
+file   0x82c38 / RVA   0x82c38: 8211fe97         bl      #0x7240
+file   0x82c3c / RVA   0x82c3c: 1f1c0072         tst     w0, #0xff
+file   0x82c40 / RVA   0x82c40: c1000054         b.ne    #0x82c58
+file   0x82c44 / RVA   0x82c44: d40b0094         bl      #0x85b94
+file   0x82c48 / RVA   0x82c48: 1f1c0072         tst     w0, #0xff
+file   0x82c4c / RVA   0x82c4c: 60000054         b.eq    #0x82c58
+file   0x82c50 / RVA   0x82c50: b522fe97         bl      #0xb724
+file   0x82c54 / RVA   0x82c54: cb0b0094         bl      #0x85b80
+file   0x82c58 / RVA   0x82c58: cf0b0094         bl      #0x85b94
+file   0x82c5c / RVA   0x82c5c: 1f1c0072         tst     w0, #0xff
+file   0x82c60 / RVA   0x82c60: 80000054         b.eq    #0x82c70
+file   0x82c64 / RVA   0x82c64: 410000f0         adrp    x1, #0x8d000
+file   0x82c68 / RVA   0x82c68: 21981b91         add     x1, x1, #0x6e6
+file   0x82c6c / RVA   0x82c6c: ff0b0094         bl      #0x85c68
+file   0x82c70 / RVA   0x82c70: 600000f0         adrp    x0, #0x91000
+file   0x82c74 / RVA   0x82c74: 00900d91         add     x0, x0, #0x364
+file   0x82c78 / RVA   0x82c78: a8ddff97         bl      #0x7a318
+file   0x82c7c / RVA   0x82c7c: 490300b0         adrp    x9, #0xeb000
+file   0x82c80 / RVA   0x82c80: e81f40f9         ldr     x8, [sp, #0x38]
+file   0x82c84 / RVA   0x82c84: c60b0094         bl      #0x85b9c
+file   0x82c88 / RVA   0x82c88: 81000054         b.ne    #0x82c98
+file   0x82c8c / RVA   0x82c8c: f44f45a9         ldp     x20, x19, [sp, #0x50]
+file   0x82c90 / RVA   0x82c90: fe2340f9         ldr     x30, [sp, #0x40]
+file   0x82c94 / RVA   0x82c94: aa0c0014         b       #0x85f3c
+file   0x82c98 / RVA   0x82c98: f9f9fd97         bl      #0x147c
+
+argument comparison helper
+file   0x86278 / RVA   0x86278: e10313aa         mov     x1, x19
+file   0x8627c / RVA   0x8627c: 38f0fd17         b       #0x235c

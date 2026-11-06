@@ -2,6 +2,7 @@
 
 Read README.md, HANDOFF.md, LAPORAN.md, and RESEARCH_CONTINUED.md before making
 technical conclusions. Preserve original evidence and hash/version boundaries.
+For the newer CN candidate and OEM diagnostics, also read BOOTSTATE_FINDINGS.md.
 
 This repository currently contains static analysis and exact reconstruction of
 a supplied EFI payload. It does not contain a verified SM8750 SuperFastboot port.
