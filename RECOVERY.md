@@ -61,6 +61,16 @@ Verifikasi membandingkan seluruh byte hasil patch, menolak basis salah,
 memeriksa GUID volume, digest SHA-384, call edges, dan deklarasi protokol.
 Semua berlangsung offline terhadap berkas. Lulus verifikasi bukan hasil uji HP.
 
+Untuk mengulang analisis laporan collector v2 yang sudah diterima:
+
+```bash
+python3 src/analyze_boot_metadata.py /path/to/sm8750-boot-metadata.txt --boot-properties-spoofed --output generated/boot-metadata-analysis.json
+```
+
+Flag spoofing di atas sesuai klarifikasi pengguna pada kasus ini; jangan
+menandai laporan perangkat lain dengan flag itu tanpa informasi yang sesuai.
+Temuan fase 2 ada di BOOT_METADATA_FINDINGS.md.
+
 ## 5. Baca bukti dengan ruang alamat yang tepat
 
 | Bentuk alamat | Contoh | Cara membaca |

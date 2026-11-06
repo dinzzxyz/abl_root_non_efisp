@@ -1,0 +1,7 @@
+Validation date: 2026-11-06
+PASS: python -m unittest discover -s tests -v; 5 tests passed.
+PASS: actual collector report parsed with literal backslash-t separators.
+PASS: all six image-file prefixes match the CN manifest with exact byte lengths.
+PASS: 135 GPT entries checked for consistent LBA sizes and non-overlap; selected block-device sizes agree.
+NOT VERIFIED: GPT CRC, real lock state, EFI runtime handoff, modified image authentication, or custom BDS execution.
+UPSTREAM PATCHER PROBE: CN exit=1; engineering exit=1; Boot State pattern not found; no complete output generated.

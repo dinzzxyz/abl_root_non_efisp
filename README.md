@@ -12,6 +12,8 @@ Untuk melanjutkan penelitian, mulai dari [HANDOFF.md](HANDOFF.md) dan
 [HISTORY.md](HISTORY.md), sedangkan riwayat perubahan lengkap tersedia di Git.
 Hasil diagnostik HP dan pemeriksaan berikutnya ada di
 [DEVICE_FINDINGS.md](DEVICE_FINDINGS.md).
+Analisis hash firmware/GPT dari collector fase 2 ada di
+[BOOT_METADATA_FINDINGS.md](BOOT_METADATA_FINDINGS.md).
 
 ## Hasil utama
 
@@ -42,6 +44,7 @@ dan tahap pengembangan berikutnya.
 | `src/recover_patch.py` | Rekonstruksi persis hasil patch lama dengan validasi hash |
 | `src/trace_paths.py` | Namespace ABL FV, digest ELF, dan inventaris protokol |
 | `src/verify_research.py` | Pemeriksaan regresi offline yang dapat dijalankan ulang |
+| `src/analyze_boot_metadata.py` | Perbandingan laporan prefix hash, ukuran dan GPT |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
 | `tools/collect_boot_metadata.sh` | Hash firmware terpasang, ukuran dan GPT type GUID |
 | `evidence/` | Hasil analisis, hash, konfigurasi terpilih, dan disassembly |

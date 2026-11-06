@@ -1,0 +1,8 @@
+Warning: Failed to patch ABL GBL
+Found ADRL triple at 0x45674:
+  [0x45674] ADRP+ADD X9 -> file:0xA28EC "unlocked"
+  [0x4567C] ADRP+ADD X10 -> file:0x91E49 "locked"
+  Patch pair-0: ADRP B00002E9->90000269, ADD 9123B129->91392529
+ADRL patch applied: 1 location(s)
+Error: Failed to find/patch ABL Boot State
+Patching failed

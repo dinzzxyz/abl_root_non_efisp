@@ -1,0 +1,19 @@
+{
+  "source_uefi_image": "cn/uefi.elf",
+  "variable_pe_sha256": "c56fb5b2a5c3359b1be699229bc17be5b16e0fd87980fe1ef011fa3aa35ea0ee",
+  "gpt_type_guid": "165bd6bc-9250-4ac8-95a7-a93f4a440066",
+  "byte_order": "EFI_GUID little-endian",
+  "constant_offsets": [
+    "0xd088",
+    "0xd098",
+    "0xd0a8",
+    "0xd0c8"
+  ],
+  "bytes_hex": "bcd65b165092c84a95a7a93f4a440066",
+  "qsee_config_reference_rva": "0x2518-0x2528",
+  "not_proven": [
+    "physical variable store layout",
+    "variable write access",
+    "custom EFI launch"
+  ]
+}

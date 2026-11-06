@@ -43,18 +43,27 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
    toolsfv dan sumber log sebagai target penelusuran berikutnya.
 10. Menyiapkan collector fase 2 untuk hash komponen boot, ukuran dan GPT type
     GUID. Lihat DEVICE_FINDINGS.md untuk data dan batas kesimpulannya.
+11. Menerima hasil fase 2: uid=0; keenam prefix ABL/UEFI/XBL config pada slot
+    A/B cocok dengan file image CN. Tercatat 135 partisi dari enam tabel GPT,
+    tanpa nama efisp maupun type GUID ESP standar pada data tersebut.
+12. Pengguna mengonfirmasi spoofing properti status boot. Properti locked/
+    green tidak dijadikan bukti keadaan lock atau keberhasilan patch ABL.
+13. Kernel melaporkan EFIVAR_FS tidak aktif dan runtime directory EFI tidak
+    tersedia. Type GUID uefivarstore cocok dengan konstanta VariableDxe CN.
+14. Probe patcher upstream pada CN dan engineering berhenti karena pola Boot
+    State tidak ditemukan. Tidak ada output patch lengkap dari percobaan ini.
 
 ## Status yang belum boleh dianggap selesai
 
 - Belum ada bukti runtime BDS kustom berjalan di SM8750.
 - Belum ada image ABL baru yang dikemas, diautentikasi, dan diuji di HP.
 - Belum ada log yang membuktikan penyebab brick atau keberhasilan fake lock.
-- Sudah ada daftar by-name dari HP; belum ada ukuran/LBA/GPT type GUID atau
-  daftar variabel EFI. Collector v2 perlu dijalankan untuk tahap metadata.
-- Nama `efisp` tidak muncul dalam laporan by-name. GPT type ESP dengan nama
-  lain belum dapat ditentukan dari data itu.
-- Properti Android melaporkan green/locked; status lock independen dan hash
-  firmware terpasang belum diperiksa.
+- Ukuran/LBA/GPT type GUID sudah tersedia dari collector v2; CRC GPT dan
+  daftar variabel EFI belum diperiksa. Tidak ditemukan ESP pada data enam LUN.
+- Properti boot dikonfirmasi dimodifikasi modul. Status lock independen belum
+  diperiksa; hash prefix firmware sudah cocok dengan CN.
+- Pola boot-state CN belum dipetakan lengkap; patcher upstream gagal pada
+  tahap tersebut. Resep 9 byte lama hanya untuk basis engineering yang dipin.
 - File `8750_noauth_Xiaomi.zip` adalah bahan pemulihan dari pengguna;
   kompatibilitas dan keberhasilan unbrick tidak diuji dalam pekerjaan ini.
 
@@ -80,9 +89,10 @@ Mulai dari identitas firmware terpasang, GPT/partisi dan log PIL/UEFI. Prioritas
 adalah membuktikan entry yang dapat dijalankan dan kebijakan autentikasi.
 Sesudah itu baru pilih media payload dan uji ABI/protokol BDS.
 
-Identitas build sekarang tersedia; berikutnya cocokkan prefix hash ABL/UEFI/
-XBL config dan GPT type GUID memakai tools/collect_boot_metadata.sh. Ringkasan
-diagnostik pertama ada di DEVICE_FINDINGS.md.
+Identitas build, hash prefix komponen boot, dan metadata GPT sekarang tersedia.
+Baca BOOT_METADATA_FINDINGS.md serta evidence/device_2026_11_06 terlebih dahulu.
+Lanjutkan analisis entry EFI, provider variable storage dan pola boot-state CN.
+Tidak ada tes tambahan yang diminta kepada pengguna pada akhir checkpoint ini.
 
 Jangan mengulang flashing PE mentah ke ABL berdasarkan hilangnya padlock.
 Gejala tersebut tidak membuktikan payload pernah dieksekusi.

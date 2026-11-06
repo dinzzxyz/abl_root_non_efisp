@@ -1,0 +1,23 @@
+{
+  "cn": {
+    "returncode": 1,
+    "input_sha256": "75e9d6122d708948c6a5f0b9774a061aa25ebb7a279fbe020ad8835400b065d2"
+  },
+  "eng": {
+    "returncode": 1,
+    "input_sha256": "6270557b012660bd4d876a68368321d17a08efdb2e5a7d931a9f99346da736c7"
+  },
+  "provenance": {
+    "upstream_commit": "4ef438cfde42943694fde5753bbf5d8c0b4ec02e",
+    "compiler": "gcc",
+    "compiler_arguments": [
+      "-O2",
+      "-I<upstream>/submodules/patcher/include"
+    ],
+    "sources": "All .c files returned by rg --files src -g *.c in submodules/patcher",
+    "input_extraction": "fwlib.largest_pe on the corresponding abl.elf from original gpt.zip",
+    "execution": "patch_abl_native <original_extracted_PE> <scratch_output_path>",
+    "hardware_execution": false,
+    "complete_output_generated": false
+  }
+}

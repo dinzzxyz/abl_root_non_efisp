@@ -48,3 +48,18 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
 - Menambahkan collector fase 2 yang hanya membaca block device dan pengujian
   parser GPT sintetis. Hash komponen boot terpasang dan GPT type GUID masih
   menunggu hasil dari perangkat.
+
+## 2026-11-06 — hash komponen boot dan metadata GPT
+
+- Menerima hasil collector v2 dengan uid=0; keenam prefix image ABL/UEFI/XBL
+  config cocok dengan CN acuan, bukan engineering.
+- Memeriksa 135 entry pada enam GPT, ukuran/LBA dan overlap; tidak ditemukan
+  nama efisp maupun type GUID ESP standar. CRC GPT belum diperiksa.
+- Pengguna mengonfirmasi properti boot dimodifikasi modul spoofing; nilainya
+  tidak dipakai untuk membuktikan status lock.
+- Mencatat EFIVAR_FS tidak aktif dan runtime directory EFI tidak tersedia.
+- Mencocokkan GPT type GUID uefivarstore dengan empat konstanta VariableDxe.
+- Probe patcher C upstream pada CN dan engineering berakhir exit 1 karena
+  anchor Boot State tidak ditemukan; tidak ada output patch lengkap.
+- Menambahkan parser laporan yang dapat diulang, pengujian, bukti dan
+  BOOT_METADATA_FINDINGS.md. Tidak meminta tes flash atau pencopotan modul.
