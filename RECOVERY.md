@@ -93,6 +93,18 @@ Log PIL/UEFI masih perlu diperoleh melalui fasilitas logging yang benar-benar
 tersedia pada perangkat. Jangan menganggap `dmesg` Android sudah mencakup
 seluruh log sebelum kernel.
 
+Sesudah laporan v1 tersedia, gunakan `tools/collect_boot_metadata.sh` untuk
+mencocokkan hash boot firmware, ukuran, dan GPT type GUID. Detail hasil v1 dan
+perintah fase 2 ada di DEVICE_FINDINGS.md. Collector fase 2 membutuhkan root
+serta awk untuk bagian GPT; hasil akan menyebutkan bagian yang tidak tersedia.
+
+Pengujian parser GPT pada komputer Linux dapat diulang tanpa perangkat:
+
+```bash
+python3 -m unittest discover -s tests -v
+sh -n tools/collect_boot_metadata.sh
+```
+
 ## 7. Menyimpan perkembangan berikutnya
 
 Kerjakan perubahan baru pada branch penelitian:

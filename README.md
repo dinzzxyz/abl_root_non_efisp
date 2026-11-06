@@ -10,6 +10,8 @@ Untuk memulai dari workspace kosong, baca [RECOVERY.md](RECOVERY.md).
 Untuk melanjutkan penelitian, mulai dari [HANDOFF.md](HANDOFF.md) dan
 [RESEARCH_CONTINUED.md](RESEARCH_CONTINUED.md). Riwayat temuan ada di
 [HISTORY.md](HISTORY.md), sedangkan riwayat perubahan lengkap tersedia di Git.
+Hasil diagnostik HP dan pemeriksaan berikutnya ada di
+[DEVICE_FINDINGS.md](DEVICE_FINDINGS.md).
 
 ## Hasil utama
 
@@ -41,6 +43,7 @@ dan tahap pengembangan berikutnya.
 | `src/trace_paths.py` | Namespace ABL FV, digest ELF, dan inventaris protokol |
 | `src/verify_research.py` | Pemeriksaan regresi offline yang dapat dijalankan ulang |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
+| `tools/collect_boot_metadata.sh` | Hash firmware terpasang, ukuran dan GPT type GUID |
 | `evidence/` | Hasil analisis, hash, konfigurasi terpilih, dan disassembly |
 | `VALIDATION.txt` | Hasil verifikasi terhadap berkas masukan yang diberikan |
 | `UPSTREAM.json` | Repo dan commit acuan yang diperiksa |

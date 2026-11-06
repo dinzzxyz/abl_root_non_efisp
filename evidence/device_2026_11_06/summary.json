@@ -1,0 +1,39 @@
+{
+  "source_name": "sm8750-device-info.txt",
+  "source_sha256": "cf596e316652ed92c96fbe3c8526d2f1d00f422e161be74e43024b76edb1ae3d",
+  "properties_reported_by_android": {
+    "ro.product.device": "annibale",
+    "ro.board.platform": "sun",
+    "ro.build.version.incremental": "OS3.0.307.0.WPKCNXM",
+    "ro.build.version.release": "16",
+    "ro.boot.slot_suffix": "_a",
+    "ro.boot.verifiedbootstate": "green",
+    "ro.boot.flash.locked": "1",
+    "ro.boot.vbmeta.device_state": "locked"
+  },
+  "by_name_link_count": 141,
+  "efisp_names_present": [],
+  "selected_links": {
+    "abl_a": "/dev/block/sde10",
+    "abl_b": "/dev/block/sde45",
+    "uefi_a": "/dev/block/sde1",
+    "uefi_b": "/dev/block/sde36",
+    "xbl_config_a": "/dev/block/sdb2",
+    "xbl_config_b": "/dev/block/sdc2",
+    "uefivarstore": "/dev/block/sde73",
+    "toolsfv": "/dev/block/sde70",
+    "logfs": "/dev/block/sda14",
+    "persist": "/dev/block/sdf7",
+    "blackbox": "/dev/block/sda23",
+    "xbl_sc_logs": "/dev/block/sde80"
+  },
+  "efi_runtime_directory_reported_available": false,
+  "unverified": [
+    "real bootloader lock state",
+    "running collector UID",
+    "firmware binary identity",
+    "GPT type GUIDs/LBAs/sizes/CRC",
+    "UEFI variable availability",
+    "custom BDS execution"
+  ]
+}

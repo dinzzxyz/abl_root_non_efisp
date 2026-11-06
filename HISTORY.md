@@ -34,3 +34,17 @@ git log --oneline --all
 
 Status pengujian: statis/offline. Belum ada flashing atau keberhasilan BDS
 kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
+
+## 2026-11-06 — diagnostik pertama dari perangkat
+
+- Membaca sm8750-device-info.txt: annibale/sun, Android 16,
+  OS3.0.307.0.WPKCNXM, slot A.
+- Memetakan 141 tautan by-name; nama efisp tidak muncul. uefivarstore,
+  toolsfv, logfs, persist, blackbox dan xbl_sc_logs tersedia pada daftar.
+- Mencatat properti green/locked sebagai laporan Android, tanpa menganggapnya
+  bukti status lock independen atau keberhasilan patch.
+- Mencocokkan penanda VariableDxe pada firmware acuan dengan kebutuhan
+  penelitian variable storage; belum ada akses variabel runtime yang terbukti.
+- Menambahkan collector fase 2 yang hanya membaca block device dan pengujian
+  parser GPT sintetis. Hash komponen boot terpasang dan GPT type GUID masih
+  menunggu hasil dari perangkat.
