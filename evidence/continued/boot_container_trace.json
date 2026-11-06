@@ -1,0 +1,268 @@
+{
+  "upstream_commit": "4ef438cfde42943694fde5753bbf5d8c0b4ec02e",
+  "archive_sha256": "d0c633efc4fe7cf3ed29a396dc4d444a9c93d18e825c53c26ca47f7feb37251b",
+  "cn": {
+    "abl_sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309",
+    "firmware_volumes": [
+      {
+        "origin": "raw",
+        "offset": "0x1000",
+        "size": 327680,
+        "extension_offset": "0x0",
+        "fv_name_guid": null
+      },
+      {
+        "origin": "raw/lzma@0x1078",
+        "offset": "0x8",
+        "size": 1179840,
+        "extension_offset": "0x60",
+        "fv_name_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3"
+      }
+    ],
+    "named_ffs_files": [
+      {
+        "ui_name": "LinuxLoader",
+        "ffs_guid": "f536d559-459f-48fa-8bbc-43b554ecae8d",
+        "ffs_type": 9
+      }
+    ],
+    "container": {
+      "headers": [
+        {
+          "index": 0,
+          "type": 0,
+          "offset": 0,
+          "virtual_address": 0,
+          "physical_address": 0,
+          "size": 148,
+          "memory_size": 0,
+          "flags": 117440512,
+          "alignment": 0
+        },
+        {
+          "index": 1,
+          "type": 1,
+          "offset": 4096,
+          "virtual_address": 2678063104,
+          "physical_address": 2678063104,
+          "size": 327680,
+          "memory_size": 327680,
+          "flags": 7,
+          "alignment": 4096
+        },
+        {
+          "index": 2,
+          "type": 0,
+          "offset": 331776,
+          "virtual_address": 0,
+          "physical_address": 0,
+          "size": 3896,
+          "memory_size": 3896,
+          "flags": 33554432,
+          "alignment": 4096
+        }
+      ],
+      "digest_matches": [
+        {
+          "payload_segment": 1,
+          "algorithm": "sha384",
+          "digest": "d308ca5a57d726d224e46c1c8cd2756dd9ac1af3629412457809a004060c24594ff3a4b09303b97eb4e287a96d699c8d",
+          "hash_segment": 2,
+          "digest_file_offset": "0x51150"
+        }
+      ],
+      "hash_segment_prefixes": [
+        {
+          "file_offset": "0x51000",
+          "first_96_bytes_hex": "00000000070000001800000000000000e000000090000000000000000000000068000000200d000000000000000000001c0000000000000003000000000000000300000000000000010000000000000012a00000000000000000000000000000"
+        }
+      ],
+      "interpretation": "A matching digest does not establish signing-key ownership or runtime acceptance"
+    }
+  },
+  "eng": {
+    "abl_sha256": "e0182863905a313c09d386c71d99dc23f469716ffa7ac58e9024ee106b37c70d",
+    "firmware_volumes": [
+      {
+        "origin": "raw",
+        "offset": "0x1000",
+        "size": 327680,
+        "extension_offset": "0x0",
+        "fv_name_guid": null
+      },
+      {
+        "origin": "raw/lzma@0x1078",
+        "offset": "0x8",
+        "size": 1183936,
+        "extension_offset": "0x60",
+        "fv_name_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3"
+      }
+    ],
+    "named_ffs_files": [
+      {
+        "ui_name": "LinuxLoader",
+        "ffs_guid": "f536d559-459f-48fa-8bbc-43b554ecae8d",
+        "ffs_type": 9
+      }
+    ],
+    "container": {
+      "headers": [
+        {
+          "index": 0,
+          "type": 0,
+          "offset": 0,
+          "virtual_address": 0,
+          "physical_address": 0,
+          "size": 148,
+          "memory_size": 0,
+          "flags": 117440512,
+          "alignment": 0
+        },
+        {
+          "index": 1,
+          "type": 1,
+          "offset": 4096,
+          "virtual_address": 2678063104,
+          "physical_address": 2678063104,
+          "size": 327680,
+          "memory_size": 327680,
+          "flags": 7,
+          "alignment": 4096
+        },
+        {
+          "index": 2,
+          "type": 0,
+          "offset": 331776,
+          "virtual_address": 0,
+          "physical_address": 0,
+          "size": 3896,
+          "memory_size": 3896,
+          "flags": 33554432,
+          "alignment": 4096
+        }
+      ],
+      "digest_matches": [
+        {
+          "payload_segment": 1,
+          "algorithm": "sha384",
+          "digest": "aeda286a5e03cc1321bb111d257d66a6a0d80bc389a08486f9d944310b9ba19538b90b96d1b426b31f2b8985bf34bca0",
+          "hash_segment": 2,
+          "digest_file_offset": "0x51150"
+        }
+      ],
+      "hash_segment_prefixes": [
+        {
+          "file_offset": "0x51000",
+          "first_96_bytes_hex": "00000000070000001800000000000000e000000090000000000000000000000068000000200d000000000000000000001c0000000000000003000000000000000300000000000000010000000000000012a00000000000000000000000000000"
+        }
+      ],
+      "interpretation": "A matching digest does not establish signing-key ownership or runtime acceptance"
+    }
+  },
+  "dispatch": {
+    "qcombds_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+    "fv_argument_data_rva": "0x1d0e8",
+    "fv_argument_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+    "launch_helper_rva": "0x7d2c",
+    "launch_callsite_rva": "0x5254",
+    "guided_fv_comparison_rva": "0x7e78-0x7e8c",
+    "file_path_lookup_callsite_rva": "0x7ee0",
+    "load_image_callsite_rva": "0x7f30",
+    "start_image_callsite_rva": "0x8040",
+    "fv_argument_bytes_hex": "99ae6f042ecfed49a6a8a1488b7e80d3",
+    "instruction_bytes": [
+      {
+        "rva": "0x1fa8",
+        "file_offset": "0x1fa8",
+        "bytes_hex": "67ffff97",
+        "mnemonic": "bl",
+        "operands": "#0x1d44"
+      },
+      {
+        "rva": "0x1dec",
+        "file_offset": "0x1dec",
+        "bytes_hex": "820c0094",
+        "mnemonic": "bl",
+        "operands": "#0x4ff4"
+      },
+      {
+        "rva": "0x50e0",
+        "file_offset": "0x50e0",
+        "bytes_hex": "6c0d0094",
+        "mnemonic": "bl",
+        "operands": "#0x8690"
+      },
+      {
+        "rva": "0x510c",
+        "file_offset": "0x510c",
+        "bytes_hex": "61ffff97",
+        "mnemonic": "bl",
+        "operands": "#0x4e90"
+      },
+      {
+        "rva": "0x5254",
+        "file_offset": "0x5254",
+        "bytes_hex": "b60a0094",
+        "mnemonic": "bl",
+        "operands": "#0x7d2c"
+      },
+      {
+        "rva": "0x5258",
+        "file_offset": "0x5258",
+        "bytes_hex": "0b010094",
+        "mnemonic": "bl",
+        "operands": "#0x5684"
+      },
+      {
+        "rva": "0x7e84",
+        "file_offset": "0x7e84",
+        "bytes_hex": "f7feff97",
+        "mnemonic": "bl",
+        "operands": "#0x7a60"
+      },
+      {
+        "rva": "0x7e8c",
+        "file_offset": "0x7e8c",
+        "bytes_hex": "41020054",
+        "mnemonic": "b.ne",
+        "operands": "#0x7ed4"
+      },
+      {
+        "rva": "0x7ee0",
+        "file_offset": "0x7ee0",
+        "bytes_hex": "e7fdff97",
+        "mnemonic": "bl",
+        "operands": "#0x767c"
+      },
+      {
+        "rva": "0x7f2c",
+        "file_offset": "0x7f2c",
+        "bytes_hex": "086540f9",
+        "mnemonic": "ldr",
+        "operands": "x8, [x8, #0xc8]"
+      },
+      {
+        "rva": "0x7f30",
+        "file_offset": "0x7f30",
+        "bytes_hex": "00013fd6",
+        "mnemonic": "blr",
+        "operands": "x8"
+      },
+      {
+        "rva": "0x803c",
+        "file_offset": "0x803c",
+        "bytes_hex": "086940f9",
+        "mnemonic": "ldr",
+        "operands": "x8, [x8, #0xd0]"
+      },
+      {
+        "rva": "0x8040",
+        "file_offset": "0x8040",
+        "bytes_hex": "00013fd6",
+        "mnemonic": "blr",
+        "operands": "x8"
+      }
+    ],
+    "namespace_note": "The launch selects a named firmware volume; changing a UI name alone does not add a file to that volume"
+  }
+}

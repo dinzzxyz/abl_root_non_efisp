@@ -1,0 +1,39 @@
+# Deklarasi protokol BDS dan penanda pada firmware SM8750
+
+Inventaris statis; kolom modul tidak membuktikan protokol terpasang atau ABI kompatibel.
+
+| Nama | GUID | Modul SM8750 yang memuat byte GUID | Ada pada BDS referensi |
+|---|---|---|---|
+| `gEfiSimpleTextInputExProtocolGuid` | `dd9e7534-7762-4698-8c14-f58517a625aa` | QcomBds, SimpleTextInOutSerial, ConSplitterDxe, ButtonsDxe, UsbKbDxe | tidak |
+| `gEfiBlockIoProtocolGuid` | `964e5b21-6459-11d2-8e39-00a0c969723b` | DxeCore, EnvDxeEnhanced, VerifiedBootDxe, TzDxeLA, VariableDxe, PmicDxe, DiskIoDxe, PartitionDxe, Fat, UFSDxe, ULogDxe, QcomBds, QcomChargerApp, Ebl, GpiDxe, SdccDxe, DisplayDxe, QcomChargerDxeLA, UsbfnDwc3Dxe, UsbMassStorageDxe, UsbMsdDxe, PILDxe, FvDxe | ya |
+| `gEfiLoadedImageProtocolGuid` | `5b1b31a1-9562-11d2-8e3f-00a0c969723b` | DxeCore, EnvDxeEnhanced, RscRtDxe, SCHandlerRtDxe, ArmCpuDxe, RuntimeDxe, SecurityStubDxe, VerifiedBootDxe, ShmBridgeDxeLA, ScmDxeCompat, TzDxeLA, PsStateDxe, WatchdogTimer, CapsuleRuntimeDxe, VariableDxe, EmbeddedMonotonicCounter, ResetRuntimeDxe, RealTimeClock, MetronomeDxe, HiiDatabase, QcomWDogDxe, ArmGicDxe, ArmTimerDxe, ChipInfo, PlatformInfoDxeDriver, ProjectInfoDxe, DALSys, HALIOMMU, HWIODxeDriver, HSUART, I2C, EXFG, ExLoadSw, DALTLMM, Qup, PmicDxe, DevicePathDxe, DiskIoDxe, PartitionDxe, Fat, EnglishDxe, FvSimpleFileSystem, UFSDxe, CmdDbDxe, PwrUtilsDxe, RpmhDxe, NpaDxe, ULogDxe, MailboxDxe, QcomScmiDxe, CalibrationDxe, VcsDxe, ClockDxe, SPMI, ICBDxe, SmemDxe, QcomBds, RscDxe, Ebl, SimpleTextInOutSerial, PrintDxe, ConPlatformDxe, ConSplitterDxe, GraphicsConsoleDxe, CPRDxe, GpiDxe, SPI, SdccDxe, BootTimeDxe, FeatureEnablerDxe, DisplayDxe, QRKSDxe, ButtonsDxe, ChargerExDxe, IPCCDxe, GlinkDxe, PmicGlinkDxe, QcomChargerDxeLA, UsbPwrCtrlDxe, TsensDxe, DDRInfoDxe, UsbfnDwc3Dxe, XhciPciEmulation, XhciDxe, UsbBusDxe, UsbKbDxe, UsbMassStorageDxe, UsbMsdDxe, UsbDeviceDxe, UsbConfigDxe, UsbInitDxe, UCDxe, RngDxe, PILDxe, PILProxyDxe, SecRSADxe, ASN1X509Dxe, SPSSDxe, FvDxe, RmVmDxe, MiTokenDxe, ParserDxe, SerialPortDxe | ya |
+| `gEfiDevicePathToTextProtocolGuid` | `8b843e20-8132-4852-90cc-551a4e4a7f1c` | DevicePathDxe | tidak |
+| `gEfiDevicePathProtocolGuid` | `09576e91-6d3f-11d2-8e39-00a0c969723b` | DxeCore, EnvDxeEnhanced, SecurityStubDxe, VerifiedBootDxe, TzDxeLA, VariableDxe, HiiDatabase, PmicDxe, PartitionDxe, FvSimpleFileSystem, UFSDxe, ULogDxe, QcomBds, QcomChargerApp, Ebl, SimpleTextInOutSerial, ConPlatformDxe, GraphicsConsoleDxe, GpiDxe, SdccDxe, DisplayDxe, ButtonsDxe, QcomChargerDxeLA, XhciPciEmulation, XhciDxe, UsbBusDxe, UsbKbDxe, UsbMassStorageDxe, UsbMsdDxe, PILDxe, FvDxe | ya |
+| `gEfiDevicePathFromTextProtocolGuid` | `05c99a21-c70f-4ad2-8a5f-35df3343f51e` | DevicePathDxe | tidak |
+| `gEfiSimpleFileSystemProtocolGuid` | `964e5b22-6459-11d2-8e39-00a0c969723b` | DxeCore, EnvDxeEnhanced, SecurityStubDxe, VerifiedBootDxe, TzDxeLA, VariableDxe, PmicDxe, Fat, FvSimpleFileSystem, UFSDxe, ULogDxe, QcomBds, QcomChargerApp, Ebl, GpiDxe, SdccDxe, DisplayDxe, QcomChargerDxeLA, UsbMsdDxe, PILDxe, FvDxe | ya |
+| `gEfiLoadFileProtocolGuid` | `56ec3091-954c-11d2-8e3f-00a0c969723b` | DxeCore, SecurityStubDxe, TzDxeLA, ULogDxe, QcomBds, QcomChargerApp, Ebl | tidak |
+| `gEfiDiskIoProtocolGuid` | `ce345171-ba0b-11d2-8e4f-00a0c969723b` | TzDxeLA, DiskIoDxe, PartitionDxe, Fat, ULogDxe, QcomChargerApp, Ebl | ya |
+| `gEfiPartitionInfoProtocolGuid` | `8cf2f62c-bc9b-4821-808d-ec9ec421a1a0` | PartitionDxe | ya |
+| `gEfiUsbIoProtocolGuid` | `2b2f68d6-0cd2-44cf-8e8b-bba20b1b5b75` | QcomBds, ConPlatformDxe, UsbBusDxe, UsbKbDxe, UsbMassStorageDxe | tidak |
+| `gEfiUsb2HcProtocolGuid` | `3e745226-9818-45b6-a2ac-d7cd0e8ba2bc` | XhciDxe, UsbBusDxe | tidak |
+| `gEfiPciIoProtocolGuid` | `4cf5b200-68b8-4ca5-9eec-b23e3f50029a` | QcomBds, Ebl, ConPlatformDxe, XhciPciEmulation, XhciDxe | tidak |
+| `gEfiPlatformInfoProtocolGuid` | `157a5c45-21b2-43c5-ba7c-822fee5fe599` | PlatformInfoDxeDriver, PmicDxe, UFSDxe, CalibrationDxe, QcomBds, QcomChargerApp, DisplayDxe, ChargerExDxe, QcomChargerDxeLA, UsbPwrCtrlDxe, UsbfnDwc3Dxe, UsbConfigDxe | tidak |
+| `gEfiChipInfoProtocolGuid` | `b0760469-970c-487a-a4b5-28db7b45cef1` | EnvDxeEnhanced, ScmDxeCompat, TzDxeLA, ChipInfo, ProjectInfoDxe, QcomScmiDxe, CalibrationDxe, ClockDxe, QcomBds, Ebl, GpiDxe, FeatureEnablerDxe, DisplayDxe, UsbConfigDxe, PILDxe, PILProxyDxe, SPSSDxe, MiTokenDxe | ya |
+| `gQcomPmicVersionProtocolGuid` | `4684800a-2755-4edc-b443-7f8ceb3239d3` | PmicDxe, QcomChargerDxeLA, UsbPwrCtrlDxe, UsbConfigDxe | tidak |
+| `gEfiMemCardInfoProtocolGuid` | `85c1f7d2-bce6-4f31-8f4d-d37e03d05eaa` | EnvDxeEnhanced, UFSDxe, SdccDxe, UsbfnDwc3Dxe | ya |
+| `gEfiPrint2ProtocolGuid` | `f05976ef-83f1-4f3d-8619-f7595d41e538` | PrintDxe | tidak |
+| `gEfiPartitionRecordGuid` | `fe2555be-d716-4686-b9d0-79db5921b70d` | DxeCore, EnvDxeEnhanced, VerifiedBootDxe, TzDxeLA, VariableDxe, PmicDxe, PartitionDxe, UFSDxe, QcomBds, Ebl, GpiDxe, SdccDxe, DisplayDxe, QcomChargerDxeLA, UsbMsdDxe, PILDxe, FvDxe | ya |
+| `gEfiResetReasonProtocolGuid` | `a022155a-4828-4535-a499-11f15240b91b` | EnvDxeEnhanced, ResetRuntimeDxe | ya |
+| `gQcomRngProtocolGuid` | `3152bca5-eade-433d-862e-c01cdc291f44` | RngDxe, MiTokenDxe | tidak |
+| `gEfiSecurityArchProtocolGuid` | `a46423e3-4617-49f1-b9ff-d1bfa9115839` | DxeCore, SecurityStubDxe | ya |
+| `gEfiSecurity2ArchProtocolGuid` | `94ab2f58-1438-4ef1-9152-18941a3a0e68` | DxeCore, SecurityStubDxe | ya |
+| `gEfiSimpleTextInProtocolGuid` | `387477c1-69c7-11d2-8e39-00a0c969723b` | QcomBds, SimpleTextInOutSerial, ConPlatformDxe, ConSplitterDxe, ButtonsDxe, UsbKbDxe | tidak |
+| `gEfiSimpleTextOutProtocolGuid` | `387477c2-69c7-11d2-8e39-00a0c969723b` | QcomBds, SimpleTextInOutSerial, ConPlatformDxe, ConSplitterDxe, GraphicsConsoleDxe | tidak |
+| `gEfiUsbDeviceProtocolGuid` | `d9d9ce48-44b8-4f49-8e3e-2a3b927dc6c1` | UsbDeviceDxe | tidak |
+| `gEfiUsbfnIoProtocolGuid` | `32d2963a-fe5d-4f30-b633-6e5dc55803cc` | UsbfnDwc3Dxe, UsbMsdDxe, UsbDeviceDxe | ya |
+| `gEfiEraseBlockProtocolGuid` | `95a9a93e-a86e-4926-aaef-9918e772d987` | PartitionDxe, UFSDxe, SdccDxe, UsbMsdDxe | ya |
+| `gEfiUbiFlasherProtocolGuid` | `e3eef434-22c9-e33b-8f5d-0e81686a68cb` | tidak ditemukan | ya |
+| `gEfiKernelProtocolGuid` | `b5062be7-170b-4a32-be21-689262ff4399` | DxeCore, EnvDxeEnhanced, RscRtDxe, SCHandlerRtDxe, ArmCpuDxe, RuntimeDxe, SecurityStubDxe, VerifiedBootDxe, ShmBridgeDxeLA, ScmDxeCompat, TzDxeLA, PsStateDxe, WatchdogTimer, CapsuleRuntimeDxe, VariableDxe, EmbeddedMonotonicCounter, ResetRuntimeDxe, RealTimeClock, MetronomeDxe, HiiDatabase, QcomWDogDxe, ArmGicDxe, ArmTimerDxe, ChipInfo, PlatformInfoDxeDriver, ProjectInfoDxe, DALSys, HALIOMMU, HWIODxeDriver, HSUART, I2C, EXFG, ExLoadSw, DALTLMM, Qup, PmicDxe, DevicePathDxe, DiskIoDxe, PartitionDxe, Fat, EnglishDxe, FvSimpleFileSystem, UFSDxe, CmdDbDxe, PwrUtilsDxe, RpmhDxe, NpaDxe, ULogDxe, MailboxDxe, QcomScmiDxe, CalibrationDxe, VcsDxe, ClockDxe, SPMI, ICBDxe, SmemDxe, QcomBds, QcomChargerApp, RscDxe, Ebl, SimpleTextInOutSerial, PrintDxe, ConPlatformDxe, ConSplitterDxe, GraphicsConsoleDxe, CPRDxe, GpiDxe, SPI, SdccDxe, BootTimeDxe, FeatureEnablerDxe, DisplayDxe, QRKSDxe, ButtonsDxe, ChargerExDxe, IPCCDxe, GlinkDxe, PmicGlinkDxe, QcomChargerDxeLA, UsbPwrCtrlDxe, TsensDxe, DDRInfoDxe, UsbfnDwc3Dxe, XhciPciEmulation, XhciDxe, UsbBusDxe, UsbKbDxe, UsbMassStorageDxe, UsbMsdDxe, UsbDeviceDxe, UsbConfigDxe, UsbInitDxe, UCDxe, RngDxe, PILDxe, PILProxyDxe, SecRSADxe, ASN1X509Dxe, SPSSDxe, FvDxe, RmVmDxe, MiTokenDxe, ParserDxe, SerialPortDxe | ya |
+| `gQcomDisplayUtilsProtocolGuid` | `c0dd69ac-76ba-11e6-ab24-1fc7f5575f19` | EnvDxeEnhanced, QcomChargerApp, DisplayDxe | tidak |
+| `gEfiRamPartitionProtocolGuid` | `5172ffb5-4253-7d51-c641-a701f973103c` | EnvDxeEnhanced, QcomBds | ya |
+| `gEfiNandPartiGuidProtocolGuid` | `d68edce2-a314-457b-962a-1d99bbfcbbfb` | tidak ditemukan | tidak |
