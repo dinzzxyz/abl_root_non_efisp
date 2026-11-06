@@ -1,0 +1,11 @@
+__pycache__/
+.venv/
+inputs/
+generated/
+*.efi
+*.elf
+*.melf
+*.mbn
+*.img
+*.zip
+history.bundle

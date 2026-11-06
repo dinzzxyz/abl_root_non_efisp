@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/SuperTurtleDev/gbl_root_canoe",
+  "commit": "4ef438cfde42943694fde5753bbf5d8c0b4ec02e",
+  "reviewed_date": "2026-11-06",
+  "license": "GPL-3.0",
+  "input_archive_sha256": "d0c633efc4fe7cf3ed29a396dc4d444a9c93d18e825c53c26ca47f7feb37251b",
+  "source_notes": "Upstream was cloned for inspection; no upstream firmware or complete vendored tree is redistributed in this package.",
+  "xda_status": "Web retrieval failed; direct HTTP 403; contents not verified."
+}

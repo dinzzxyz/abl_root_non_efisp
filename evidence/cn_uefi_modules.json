@@ -1,0 +1,626 @@
+[
+  {
+    "name": "DxeCore",
+    "ffs_guid": "d6a2cb7f-6a18-4e2f-b43b-9920a733700a",
+    "sha256": "5935ae0751bd77481e7f3738e5f217277f8d6355f5dbc437c7736154bb51671b",
+    "size_bytes": 212992
+  },
+  {
+    "name": "EnvDxeEnhanced",
+    "ffs_guid": "90a49afd-422f-08ae-9611-e788d3804845",
+    "sha256": "593d9e766c0070e01d4c6684b7bb8050f32f77ea3ca300c6a110ad3903de17e3",
+    "size_bytes": 77824
+  },
+  {
+    "name": "RscRtDxe",
+    "ffs_guid": "d93ce3d8-a7eb-4730-8c8e-cc466a9ecc3c",
+    "sha256": "a61a1d7f9db19ddc9b561e4fdb7ce77eeca1b54630d5465ea87fec3e62e6c505",
+    "size_bytes": 36864
+  },
+  {
+    "name": "SCHandlerRtDxe",
+    "ffs_guid": "6c2004ef-4e0e-4be4-b14c-340eb4aa5891",
+    "sha256": "43f2046767e5bebc6ef74133345deabd3c3d784e9d77f0f8ccdadda78251be51",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ArmCpuDxe",
+    "ffs_guid": "b8d9777e-d72a-451f-9bdb-bafb52a68415",
+    "sha256": "54cc8fd9193a5a9d1ea57b09ff8e830baa9622640495b06a5f165eae2f8a1a43",
+    "size_bytes": 61440
+  },
+  {
+    "name": "RuntimeDxe",
+    "ffs_guid": "b601f8c4-43b7-4784-95b1-f4226cb40cee",
+    "sha256": "0474ad8ac6736e52a485bb7886d1ac5b78fc0dc058ef0f0b5f314d60a9d3cfd6",
+    "size_bytes": 32768
+  },
+  {
+    "name": "SecurityStubDxe",
+    "ffs_guid": "f80697e9-7fd6-4665-8646-88e33ef71dfc",
+    "sha256": "827148cbe6bbfbaebf06e83dc1b3edabdb1c9cfcd25df59aaf95aa6ccd134b94",
+    "size_bytes": 53248
+  },
+  {
+    "name": "VerifiedBootDxe",
+    "ffs_guid": "fd975fb5-92c3-40b3-b05c-9c434326ab64",
+    "sha256": "df2a6853296fb67b55cc15784806495d034628b1b107ffee2f869007127b1e85",
+    "size_bytes": 61440
+  },
+  {
+    "name": "ShmBridgeDxeLA",
+    "ffs_guid": "41ebb6a6-2c19-4c02-841d-848ce004a282",
+    "sha256": "db856e59c5d421098d852787a0cf0b1cbc779e0076a967f14cdea9d02fb46fd9",
+    "size_bytes": 36864
+  },
+  {
+    "name": "ScmDxeCompat",
+    "ffs_guid": "4b4973ee-401b-4f36-a6a9-533dfccdfc33",
+    "sha256": "0e09a5c3781419518827734ef977a852d4292f6fd52ff2e2bf7631a222a672e0",
+    "size_bytes": 53248
+  },
+  {
+    "name": "TzDxeLA",
+    "ffs_guid": "cf6dfc66-14ab-4e13-84db-9c02912d1404",
+    "sha256": "2669d3bc8011b633113920637883cc85c4a0ade671d387d6bdbb5d48f4a34bd0",
+    "size_bytes": 69632
+  },
+  {
+    "name": "PsStateDxe",
+    "ffs_guid": "92bdcb29-d427-400e-847d-37345fc1d5f0",
+    "sha256": "5dee03ff6f837106f2da5258b95a45d1a174cbb6a8ed18880ff7bcaca4ed458b",
+    "size_bytes": 28672
+  },
+  {
+    "name": "WatchdogTimer",
+    "ffs_guid": "f099d67f-71ae-4c36-b2a3-dceb0eb2b7d8",
+    "sha256": "fbc9de8aac8f9081d8da0a0b7a6b52b04a6061877daf12716be925a698fd6e39",
+    "size_bytes": 28672
+  },
+  {
+    "name": "CapsuleRuntimeDxe",
+    "ffs_guid": "42857f0a-13f2-4b21-8a23-53d3f714b840",
+    "sha256": "208a07e1639d6b8cce794d58615171de6b7b8b5a851de9c4c35c58ec7824e3fe",
+    "size_bytes": 32768
+  },
+  {
+    "name": "VariableDxe",
+    "ffs_guid": "2b0ecdce-01ae-446e-9ffd-c4217de0340f",
+    "sha256": "c56fb5b2a5c3359b1be699229bc17be5b16e0fd87980fe1ef011fa3aa35ea0ee",
+    "size_bytes": 61440
+  },
+  {
+    "name": "EmbeddedMonotonicCounter",
+    "ffs_guid": "37795ba0-e1cf-4ed5-bd8b-16df6bcb1e1a",
+    "sha256": "056f8755b42aecb878c95245a5e78393b665dd6548447711c81254c94063cba6",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ResetRuntimeDxe",
+    "ffs_guid": "3ae17db7-3cc5-4b89-9304-9549211057ef",
+    "sha256": "cab30957e3c4aa4a52e2dadc1eb0e0f197b13ebc96730592d4ccb340868b2f47",
+    "size_bytes": 36864
+  },
+  {
+    "name": "RealTimeClock",
+    "ffs_guid": "b336f62d-4135-4a55-ae4e-4971bbf0885d",
+    "sha256": "37558a9265e51476e5c363c39cfd374e61a9ffacdc919e97aefd7dce9b114df7",
+    "size_bytes": 36864
+  },
+  {
+    "name": "MetronomeDxe",
+    "ffs_guid": "4c6e0267-c77d-410d-8100-1495911a989d",
+    "sha256": "1d3a57f0bd18776552e94a2da77d47695287f05d4bb175b05c7d5ef1cec46309",
+    "size_bytes": 28672
+  },
+  {
+    "name": "HiiDatabase",
+    "ffs_guid": "348c4d62-bfbd-4882-9ece-c80bb1c4783b",
+    "sha256": "ea91a5fd5f7bd76c50d047ae72d75619c970d24c7866475e8473d8a680530fd7",
+    "size_bytes": 139264
+  },
+  {
+    "name": "QcomWDogDxe",
+    "ffs_guid": "040e1e61-0afb-411b-9ec9-00f3fc59cc13",
+    "sha256": "84720bf23c2c7086dd2aa0efce1b82b9fd5110e1e92cb08314afd46126caef61",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ArmGicDxe",
+    "ffs_guid": "de371f7c-dec4-4d21-adf1-593abcc15882",
+    "sha256": "d96739fd0619196f52c4a7ed99fb236b648730b39f461193810c13aa9176f278",
+    "size_bytes": 36864
+  },
+  {
+    "name": "ArmTimerDxe",
+    "ffs_guid": "49ea041e-6752-42ca-b0b1-7344fe2546b7",
+    "sha256": "88ab8ad79b1b05ac96e9cbec301b7b8bb736fa9f51a02f6dd6af891f35d08272",
+    "size_bytes": 28672
+  },
+  {
+    "name": "ChipInfo",
+    "ffs_guid": "10e193df-9966-44e7-b17c-59dd831e20fc",
+    "sha256": "71117ca24c5a7243858865ee1512f31ffe7fa1a3fff608880ec7ab89e055dfba",
+    "size_bytes": 49152
+  },
+  {
+    "name": "PlatformInfoDxeDriver",
+    "ffs_guid": "b105211b-bbbd-4add-a3b0-d1cf4a52154c",
+    "sha256": "5dbee1fa42987a21d745f3403fe37eb482bca1704dd916698b90cf922e669793",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ProjectInfoDxe",
+    "ffs_guid": "0a8d6360-7ef3-11ea-b20f-b3a524584400",
+    "sha256": "cb4a31cb6622a558a8ee877ddd950c879f1370572f8a59f8737f055e155992db",
+    "size_bytes": 49152
+  },
+  {
+    "name": "DALSys",
+    "ffs_guid": "8e9bd160-b184-11df-94e2-0800200c9a66",
+    "sha256": "577fdab4fb956a0acf727d7b70698def1ba7658d4f5c3d8ed9509a62262ca8a1",
+    "size_bytes": 344064
+  },
+  {
+    "name": "HALIOMMU",
+    "ffs_guid": "9a00771f-36d4-4dd5-8916-c48ed9b16b86",
+    "sha256": "98598d11ff42f89534bb6e25fa20a0b99964a152b59df2f379021fb903ea479c",
+    "size_bytes": 143360
+  },
+  {
+    "name": "HWIODxeDriver",
+    "ffs_guid": "af9763a2-033b-4109-8e17-56a98d380c92",
+    "sha256": "6717aacfe5d592e8a82d36612a597053506d9baeebc2f95d94f870cdb9a64333",
+    "size_bytes": 32768
+  },
+  {
+    "name": "HSUART",
+    "ffs_guid": "8c102bba-15a9-4c40-8599-6d0f5689da5b",
+    "sha256": "16cd5719e951839d2a08371ed517ce1a9b7037186a744df9a005b738b99f3084",
+    "size_bytes": 36864
+  },
+  {
+    "name": "I2C",
+    "ffs_guid": "04de8591-d2b3-4077-bbbe-b12070094eb6",
+    "sha256": "7edc3c4cc51825530f53e0bd616b046abad66c740b34eafad38e14a25fcf57b0",
+    "size_bytes": 61440
+  },
+  {
+    "name": "EXFG",
+    "ffs_guid": "0a6063f5-8fea-4c48-9143-911c2a8e7eb6",
+    "sha256": "a1991ab866ddd289087cb11841ef8501cc4baca9655fea8d88a5b34048f44c8a",
+    "size_bytes": 40960
+  },
+  {
+    "name": "ExLoadSw",
+    "ffs_guid": "35a428b4-05ce-4603-995e-be83213fd545",
+    "sha256": "66d37ebd8c35149f4fb8a27e57fae13426d028b7d57d400a06709a9a91d09d99",
+    "size_bytes": 32768
+  },
+  {
+    "name": "DALTLMM",
+    "ffs_guid": "8681cc5a-0df6-441e-b4b8-e915c538f067",
+    "sha256": "60f2f122e6ea0f683752dc2a097906c78e10c79608317f1ef8db746051b3fc14",
+    "size_bytes": 49152
+  },
+  {
+    "name": "Qup",
+    "ffs_guid": "a16b79d2-afe0-4aed-a3ab-8ce3fd0f8c71",
+    "sha256": "e90ab77f4d3a8cb7056e467840f6f29b2b350e3d065b5c21c7426b89213c3146",
+    "size_bytes": 28672
+  },
+  {
+    "name": "PmicDxe",
+    "ffs_guid": "5776232e-082d-4b75-9a0e-fe1d13f7a5d9",
+    "sha256": "9cd0b6e4060b45b318150582dafa20d0045f513a98d10b34d0b767eb92fb8739",
+    "size_bytes": 270336
+  },
+  {
+    "name": "DevicePathDxe",
+    "ffs_guid": "9b680fce-ad6b-4f3a-b60b-f59899003443",
+    "sha256": "f559a78b55588de8d44741efbc3acc1a3b9556dbd917cf5dc8644092f0bf2356",
+    "size_bytes": 73728
+  },
+  {
+    "name": "DiskIoDxe",
+    "ffs_guid": "6b38f7b4-ad98-40e9-9093-aca2b5a253c4",
+    "sha256": "b3fb23994ed6d61bcb751ab8861b84e17f582b70e2d308223db754ec2c69b8f2",
+    "size_bytes": 40960
+  },
+  {
+    "name": "PartitionDxe",
+    "ffs_guid": "1fa1f39e-feff-4aae-bd7b-38a070a3b609",
+    "sha256": "4a3f4b0efc36ea65a5d2117f5b139d09826e87c8f5af6f79d9145dc5fe48d83e",
+    "size_bytes": 53248
+  },
+  {
+    "name": "Fat",
+    "ffs_guid": "961578fe-b6b7-44c3-af35-6bc705cd2b1f",
+    "sha256": "d7851d5554c7ffe0756c2f1c7f952e37f07784fb08f97022dd7f4d5a8ed157db",
+    "size_bytes": 61440
+  },
+  {
+    "name": "EnglishDxe",
+    "ffs_guid": "cd3bafb6-50fb-4fe8-8e4e-ab74d2c1a600",
+    "sha256": "6db4d385f74e71d238e32efaca7f4ccf054abe4f20b81db07e39f23dd3ea25a4",
+    "size_bytes": 28672
+  },
+  {
+    "name": "FvSimpleFileSystem",
+    "ffs_guid": "907125c0-a5f1-11e3-a3fe-a3198b49350c",
+    "sha256": "a892fb4bd511ff6f2c5919d3ce1ba1f09a01043c037752ddeb854116b79d8d7a",
+    "size_bytes": 45056
+  },
+  {
+    "name": "UFSDxe",
+    "ffs_guid": "0d35cd8e-97ea-4f9a-96af-0f0d89f76567",
+    "sha256": "65e4112196831759c3de6ed3a90ff2ae011a5bb6d5b05cdd5c08e9108554f54e",
+    "size_bytes": 155648
+  },
+  {
+    "name": "CmdDbDxe",
+    "ffs_guid": "aba01ff8-2ccb-4e12-8b2e-cd3f4a742993",
+    "sha256": "b513dfeacf1fc4464acfa8da59ada1eaa019a19860daf03c790a5010bd9dbb09",
+    "size_bytes": 32768
+  },
+  {
+    "name": "PwrUtilsDxe",
+    "ffs_guid": "0401b830-bff9-44a2-a5f6-95734a33c017",
+    "sha256": "87b552c1a4ad90697f71920b8b5dbec9af90830790c7940c8fed1f92e0e7b2be",
+    "size_bytes": 32768
+  },
+  {
+    "name": "RpmhDxe",
+    "ffs_guid": "cb29f4d1-7f37-4692-a416-93e82e219766",
+    "sha256": "7ee3a1a46d2f2e210a54be964ada2dd355223d845a937ca22505c45d538cf2eb",
+    "size_bytes": 65536
+  },
+  {
+    "name": "NpaDxe",
+    "ffs_guid": "cb29f4d1-7f37-4692-a416-93e82e219711",
+    "sha256": "19a7df5cdf25ae247ca5628bd67496729f17f30d74e564a7d7f999ac2d5934b9",
+    "size_bytes": 77824
+  },
+  {
+    "name": "ULogDxe",
+    "ffs_guid": "e43128a8-8692-42b6-8afa-676158578d18",
+    "sha256": "f3d718d8616b6e5f1aaa53b991e7a0c48d6aee8466d35ab53c61fd4bff819181",
+    "size_bytes": 77824
+  },
+  {
+    "name": "MailboxDxe",
+    "ffs_guid": "e3095547-34b8-4bd4-8d8f-c3223c30318d",
+    "sha256": "3421ab0fb1415383affc057987b41b3c239715d483b224ab8eec05b912f96dda",
+    "size_bytes": 45056
+  },
+  {
+    "name": "QcomScmiDxe",
+    "ffs_guid": "9585984c-f027-45e9-afdf-adaa6dfaaac7",
+    "sha256": "835de8fa1f24969cead18bf320ff7f9f0f5511e720f7a0ce96a4a82059611c67",
+    "size_bytes": 36864
+  },
+  {
+    "name": "CalibrationDxe",
+    "ffs_guid": "32f19685-046b-4f36-a328-7a87ded96fd9",
+    "sha256": "610974695795c17acfaf4e6fcd825919cf361f68e3afe8473e38c5c5407ca9c4",
+    "size_bytes": 49152
+  },
+  {
+    "name": "VcsDxe",
+    "ffs_guid": "8bd3b475-401a-4b0b-9315-edee61a1eae5",
+    "sha256": "d335dbcfd4175e6d9f189062bc777961f497e968d66acc7dacb4aae8b3055e4f",
+    "size_bytes": 69632
+  },
+  {
+    "name": "ClockDxe",
+    "ffs_guid": "4db5dea6-5302-4d1a-8a82-677a683b0d29",
+    "sha256": "f9e85aa758932b4366c55ec83b58e0176f58fba2944cc2fdd34875a46fdb769e",
+    "size_bytes": 278528
+  },
+  {
+    "name": "SPMI",
+    "ffs_guid": "2a7b4bef-80cd-49e1-b473-374ba4d673fc",
+    "sha256": "8d814ec90193bdfee23c9a405216df469388093fb241651bc021e796b908e9bc",
+    "size_bytes": 49152
+  },
+  {
+    "name": "ICBDxe",
+    "ffs_guid": "5824f9de-17d2-4b1f-a5fe-5eb77fa53093",
+    "sha256": "c193316515281eb2bc2c52ff5d59dc07cdd82cc4c9b74bace30d5c78c95a83d8",
+    "size_bytes": 192512
+  },
+  {
+    "name": "SmemDxe",
+    "ffs_guid": "f541d663-4a48-40aa-aabf-ff158ccae34c",
+    "sha256": "9f0de741db1b5f70d9716c90170b4269ab52a251fe1a87adad1915fac4f0d5cf",
+    "size_bytes": 40960
+  },
+  {
+    "name": "QcomBds",
+    "ffs_guid": "5a50aa81-c3ae-4608-a0e3-41a2e69baf94",
+    "sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+    "size_bytes": 131072
+  },
+  {
+    "name": "QcomChargerApp",
+    "ffs_guid": "eee9c2b1-16ca-4f34-87ea-2e6d1e160cc4",
+    "sha256": "c4b83678eb48192c44320d9c1c52647b19e7214a83da46f9af211c7897f53987",
+    "size_bytes": 86016
+  },
+  {
+    "name": "RscDxe",
+    "ffs_guid": "ea888df7-d431-44af-844c-7b29390f2758",
+    "sha256": "17d23d0497b8aa618a76c3a4f3851b4c1a12c7e03fb74acb33df8e52d507073e",
+    "size_bytes": 36864
+  },
+  {
+    "name": "Ebl",
+    "ffs_guid": "3cef354a-3b7a-4519-ad70-72a134698311",
+    "sha256": "306bed8aaca6c2a31b6bee8360d1e9c727440ed50664bf3e107420ec103c5761",
+    "size_bytes": 118784
+  },
+  {
+    "name": "SimpleTextInOutSerial",
+    "ffs_guid": "857a8741-0eec-43bd-9482-27d14ed47d72",
+    "sha256": "c7c6df77496c5e1d06cee446a8dd005cf79fcd072bebac0c482c6bc50c384d9a",
+    "size_bytes": 32768
+  },
+  {
+    "name": "PrintDxe",
+    "ffs_guid": "79e4a61c-ed73-4312-94fe-e3e7563362a9",
+    "sha256": "84fe3b81ffb56bf145fb29d03659fa8bdc0fd14d66e0519787ac6b927ac499c0",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ConPlatformDxe",
+    "ffs_guid": "51ccf399-4fdf-4e55-a45b-e123f84d456a",
+    "sha256": "51f9d4ee00f7dc35fdb9317e17f8c297072e112405e82dd44fddf212735e355c",
+    "size_bytes": 40960
+  },
+  {
+    "name": "ConSplitterDxe",
+    "ffs_guid": "408edcec-cf6d-477c-a5a8-b4844e3de281",
+    "sha256": "6516b3bcb7c73260b2e1e6d312f7975b3ab669c3d9661264342160c170d782be",
+    "size_bytes": 53248
+  },
+  {
+    "name": "GraphicsConsoleDxe",
+    "ffs_guid": "cccb0c28-4b24-11d5-9a5a-0090273fc14d",
+    "sha256": "a2a3c9c2dfaf74544e9e475474d74e21983d7cb0777df315469d11cb6c5d87d8",
+    "size_bytes": 45056
+  },
+  {
+    "name": "CPRDxe",
+    "ffs_guid": "1b52138d-3fa3-4e50-b958-20887353f809",
+    "sha256": "ed52684aa1f14a2bba2962bc2b2ed84428b0b0a9ab209e539b411a92b2b3107d",
+    "size_bytes": 73728
+  },
+  {
+    "name": "GpiDxe",
+    "ffs_guid": "569ea0de-b557-4043-84cf-01103fe516e5",
+    "sha256": "180f5f26914aa21892b2c2ac37c339a7cec26b204fa36b5dbe8354fd35775fb0",
+    "size_bytes": 90112
+  },
+  {
+    "name": "SPI",
+    "ffs_guid": "7a32bd23-f735-4f57-aa1a-447d2fe3be0d",
+    "sha256": "ab978a0410ba6af7d1de5d8e625fd1d73962520b448f1ab0069b3b49020b0c04",
+    "size_bytes": 61440
+  },
+  {
+    "name": "SdccDxe",
+    "ffs_guid": "f10f76db-42c1-533f-34a8-69be24653110",
+    "sha256": "8f49b48c6e74cac88d2f4bf75fd3e92fb2b140f1929aa35ddd191247ba0d1402",
+    "size_bytes": 131072
+  },
+  {
+    "name": "BootTimeDxe",
+    "ffs_guid": "68bfa1e6-d974-012b-84b5-4003384b78ad",
+    "sha256": "20e416fcfd0124657351e1696efe38862d66ec695663f7fe55763cc096044f56",
+    "size_bytes": 32768
+  },
+  {
+    "name": "FeatureEnablerDxe",
+    "ffs_guid": "1c04f529-0612-4319-9315-b2e75c16810a",
+    "sha256": "2a86b9b779ccf678c68654043bea12edd37da8f9bead6e2814077989d44bf1e4",
+    "size_bytes": 32768
+  },
+  {
+    "name": "DisplayDxe",
+    "ffs_guid": "4138022f-06c7-4f79-9c94-7e33b511a4e7",
+    "sha256": "34fab3ceca27b2f0f09d9e3bb6e1d07d81cac8d97b5d7a1d0c120266b534926f",
+    "size_bytes": 438272
+  },
+  {
+    "name": "QRKSDxe",
+    "ffs_guid": "3cf7f36e-5a97-496a-bb4b-d4f9937fa311",
+    "sha256": "4b4b4fb0176e7d46d6c05f3b20b4e505760ae5c31813e0ddb4cd1714c961ccef",
+    "size_bytes": 32768
+  },
+  {
+    "name": "ButtonsDxe",
+    "ffs_guid": "5bd181db-0487-4f1a-ae73-820e165611b3",
+    "sha256": "966d5158841b6e76e52934f6e9baaae4dd2467628c84a5fe49a7821e9f297bbe",
+    "size_bytes": 40960
+  },
+  {
+    "name": "ChargerExDxe",
+    "ffs_guid": "2e3042f3-2bb9-463f-8866-56d75b7c4ab0",
+    "sha256": "e3cca24df2233f6d5588fa29faa68f1cb3d2dc3aa4d7dc47bb58ed2de1dff22a",
+    "size_bytes": 32768
+  },
+  {
+    "name": "IPCCDxe",
+    "ffs_guid": "42031f68-1f0b-429b-93f1-0eb0cf89ddbf",
+    "sha256": "b8f706fe2442a340bada22cb9572cbbb4035017b2017452d1deae84b08695a55",
+    "size_bytes": 36864
+  },
+  {
+    "name": "GlinkDxe",
+    "ffs_guid": "7942a7eb-b7d5-4e2e-b908-831e4de55b58",
+    "sha256": "e2927a441fee3ab525f58f100df92d0ddb62b46d034bad18b241763f720eaa94",
+    "size_bytes": 61440
+  },
+  {
+    "name": "PmicGlinkDxe",
+    "ffs_guid": "6d4a9cf7-cc0c-42b0-aa89-f6a6a8d99273",
+    "sha256": "ae9b2d8964da191f4645ee2c165629bf5346964758ac37e336f5d39568d8f8aa",
+    "size_bytes": 49152
+  },
+  {
+    "name": "QcomChargerDxeLA",
+    "ffs_guid": "4bce7f36-428e-4393-99e3-7e0844404dba",
+    "sha256": "5b24a1e5e3e6848dbf524f3b82f9cdfeb299916cf29fcfa5e9fc5474be0f8333",
+    "size_bytes": 135168
+  },
+  {
+    "name": "UsbPwrCtrlDxe",
+    "ffs_guid": "11faed4c-b21f-4d88-8e48-c4c28a1e50df",
+    "sha256": "67fdc3752e753418e93026bc238b39608c3bb8f9b1b67560534f95c657c756f5",
+    "size_bytes": 40960
+  },
+  {
+    "name": "TsensDxe",
+    "ffs_guid": "f09ad92e-485c-9cdb-3e05-3385c38f94cc",
+    "sha256": "d2a11a48ed7adeedf60d7b8ad683f73a90b066b2b9aabff4746a089278d8ede4",
+    "size_bytes": 40960
+  },
+  {
+    "name": "DDRInfoDxe",
+    "ffs_guid": "7db0793a-4402-4be1-906e-d0fabad2707e",
+    "sha256": "3e6942758b42b7e35b590df3a6d95fdf210ad6a8ffb20abb3547783d41044839",
+    "size_bytes": 45056
+  },
+  {
+    "name": "UsbfnDwc3Dxe",
+    "ffs_guid": "94f8a6a7-dc34-4101-88c1-99179cceae83",
+    "sha256": "1572f79f75eb0121fc3d1a9872abd76520cf12446f0cd094d6c90d7c98a69ba6",
+    "size_bytes": 98304
+  },
+  {
+    "name": "XhciPciEmulation",
+    "ffs_guid": "beb12bee-f6e1-11e1-9fb8-6c626de4aeb1",
+    "sha256": "b5a93b090b36760f4e9edfc61f390a45af9b899aab96061ffe16133cd1079a4e",
+    "size_bytes": 40960
+  },
+  {
+    "name": "XhciDxe",
+    "ffs_guid": "b7f50e91-a759-412c-ade4-dcd03e7f7c28",
+    "sha256": "05bd0ae1200105db74968e944b487f96390bf5e89032b670c3466e3375568599",
+    "size_bytes": 90112
+  },
+  {
+    "name": "UsbBusDxe",
+    "ffs_guid": "240612b7-a063-11d4-9a3a-0090273fc14d",
+    "sha256": "ea8851537760f21d752864092b6b1201d74d6601c029f18e2d113b94ba9cbb27",
+    "size_bytes": 81920
+  },
+  {
+    "name": "UsbKbDxe",
+    "ffs_guid": "2d2e62cf-9ecf-43b7-8219-94e7fc713dfe",
+    "sha256": "250bfd3ccf0e9d6063bfb1464cbaed6384d1f9935bd738bff0084abcc003f3b7",
+    "size_bytes": 53248
+  },
+  {
+    "name": "UsbMassStorageDxe",
+    "ffs_guid": "9fb4b4a7-42c0-4bcd-8540-9bcc6711f83e",
+    "sha256": "1841ed4a60e2ff2f4e1fa9f9a6f2b8392ced0303a8ebf5a8cd37ceb621163790",
+    "size_bytes": 49152
+  },
+  {
+    "name": "UsbMsdDxe",
+    "ffs_guid": "5af77f10-90df-4e7e-8325-a17ec09d5443",
+    "sha256": "61885fb6b3ca2dc2bd545c9b24c669c7c747984657e842d79a22e25999f56fa7",
+    "size_bytes": 69632
+  },
+  {
+    "name": "UsbDeviceDxe",
+    "ffs_guid": "3299a266-15f0-4346-8318-716336736d3e",
+    "sha256": "f77f181c11855e848b286664bf56fe6c161f6722e5c42824d21c0ce3903567e3",
+    "size_bytes": 53248
+  },
+  {
+    "name": "UsbConfigDxe",
+    "ffs_guid": "cd823a4d-7dec-4531-ae5d-4134fa4127b8",
+    "sha256": "d77b46c0c38173856dec90dc984ebe8092adaf8c0a0daa4da9aaa51dfd06bd6f",
+    "size_bytes": 94208
+  },
+  {
+    "name": "UsbInitDxe",
+    "ffs_guid": "0a134f0e-075e-40b3-9c63-3b3906804663",
+    "sha256": "f3e78aa8030eec3ff4f536851e6b808ba62de942a111244759505b94a63f50d9",
+    "size_bytes": 32768
+  },
+  {
+    "name": "UCDxe",
+    "ffs_guid": "5f0937cd-73f9-445e-b320-bb6fd5d3cbde",
+    "sha256": "970d1aa843a75959efa0e7f4de5c584f4bf04ebbe274a73d267a3cebd0b625d5",
+    "size_bytes": 192512
+  },
+  {
+    "name": "RngDxe",
+    "ffs_guid": "b0d3689e-11f8-43c6-8ece-023a29cec35b",
+    "sha256": "ca4c41c05ee64b9ec9beec18a94a4ad01328cc8c4a0018c5706723c4ae4397b5",
+    "size_bytes": 36864
+  },
+  {
+    "name": "PILDxe",
+    "ffs_guid": "1d317734-4083-47c6-83ea-e3a42f2a6bff",
+    "sha256": "a9a04094e1685e5cbd06a2fe287da560410bd93852096be12d4d49c7f2ba82b6",
+    "size_bytes": 122880
+  },
+  {
+    "name": "PILProxyDxe",
+    "ffs_guid": "8cf9c920-d5e6-4dac-bef9-6e6a4eec7add",
+    "sha256": "ab58331921d7dfe7f0906e4431249ce986695b50bc8943584295ace41facd5a5",
+    "size_bytes": 40960
+  },
+  {
+    "name": "SecRSADxe",
+    "ffs_guid": "32c71e68-83a8-46ed-aed1-094e71b12057",
+    "sha256": "c89bf5fcc99ffaad696bfda175d10c86d0ab110b877973cd3f24a09901b1dd24",
+    "size_bytes": 40960
+  },
+  {
+    "name": "ASN1X509Dxe",
+    "ffs_guid": "c2f9a4f5-f7b4-43e7-ba99-5ea804cc103a",
+    "sha256": "a0ea40086f42c65db5cf9e9f9e69bc0879794b7dd23d65178098715ffc452911",
+    "size_bytes": 40960
+  },
+  {
+    "name": "SPSSDxe",
+    "ffs_guid": "5d787b6c-6254-43f5-a7a8-cb25329cf97e",
+    "sha256": "31e36385feb2c14b8bc0ff7c2e4bb2988170bf443fb6a97d89b81cd9936d455f",
+    "size_bytes": 36864
+  },
+  {
+    "name": "FvDxe",
+    "ffs_guid": "16ae0290-fd71-4e89-8fe1-39a838cb538d",
+    "sha256": "90bf82d53c9b046d64e37f1c91bd1f1fe17fda69de00d36202393452347848fa",
+    "size_bytes": 57344
+  },
+  {
+    "name": "RmVmDxe",
+    "ffs_guid": "1d9cc582-7a90-4109-835b-0cb05b6762e1",
+    "sha256": "4ad89a25908e63632e50af3cc3e1986bb03d23072983ca6b57054136fa1b8d98",
+    "size_bytes": 57344
+  },
+  {
+    "name": "MiTokenDxe",
+    "ffs_guid": "068aae46-bdc6-4073-85d5-31c5eef19a15",
+    "sha256": "16893790b11b4feb9f30e4a3cce5a17f503108f8fdb85ba5dd5dd16a30e035cf",
+    "size_bytes": 40960
+  },
+  {
+    "name": "ParserDxe",
+    "ffs_guid": "4a568b8a-4d9d-4984-9c75-cee33698e451",
+    "sha256": "a113cff3f189de5864cf85936ef5c9f185bb1846783182417641f14b16edbd87",
+    "size_bytes": 32768
+  },
+  {
+    "name": "SerialPortDxe",
+    "ffs_guid": "84cc57f6-38be-4acf-9752-73d1e23f793f",
+    "sha256": "32ac7573b655ca0aa95c81d134bf8791dd06d7732269ffeed990fc5a84241273",
+    "size_bytes": 28672
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "name": "magisk_module.zip",
+    "size_bytes": 6738499
+  },
+  {
+    "name": "result/",
+    "size_bytes": 0
+  },
+  {
+    "name": "result/boot.efi",
+    "size_bytes": 1183744
+  },
+  {
+    "name": "result/prompt.txt",
+    "size_bytes": 1443
+  },
+  {
+    "name": "result/test.txt",
+    "size_bytes": 645
+  },
+  {
+    "name": "cn/",
+    "size_bytes": 0
+  },
+  {
+    "name": "cn/abl.elf",
+    "size_bytes": 335672
+  },
+  {
+    "name": "cn/flash_all.bat",
+    "size_bytes": 6416
+  },
+  {
+    "name": "cn/flash_gen_crc_list.py",
+    "size_bytes": 8850
+  },
+  {
+    "name": "cn/flash_gen_md5_list.py",
+    "size_bytes": 1954
+  },
+  {
+    "name": "cn/misc.txt",
+    "size_bytes": 164
+  },
+  {
+    "name": "cn/uefi.elf",
+    "size_bytes": 2839004
+  },
+  {
+    "name": "cn/uefi_sec.mbn",
+    "size_bytes": 200792
+  },
+  {
+    "name": "cn/XblRamdump.elf",
+    "size_bytes": 938612
+  },
+  {
+    "name": "cn/xbl_config.elf",
+    "size_bytes": 345376
+  },
+  {
+    "name": "cn/xbl_s.melf",
+    "size_bytes": 1188180
+  },
+  {
+    "name": "cn/xbl_sc_test_mode.bin",
+    "size_bytes": 65536
+  },
+  {
+    "name": "cn/xbl_s_devprg_ns.melf",
+    "size_bytes": 1714124
+  },
+  {
+    "name": "eng rom/",
+    "size_bytes": 0
+  },
+  {
+    "name": "eng rom/abl.elf",
+    "size_bytes": 335672
+  },
+  {
+    "name": "eng rom/flash_all.bat",
+    "size_bytes": 6416
+  },
+  {
+    "name": "eng rom/flash_gen_crc_list.py",
+    "size_bytes": 8850
+  },
+  {
+    "name": "eng rom/flash_gen_md5_list.py",
+    "size_bytes": 1954
+  },
+  {
+    "name": "eng rom/misc.txt",
+    "size_bytes": 88
+  },
+  {
+    "name": "eng rom/uefi.elf",
+    "size_bytes": 2839004
+  },
+  {
+    "name": "eng rom/uefi_sec.mbn",
+    "size_bytes": 200792
+  },
+  {
+    "name": "eng rom/XblRamdump.elf",
+    "size_bytes": 938612
+  },
+  {
+    "name": "eng rom/xbl_config.elf",
+    "size_bytes": 345376
+  },
+  {
+    "name": "eng rom/xbl_s.melf",
+    "size_bytes": 1188180
+  },
+  {
+    "name": "eng rom/xbl_sc_test_mode.bin",
+    "size_bytes": 65536
+  },
+  {
+    "name": "eng rom/xbl_s_devprg_ns.melf",
+    "size_bytes": 1714124
+  },
+  {
+    "name": "8750_noauth_Xiaomi.zip",
+    "size_bytes": 710433
+  }
+]

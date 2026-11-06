@@ -1,0 +1,33 @@
+26: id=fake_bl_efisp
+50:   T_TIP_YES="如果选择是，将会布置 efisp 启动项到 persist 并刷入 BDS 到 efisp，然后重启recovery 进行格式化，格式化后请安装一次这个模块来完成安装，这时选否"
+52:   T_SEL_YES="选择了是，正在安装包含补丁的efisp"
+69:   T_SETRW_FAIL="efisp 分区设置可写失败"
+70:   T_FLASH_FAIL="efisp 分区刷写失败"
+71:   T_PERSIST_NOT_MOUNTED="persist 分区未挂载到 /mnt/vendor/persist"
+72:   T_EFISP_DIR_FAIL="创建 efisp 启动目录失败"
+73:   T_EFISP_WRITE_FAIL="写入 efisp 启动文件失败"
+74:   T_PLACE_BOOT="正在布置 efisp 启动项到 persist"
+75:   T_FLASH_BDS="正在刷入 BDS 到 efisp"
+89:   T_TIP_YES="If YES: efisp boot entries placed on persist and BDS flashed to efisp, reboot to recovery and format data, then reinstall this module and select NO"
+91:   T_SEL_YES="Selected YES, installing patched efisp"
+108:   T_SETRW_FAIL="Failed to set efisp to read-write"
+109:   T_FLASH_FAIL="Failed to flash efisp"
+110:   T_PERSIST_NOT_MOUNTED="persist is not mounted at /mnt/vendor/persist"
+111:   T_EFISP_DIR_FAIL="efisp boot dir create failed"
+112:   T_EFISP_WRITE_FAIL="efisp boot file write failed"
+113:   T_PLACE_BOOT="Placing efisp boot entries on persist"
+114:   T_FLASH_BDS="Flashing BDS to efisp"
+142: PERSIST_MNT=/mnt/vendor/persist
+143: EFISP_DIR=$PERSIST_MNT/efisp
+213:     $MODPATH/bin/patch_abl $RUNTIME_DIR/LinuxLoader.efi $RUNTIME_DIR/patched.efi >> $RUNTIME_DIR/patch.log 2>&1
+241:       # rebuild boot.efi from this image: some systems need the high-version
+242:       # LinuxLoader from the current partition to boot, so boot.efi (already
+261:       abort "persist not mounted"
+263:     mkdir -p "$EFISP_DIR" || { ui_print "$T_EFISP_DIR_FAIL"; abort "efisp mkdir failed"; }
+264:     [ -f "$EFISP_DIR/boot.efi" ] && mv "$EFISP_DIR/boot.efi" "$EFISP_DIR/boot_backup.efi"
+265:     if ! cp $RUNTIME_DIR/patched.efi "$EFISP_DIR/boot.efi"; then
+267:       abort "efisp write failed"
+269:     cp -r "$MODPATH/efisp/." "$EFISP_DIR/" || { ui_print "$T_EFISP_WRITE_FAIL"; abort "efisp write failed"; }
+273:     if ! blockdev --setrw $BY_NAME_DIR/efisp >> $RUNTIME_DIR/flash.log 2>&1; then
+277:     if ! dd if=$MODPATH/BDS.efi of=$BY_NAME_DIR/efisp bs=4M conv=fsync >> $RUNTIME_DIR/flash.log 2>&1; then
+294: # the device-side module dir (/data/adb/modules/fake_bl_efisp) stays lean after

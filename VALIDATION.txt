@@ -1,0 +1,27 @@
+Validation date: 2026-11-06 (Asia/Jakarta)
+Input: user-supplied gpt.zip
+Mode: static offline analysis; no hardware flashing or runtime testing
+
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/scratch/eb675df972a7/sm8750-superfastboot-research/src/analyze.py /workspace/scratch/eb675df972a7/upload/gpt.zip --out /workspace/scratch/eb675df972a7/sm8750-superfastboot-research/evidence
+{
+  "patch_reconstructed_exactly": true,
+  "changed_bytes": 9,
+  "cn_uefi_unique_pe": 104,
+  "eng_uefi_unique_pe": 104,
+  "same_qcombds": true,
+  "output": "/workspace/scratch/eb675df972a7/sm8750-superfastboot-research/evidence"
+}
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python /workspace/scratch/eb675df972a7/sm8750-superfastboot-research/src/recover_patch.py /workspace/scratch/eb675df972a7/upload/gpt.zip
+PASS: exact reconstruction; 9 changed bytes / 4 ranges
+SHA256: d7456c0e5d6d102cad963ea9c27f4b5fc3c999d6ebce5ade058efd52c352ef83
+Type: raw ARM64 EFI payload; not an ABL partition image
+PASS: recovered bytes equal supplied boot.efi, including all headers and padding
+PASS: rejected CN firmware
+PASS: rejected one-byte mutation of engineering firmware
+PASS: 104 unique PE images in each UEFI; QcomBds hashes match
+PASS: GBL marker comparison across the two target and three reference ABL images
+PASS: DT default LinuxLoader and disabled retail attention hotkey confirmed for both builds
+PASS: documented QcomBds call edges confirmed in both independent extractions
+PASS: all Python sources compile
+PASS: source package contains no raw firmware, EDL loader, or flashable image
+Not verified: hardware reachability of BootNext, execution of custom BDS, image authentication policy, or a working fake-lock state

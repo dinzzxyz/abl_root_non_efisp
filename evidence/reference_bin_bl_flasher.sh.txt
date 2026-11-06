@@ -1,0 +1,85 @@
+23:   TEXT_DEBUG_MODE="调试模式：仅处理不刷写，efisp 目录使用模块 tmp/efisp"
+28:   TEXT_PERSIST_NOT_MOUNTED="persist 分区未挂载到 /mnt/vendor/persist"
+29:   TEXT_EFISP_MKDIR_FAILED="创建 efisp 启动目录失败"
+30:   TEXT_EFISP_WRITE_FAILED="写入 efisp 启动文件失败"
+31:   TEXT_BACKUP_BOOT="已备份旧的 boot.efi"
+32:   TEXT_EFISP_FILES_OK="efisp 启动项已更新"
+33:   TEXT_EFISP_SET_RW_FAILED="efisp 分区设置可写失败"
+34:   TEXT_EFISP_FLASH_FAILED="efisp 刷写失败"
+35:   TEXT_EFISP_FLASH_OK="efisp 刷写完成"
+45:   TEXT_EFISP_WARN="efisp 刷写失败，继续刷入BL"
+49:   TEXT_ALL_OK="全部完成（含efisp）"
+50:   TEXT_ALL_OK_NO_EFISP="全部完成（不含efisp）"
+58:   TEXT_DEBUG_MODE="Debug Mode: process only, no flash; efisp dir uses module tmp/efisp"
+63:   TEXT_PERSIST_NOT_MOUNTED="persist is not mounted at /mnt/vendor/persist"
+64:   TEXT_EFISP_MKDIR_FAILED="efisp boot dir create failed"
+65:   TEXT_EFISP_WRITE_FAILED="efisp boot file write failed"
+66:   TEXT_BACKUP_BOOT="Backed up old boot.efi"
+67:   TEXT_EFISP_FILES_OK="efisp boot entries updated"
+68:   TEXT_EFISP_SET_RW_FAILED="efisp setrw failed"
+69:   TEXT_EFISP_FLASH_FAILED="efisp flash failed"
+70:   TEXT_EFISP_FLASH_OK="efisp flash ok"
+80:   TEXT_EFISP_WARN="efisp failed, continue BL"
+84:   TEXT_ALL_OK="All done (with efisp)"
+85:   TEXT_ALL_OK_NO_EFISP="All done (no efisp)"
+92: PERSIST_MNT="/mnt/vendor/persist"
+93: EFISP_DIR="$PERSIST_MNT/efisp"
+94: BDS_EFI="$MODDIR/BDS.efi"
+154: # The ext4 persist partition is auto-mounted by init at /mnt/vendor/persist
+155: # (read-write), and the superfastboot BDS reads its \efisp directory as the boot
+157: # /mnt/vendor/persist would land on the root filesystem and the BDS would never
+160: persist_mounted() { grep -q " $PERSIST_MNT " /proc/mounts; }
+162: # Lay out the \efisp boot root from the bundled module efisp/ tree: BOOTENTRIES
+164: # Each BOOTENTRIES line is "<name>:<path relative to the \efisp boot root>"; the
+166: # hidden until a previous boot.efi has been backed up. boot.efi / boot_backup.efi
+168: place_efisp_tree_to() {
+169:   cp -r "$MODDIR/efisp/." "$1/" >> "$LOG_FILE" 2>&1
+172: # Extract and crack the target-slot ABL, then lay out the \efisp boot root
+173: # (boot.efi = cracked ABL, boot_backup.efi = the previous one, BOOTENTRIES +
+174: # tools/ = bundled module efisp tree) and flash the BDS itself to the raw efisp
+178: # In debug mode the boot root is staged under $RUNTIME_DIR/efisp and nothing is
+182: # BDS off efisp, so no slot copy is needed), 0 when it is absent (fall back to
+184: update_efisp() {
+189:   $MODDIR/bin/patch_abl $RUNTIME_DIR/LinuxLoader.efi $RUNTIME_DIR/patched.efi >> $RUNTIME_DIR/patch.log 2>&1
+193:   # The optional GBL patch (efisp -> nulls rename) succeeds only when the ABL
+194:   # actually loads efisp; its warning is therefore the vuln indicator.
+203:     efisp_target=$RUNTIME_DIR/efisp
+205:     efisp_target=$EFISP_DIR
+206:     if ! persist_mounted; then
+212:   mkdir -p "$efisp_target" >> "$LOG_FILE" 2>&1 || { write_log "$TEXT_EFISP_MKDIR_FAILED"; return 1; }
+214:   # Keep the previous boot.efi around as a one-level backup. Skipped in debug,
+216:   if [ "$is_debug" != "yes" ] && [ -f "$efisp_target/boot.efi" ]; then
+217:     mv "$efisp_target/boot.efi" "$efisp_target/boot_backup.efi" >> "$LOG_FILE" 2>&1
+221:   if ! cp $RUNTIME_DIR/patched.efi "$efisp_target/boot.efi" >> "$LOG_FILE" 2>&1; then
+225:   place_efisp_tree_to "$efisp_target"
+233:   if ! blockdev --setrw "$BY_NAME_DIR/efisp" >> "$LOG_FILE" 2>&1; then
+237:   if ! dd if="$BDS_EFI" of="$BY_NAME_DIR/efisp" bs=4M conv=fsync >> "$LOG_FILE" 2>&1; then
+254:   $MODDIR/bin/patch_abl $RUNTIME_DIR/LinuxLoader.efi $RUNTIME_DIR/patched.efi >> $RUNTIME_DIR/patch.log 2>&1
+265: # True if the raw efisp partition begins with an MZ (PE/EFI) image header, i.e.
+267: efisp_has_mz() {
+268:   [ -b "$BY_NAME_DIR/efisp" ] || return 1
+269:   [ "$(dd if="$BY_NAME_DIR/efisp" bs=2 count=1 2>/dev/null)" = "MZ" ]
+273: # BDS off efisp). Returns false when the slot cannot be detected.
+281: # Flash BDS.efi raw to the efisp partition, then replace the \efisp boot root's
+282: # bundled tree (BOOTENTRIES + tools/) with the module efisp/ bundle. No ABL is
+283: # cracked and no slot copy happens; the runtime-generated boot.efi /
+286: # Refuses unless boot.efi is already present (the new boot root is laid out);
+288: # missing, an MZ image on the raw efisp partition plus a working GBL exploit
+294:   if ! persist_mounted; then
+299:   if [ ! -f "$EFISP_DIR/boot.efi" ]; then
+300:     if efisp_has_mz && gbl_exploit_present; then
+310:   # 1. Flash the BDS itself to the raw efisp partition.
+311:   if ! blockdev --setrw "$BY_NAME_DIR/efisp" >> "$LOG_FILE" 2>&1; then
+315:   if ! dd if="$BDS_EFI" of="$BY_NAME_DIR/efisp" bs=4M conv=fsync >> "$LOG_FILE" 2>&1; then
+323:   place_efisp_tree_to "$EFISP_DIR"
+358:     mode=update-efisp
+367:   # BDS + Tools only: flash BDS to the raw efisp partition and refresh the
+368:   # bundled efisp/ tree on the persist boot root. No ABL crack, no slot copy.
+392:     update_efisp "$abl" yes
+401:   efisp_fail=0
+402:   if [ "$mode" = "update-efisp" ]; then
+403:     update_efisp "$abl" no
+406:       efisp_fail=1
+427:   if [ $efisp_fail -eq 1 ]; then
+428:     write_state warning "BL done, efisp failed"
+429:   elif [ "$mode" = "update-efisp" ]; then

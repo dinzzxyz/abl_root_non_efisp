@@ -1,0 +1,886 @@
+[
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "Version",
+    "value_offset": "0x13f88",
+    "raw_hex": "0000000000000005",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x5"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "Type",
+    "value_offset": "0x13f9c",
+    "raw_hex": "00000001",
+    "strings": null,
+    "cells_be": [
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "FwName",
+    "value_offset": "0x13fac",
+    "raw_hex": "41424c00",
+    "strings": [
+      "ABL"
+    ],
+    "cells_be": [
+      "0x41424c00"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "PartiLabel",
+    "value_offset": "0x13fbc",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "PartiRootGuid",
+    "value_offset": "0x13fcc",
+    "raw_hex": "00000000000000000000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "PartiGuid",
+    "value_offset": "0x13fe8",
+    "raw_hex": "bd6928a14ce0a0384f3a1495e3eddffb",
+    "strings": null,
+    "cells_be": [
+      "0xbd6928a1",
+      "0x4ce0a038",
+      "0x4f3a1495",
+      "0xe3eddffb"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "ImagePath",
+    "value_offset": "0x14004",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "SubsysID",
+    "value_offset": "0x14014",
+    "raw_hex": "00000015",
+    "strings": null,
+    "cells_be": [
+      "0x15"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "ResvRegionStart",
+    "value_offset": "0x14024",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "ResvRegionSize",
+    "value_offset": "0x14038",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "ImageLoadInfo",
+    "value_offset": "0x1404c",
+    "raw_hex": "00000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "Unlock",
+    "value_offset": "0x1405c",
+    "raw_hex": "00000001",
+    "strings": null,
+    "cells_be": [
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "OverrideElfAddr",
+    "value_offset": "0x1406c",
+    "raw_hex": "00000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "ProxyGuid",
+    "value_offset": "0x1407c",
+    "raw_hex": "00000000000000000000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "BackupPartiLabel",
+    "value_offset": "0x14098",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "BackupPartiRootGuid",
+    "value_offset": "0x140a8",
+    "raw_hex": "00000000000000000000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "BackupPartiGuid",
+    "value_offset": "0x140c4",
+    "raw_hex": "00000000000000000000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "PreImage",
+    "value_offset": "0x140e0",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "PostImage",
+    "value_offset": "0x140f0",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "MediaType",
+    "value_offset": "0x14100",
+    "raw_hex": "00",
+    "strings": [
+      ""
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "IsFileCompressed",
+    "value_offset": "0x14110",
+    "raw_hex": "00000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/soc/pil/pil_images/ABL_CFG",
+    "key": "NonFatal",
+    "value_offset": "0x14120",
+    "raw_hex": "00000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi",
+    "key": "compatible",
+    "value_offset": "0x23ef8",
+    "raw_hex": "71636f6d2c7565666900",
+    "strings": [
+      "qcom,uefi"
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "MaxCount",
+    "value_offset": "0x23f20",
+    "raw_hex": "0000000000000028",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x28"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "StrMaxCount",
+    "value_offset": "0x23f34",
+    "raw_hex": "000000000000000a",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xa"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableShell",
+    "value_offset": "0x23f48",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "SecPagePoolCount",
+    "value_offset": "0x23f5c",
+    "raw_hex": "0000000000000800",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x800"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "SharedIMEMBaseAddr",
+    "value_offset": "0x23f70",
+    "raw_hex": "0000000014680000",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x14680000"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DloadCookieAddr",
+    "value_offset": "0x23f84",
+    "raw_hex": "0000000001fd9000",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1fd9000"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DloadCookieValue",
+    "value_offset": "0x23f98",
+    "raw_hex": "0000000000000010",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x10"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "SkipDBISetup",
+    "value_offset": "0x23fac",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "PilSubsysDbgCookieAddr",
+    "value_offset": "0x23fc0",
+    "raw_hex": "00000000146806dc",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x146806dc"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "PilSubsysDbgCookieVal",
+    "value_offset": "0x23fd4",
+    "raw_hex": "0000000053444247",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x53444247"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "NumCpus",
+    "value_offset": "0x23fe8",
+    "raw_hex": "0000000000000008",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x8"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "NumActiveCores",
+    "value_offset": "0x23ffc",
+    "raw_hex": "0000000000000008",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x8"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "MaxLogFileSize",
+    "value_offset": "0x24010",
+    "raw_hex": "0000000000400000",
+    "strings": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "@"
+    ],
+    "cells_be": [
+      "0x0",
+      "0x400000"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "UefiMemUseThreshold",
+    "value_offset": "0x24024",
+    "raw_hex": "00000000000000e1",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xe1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "USBHS1_Config",
+    "value_offset": "0x24038",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "UsbFnIoRevNum",
+    "value_offset": "0x2404c",
+    "raw_hex": "0000000000010001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x10001"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "PwrBtnShutdownFlag",
+    "value_offset": "0x24060",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "Sdc1GpioConfigOn",
+    "value_offset": "0x24074",
+    "raw_hex": "0000000000001e92",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1e92"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "Sdc2GpioConfigOn",
+    "value_offset": "0x24088",
+    "raw_hex": "0000000000001e92",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1e92"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "Sdc1GpioConfigOff",
+    "value_offset": "0x2409c",
+    "raw_hex": "0000000000000a00",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xa00"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "Sdc2GpioConfigOff",
+    "value_offset": "0x240b0",
+    "raw_hex": "0000000000000a00",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xa00"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableSDHCSwitch",
+    "value_offset": "0x240c4",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableUfsIOC",
+    "value_offset": "0x240d8",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "UfsSmmuConfigForOtherBootDev",
+    "value_offset": "0x240ec",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "SecurityFlag",
+    "value_offset": "0x24100",
+    "raw_hex": "00000000000000c4",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xc4"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableLogFsSyncInRetail",
+    "value_offset": "0x24114",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DetectRetailUserAttentionHotkey",
+    "value_offset": "0x24128",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DetectRetailUserAttentionHotkeyCode",
+    "value_offset": "0x2413c",
+    "raw_hex": "0000000000000017",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x17"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "ShmBridgememSize",
+    "value_offset": "0x24150",
+    "raw_hex": "0000000000a00000",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0xa00000"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "MaxCoreCount",
+    "value_offset": "0x24164",
+    "raw_hex": "0000000000000008",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x8"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableMultiThreading",
+    "value_offset": "0x24178",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EarlyInitCoreCnt",
+    "value_offset": "0x2418c",
+    "raw_hex": "0000000000000002",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x2"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "IsFunctionalCoreCountToOverrideFlag",
+    "value_offset": "0x241a0",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableUefiSecAppDebugLogDump",
+    "value_offset": "0x241b4",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "AllowNonPersistentVarsInRetail",
+    "value_offset": "0x241c8",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableDisplayThread",
+    "value_offset": "0x241dc",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableDisplayImageFv",
+    "value_offset": "0x241f0",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DDRInfoNotifyFlag",
+    "value_offset": "0x24204",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableMultiCoreFvDecompression",
+    "value_offset": "0x24218",
+    "raw_hex": "0000000000000001",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x1"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableVariablePolicyEngine",
+    "value_offset": "0x2422c",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "EnableACPIFallback",
+    "value_offset": "0x24240",
+    "raw_hex": "0000000000000000",
+    "strings": [
+      ""
+    ],
+    "cells_be": [
+      "0x0",
+      "0x0"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/int_param",
+    "key": "DRAM_CLK_PERIOD_ADDR",
+    "value_offset": "0x24254",
+    "raw_hex": "00000000240ba050",
+    "strings": null,
+    "cells_be": [
+      "0x0",
+      "0x240ba050"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/str_param",
+    "key": "PlatConfigFileName",
+    "value_offset": "0x2427c",
+    "raw_hex": "75656669706c61744c412e63666700",
+    "strings": [
+      "uefiplatLA.cfg"
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/str_param",
+    "key": "OsTypeString",
+    "value_offset": "0x24298",
+    "raw_hex": "4c4100",
+    "strings": [
+      "LA"
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/str_param",
+    "key": "SpecialLogPartition",
+    "value_offset": "0x242a8",
+    "raw_hex": "4c4f4746533a5c00",
+    "strings": [
+      "LOGFS:\\"
+    ],
+    "cells_be": [
+      "0x4c4f4746",
+      "0x533a5c00"
+    ]
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/str_param",
+    "key": "DefaultChargerApp",
+    "value_offset": "0x242bc",
+    "raw_hex": "51636f6d4368617267657241707000",
+    "strings": [
+      "QcomChargerApp"
+    ],
+    "cells_be": null
+  },
+  {
+    "dtb_offset": "0x8588",
+    "path": "/sw/uefi/str_param",
+    "key": "DefaultBDSBootApp",
+    "value_offset": "0x242d8",
+    "raw_hex": "4c696e75784c6f6164657200",
+    "strings": [
+      "LinuxLoader"
+    ],
+    "cells_be": [
+      "0x4c696e75",
+      "0x784c6f61",
+      "0x64657200"
+    ]
+  }
+]

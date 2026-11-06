@@ -1,0 +1,343 @@
+{
+  "archive_sha256": "d0c633efc4fe7cf3ed29a396dc4d444a9c93d18e825c53c26ca47f7feb37251b",
+  "inputs": {
+    "cn/abl.elf": {
+      "size_bytes": 335672,
+      "sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309",
+      "magic_hex": "7f454c46010101000000000000000000"
+    },
+    "cn/uefi.elf": {
+      "size_bytes": 2839004,
+      "sha256": "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a",
+      "magic_hex": "7f454c46020101000000000000000000"
+    },
+    "cn/xbl_config.elf": {
+      "size_bytes": 345376,
+      "sha256": "9aaa24e583aee396382d1df9939f46de259faa563961aa9ba775e2978683a8df",
+      "magic_hex": "7f454c46020101000000000000000000"
+    },
+    "eng rom/abl.elf": {
+      "size_bytes": 335672,
+      "sha256": "e0182863905a313c09d386c71d99dc23f469716ffa7ac58e9024ee106b37c70d",
+      "magic_hex": "7f454c46010101000000000000000000"
+    },
+    "eng rom/uefi.elf": {
+      "size_bytes": 2839004,
+      "sha256": "4158985fafb8f93c7a4d5f76e5c35b5f83fa758bf6ff40bbda1c7db4ae9b84c6",
+      "magic_hex": "7f454c46020101000000000000000000"
+    },
+    "eng rom/xbl_config.elf": {
+      "size_bytes": 345376,
+      "sha256": "402321d3209b79baaed975c16bd5ab008bdf9d309b33407b89232115be6aa1f6",
+      "magic_hex": "7f454c46020101000000000000000000"
+    }
+  },
+  "patch_recovery": {
+    "identical_to_supplied": true,
+    "original_sha256": "6270557b012660bd4d876a68368321d17a08efdb2e5a7d931a9f99346da736c7",
+    "result_sha256": "d7456c0e5d6d102cad963ea9c27f4b5fc3c999d6ebce5ade058efd52c352ef83",
+    "changed_bytes": 9,
+    "ranges": [
+      {
+        "file_offset": "0x3a72c",
+        "before": "62a7ff97",
+        "after": "20008052"
+      },
+      {
+        "file_offset": "0x3baac",
+        "before": "28008052",
+        "after": "08008052"
+      },
+      {
+        "file_offset": "0x3baec",
+        "before": "ea030139",
+        "after": "ff030139"
+      },
+      {
+        "file_offset": "0x46be8",
+        "before": "e90200b0298d2a91",
+        "after": "690200b029190e91"
+      }
+    ]
+  },
+  "cn": {
+    "abl": {
+      "sha256": "75e9d6122d708948c6a5f0b9774a061aa25ebb7a279fbe020ad8835400b065d2",
+      "size_bytes": 1179648,
+      "origin": "raw/lzma@0x1078",
+      "blob_offset": "0xb8",
+      "machine": "0xaa64",
+      "subsystem": 10,
+      "entry_rva": "0x1000",
+      "image_base": "0x0",
+      "markers": {
+        "efisp": {},
+        "Loading GBL app": {},
+        "Starting GBL app": {},
+        "LoadImageNoAuthWrapper": {},
+        "LinuxLoader": {
+          "ascii": [
+            "0x933e3",
+            "0x933ef",
+            "0x99964",
+            "0x99970",
+            "0x9d3a2",
+            "0x9e3d8",
+            "0x9e406",
+            "0xa0c7a",
+            "0xa1916",
+            "0x11e3e2",
+            "0x11e3ee",
+            "0x11e400"
+          ]
+        },
+        "BOOTENTRIES": {}
+      }
+    },
+    "unique_uefi_pe_images": 104,
+    "qcombds_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+    "qcombds_abl_fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+    "fdt_property_count": 6698
+  },
+  "eng": {
+    "abl": {
+      "sha256": "6270557b012660bd4d876a68368321d17a08efdb2e5a7d931a9f99346da736c7",
+      "size_bytes": 1183744,
+      "origin": "raw/lzma@0x1078",
+      "blob_offset": "0xb8",
+      "machine": "0xaa64",
+      "subsystem": 10,
+      "entry_rva": "0x1000",
+      "image_base": "0x0",
+      "markers": {
+        "efisp": {},
+        "Loading GBL app": {},
+        "Starting GBL app": {},
+        "LoadImageNoAuthWrapper": {
+          "ascii": [
+            "0x9503f"
+          ]
+        },
+        "LinuxLoader": {
+          "ascii": [
+            "0x9d647",
+            "0x9d653",
+            "0x9e05c",
+            "0x9f0ab",
+            "0x9f0b7",
+            "0x9f380",
+            "0x9f3ae",
+            "0xa1b1e",
+            "0xa2a32",
+            "0x11f3d0",
+            "0x11f3dc",
+            "0x11f3ee"
+          ]
+        },
+        "BOOTENTRIES": {}
+      }
+    },
+    "unique_uefi_pe_images": 104,
+    "qcombds_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+    "qcombds_abl_fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+    "fdt_property_count": 6698
+  },
+  "reference_abl": {
+    "myron": {
+      "sha256": "ca5522f48dadcb9a9952593df00ed7decfd5a8abc14ef182336b0758a85d1609",
+      "size_bytes": 1085440,
+      "origin": "raw/lzma@0x1078",
+      "blob_offset": "0xb8",
+      "machine": "0xaa64",
+      "subsystem": 10,
+      "entry_rva": "0x1a58",
+      "image_base": "0x0",
+      "markers": {
+        "efisp": {
+          "utf-16le": [
+            "0x7eb5a"
+          ]
+        },
+        "Loading GBL app": {
+          "ascii": [
+            "0x7bcc5"
+          ]
+        },
+        "Starting GBL app": {
+          "ascii": [
+            "0x6f5a5"
+          ]
+        },
+        "LoadImageNoAuthWrapper": {
+          "ascii": [
+            "0x70681"
+          ]
+        },
+        "LinuxLoader": {
+          "ascii": [
+            "0x660d4",
+            "0x6e668",
+            "0x6e674",
+            "0x79377",
+            "0x7a285",
+            "0x7a4b4",
+            "0x7c8b6",
+            "0x7d5ff",
+            "0x7e025",
+            "0x7e031",
+            "0x107d07",
+            "0x107d13",
+            "0x107d25"
+          ]
+        },
+        "BOOTENTRIES": {}
+      }
+    },
+    "myron_global": {
+      "sha256": "76f6ffd991b584ddead7a431ef4105109823192bce313a06537fc9d20093102b",
+      "size_bytes": 1085440,
+      "origin": "raw/lzma@0x1078",
+      "blob_offset": "0xb8",
+      "machine": "0xaa64",
+      "subsystem": 10,
+      "entry_rva": "0x1a58",
+      "image_base": "0x0",
+      "markers": {
+        "efisp": {
+          "utf-16le": [
+            "0x7ea9e"
+          ]
+        },
+        "Loading GBL app": {
+          "ascii": [
+            "0x7bc09"
+          ]
+        },
+        "Starting GBL app": {
+          "ascii": [
+            "0x6f528"
+          ]
+        },
+        "LoadImageNoAuthWrapper": {
+          "ascii": [
+            "0x70604"
+          ]
+        },
+        "LinuxLoader": {
+          "ascii": [
+            "0x6607d",
+            "0x6e5eb",
+            "0x6e5f7",
+            "0x792f3",
+            "0x7a1ec",
+            "0x7a41b",
+            "0x7c7fa",
+            "0x7d543",
+            "0x7df69",
+            "0x7df75",
+            "0x107d07",
+            "0x107d13",
+            "0x107d25"
+          ]
+        },
+        "BOOTENTRIES": {}
+      }
+    },
+    "nezha_global": {
+      "sha256": "2e2bb55973f57194721edd63ea0f49b8905b5a7dfcd0c2b4320639180e925054",
+      "size_bytes": 1085440,
+      "origin": "raw/lzma@0x1078",
+      "blob_offset": "0xb8",
+      "machine": "0xaa64",
+      "subsystem": 10,
+      "entry_rva": "0x1a58",
+      "image_base": "0x0",
+      "markers": {
+        "efisp": {
+          "utf-16le": [
+            "0x7eeca"
+          ]
+        },
+        "Loading GBL app": {
+          "ascii": [
+            "0x7bed5"
+          ]
+        },
+        "Starting GBL app": {
+          "ascii": [
+            "0x7017d"
+          ]
+        },
+        "LoadImageNoAuthWrapper": {
+          "ascii": [
+            "0x71341"
+          ]
+        },
+        "LinuxLoader": {
+          "ascii": [
+            "0x659fb",
+            "0x65a07",
+            "0x66898",
+            "0x69ddf",
+            "0x69deb",
+            "0x79687",
+            "0x7a488",
+            "0x7a6b7",
+            "0x7cbc2",
+            "0x7d82c",
+            "0x107d07",
+            "0x107d13",
+            "0x107d25"
+          ]
+        },
+        "BOOTENTRIES": {}
+      }
+    }
+  },
+  "reference_bds": {
+    "sha256": "785e04515904a829f0d74a80e3024f28490196817e76ae9452f9e8b2faf0e689",
+    "size_bytes": 409600,
+    "origin": "raw",
+    "blob_offset": "0x0",
+    "machine": "0xaa64",
+    "subsystem": 10,
+    "entry_rva": "0x1000",
+    "image_base": "0x0",
+    "markers": {
+      "efisp": {
+        "ascii": [
+          "0x2e333",
+          "0x323e0"
+        ],
+        "utf-16le": [
+          "0x32e94",
+          "0x32f2c",
+          "0x33068",
+          "0x33700",
+          "0x338e2"
+        ]
+      },
+      "Loading GBL app": {},
+      "Starting GBL app": {},
+      "LoadImageNoAuthWrapper": {},
+      "LinuxLoader": {
+        "ascii": [
+          "0x2ff62",
+          "0x2ff6e",
+          "0x31667",
+          "0x31b6c",
+          "0x323b9",
+          "0x32723",
+          "0x62479",
+          "0x62485",
+          "0x62497"
+        ]
+      },
+      "BOOTENTRIES": {
+        "utf-16le": [
+          "0x338f8"
+        ]
+      }
+    }
+  }
+}
