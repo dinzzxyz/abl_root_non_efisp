@@ -220,8 +220,8 @@ def disassembly(view, windows):
     for start, end in windows:
         lines.append(f"\n# PE file range {start:#x}..{end:#x} (end exclusive)")
         for row in view.rows(start, end - start):
-            lines.append(f'{row["file_offset"]} | {row["rva"]} | {row["bytes"]} | '
-                         f'{row["mnemonic"]} {row["operands"]}')
+            lines.append((f'{row["file_offset"]} | {row["rva"]} | {row["bytes"]} | '
+                          f'{row["mnemonic"]} {row["operands"]}').rstrip())
     return "\n".join(lines) + "\n"
 
 
