@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-07 Asia/Jakarta",
+  "kernel_reference": {
+    "repository": "MiCode/Xiaomi_Kernel_OpenSource",
+    "branch": "annibale-w-oss",
+    "commit": "f66f8c8bcbe38044fab61d44ea7f7c224f82b3ea",
+    "runtime_kernel_match_established": false,
+    "files": [
+      {
+        "path": "drivers/power/reset/qcom-reboot-reason.c",
+        "git_blob_sha": "e70341abc3fa2d814602704595c71ae4f65a2116",
+        "sha256": "83a68db725044650790e520aef0d139f86e620c4e2823e6e9833cc5d2ebec327",
+        "size": 4234,
+        "url": "https://github.com/MiCode/Xiaomi_Kernel_OpenSource/blob/f66f8c8bcbe38044fab61d44ea7f7c224f82b3ea/drivers/power/reset/qcom-reboot-reason.c"
+      },
+      {
+        "path": "drivers/power/reset/msm-poweroff.c",
+        "git_blob_sha": "b9a401bd280bd17f687bfad3756a6d30639d2c7f",
+        "sha256": "c4093a638714b31f2bb2784e5a5eee3d9c5ba785e740eb8fd7a676cd5f466f47",
+        "size": 1474,
+        "url": "https://github.com/MiCode/Xiaomi_Kernel_OpenSource/blob/f66f8c8bcbe38044fab61d44ea7f7c224f82b3ea/drivers/power/reset/msm-poweroff.c"
+      },
+      {
+        "path": "drivers/power/reset/qcom-pon.c",
+        "git_blob_sha": "1344b361a47514c92bddca85a1844003d6533d1e",
+        "sha256": "2f8297c387dc12aa9eba0d55968f72b69775e3aad8930f5cacacf71f387b26a6",
+        "size": 2777,
+        "url": "https://github.com/MiCode/Xiaomi_Kernel_OpenSource/blob/f66f8c8bcbe38044fab61d44ea7f7c224f82b3ea/drivers/power/reset/qcom-pon.c"
+      }
+    ]
+  },
+  "device_tree_reference": {
+    "repository": "MiCode/kernel_devicetree",
+    "branch": "annibale-w-oss",
+    "commit": "32fd4ddcedd46baa579643b3894c37c0fccccb91",
+    "note": "Branch identity only; not used to substitute for the live DT probe."
+  },
+  "reboot_reasons": {
+    "recovery": "0x01",
+    "bootloader": "0x02",
+    "rtc": "0x03",
+    "dm-verity device corrupted": "0x04",
+    "dm-verity enforcing": "0x05",
+    "keys clear": "0x06",
+    "panic": "0x21"
+  },
+  "unmatched_command_fallback_in_reference": "0x20",
+  "explicit_uefi_command_in_reference": false,
+  "dxe_reference": {
+    "repository": "REG-Linux/edk2-freeabl",
+    "commit": "4cd7fb389e22d7a3761308006fc6d79410be9ddf",
+    "files": [
+      {
+        "path": "MdePkg/Include/Pi/PiDxeCis.h",
+        "git_blob_sha": "e44744654f8fa21934f2a2556f4ae78ca3b8e7c7"
+      },
+      {
+        "path": "MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.c",
+        "git_blob_sha": "9acb1b79b391a5c5f5f50a27c83a80ac9206760f"
+      }
+    ],
+    "dxe_table_header_size": 24,
+    "gcd_service_pointer_count": 13,
+    "pointer_size": 8,
+    "dispatch_offset": "0x80",
+    "process_firmware_volume_offset": "0x98",
+    "specification": "https://uefi.org/specs/PI/1.9/V2_Services_DXE_Services.html#processfirmwarevolume"
+  },
+  "live_dt_probe": {
+    "collector": "tools/collect_reboot_dt.js",
+    "collector_sha256": "a9da89d5f692ff6cd3bac30aee8ff550b216307bd54c3bb7e21beb48d4de2c74",
+    "result": "reboot_dt.json",
+    "result_sha256": "c881d0f35993c23f30f88b9d8ed899f195398b3923f209d443234f02f57ce00f",
+    "hardware_writes_or_reboots": false
+  }
+}

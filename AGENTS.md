@@ -4,6 +4,8 @@ Read README.md, HANDOFF.md, LAPORAN.md, and RESEARCH_CONTINUED.md before making
 technical conclusions. Preserve original evidence and hash/version boundaries.
 For the newer CN candidate and OEM diagnostics, also read BOOTSTATE_FINDINGS.md.
 For the live Tools FV/FAT12/stock-log capture, read LIVE_BOOT_FINDINGS.md.
+For indirect platform callbacks and native Ebl file/RAM routes, also read
+ENTRY_FINDINGS.md. Early hotkey checking is not the later setup-app launch.
 
 This repository contains static analysis, exact reconstruction of a supplied
 EFI payload, and read-only stock boot-log observations. It does not contain a

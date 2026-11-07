@@ -76,6 +76,19 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
     VB2 orange, OS Loader dan penghentian Boot Services. Ini bukan uji port.
 23. Menemukan tujuh kelompok XBL marker 463–469 tanpa match pola kegagalan
     PIL/ELF yang dicari; penyebab brick lama masih belum terbukti.
+24. Menelusuri protokol platform yang dipasang QcomBds sendiri. Callback
+    +0x28 menuju 0x59DC dipanggil pada 0x1DC0 sebelum default apps. Callback
+    mencatat perhatian/hotkey, tetapi belum ditemukan launch Ebl di dalamnya.
+25. Memetakan tabel command Ebl utama: start → LoadImage/StartImage, loadfv
+    → DXE ProcessFirmwareVolume dari buffer, mountfv → pemrosesan FV bersarang
+    dan reconnect/Dispatch. Alamat hanya berlaku pada hash Ebl utama CN.
+26. Membaca 5.615 direktori DT langsung tanpa error atau pemotongan; tidak ada
+    properti mode-*. Source publik annibale-w-oss yang dipin tidak memiliki
+    alasan reboot uefi pada tabel qcom-reboot-reason. Belum dicocokkan dengan
+    binary kernel KSU; tidak menjalankan reboot untuk mencoba tebakan.
+27. Menambahkan analyzer entry yang menolak hash berbeda, pelacak ADRP lokal
+    yang mendukung instruksi terseling, pengujian negatif, byte/disassembly,
+    referensi source primer dan ENTRY_FINDINGS.md. Verifikasi penuh berhasil.
 
 ## Status yang belum boleh dianggap selesai
 
@@ -125,6 +138,14 @@ Lanjutkan caller Ebl, pemasangan Tools FV, gate retail/menu dan autentikasi
 aplikasi sebelum LinuxLoader. Jangan menganggap Shell yang tersedia sudah
 dapat dijalankan, atau logfs FAT12 sebagai ESP. NV volatile perlu diperhitungkan
 dalam usulan BootNext/BootOrder; itu tidak membuktikan semua storage TEE volatile.
+Baca ENTRY_FINDINGS.md dan evidence/entry_2026_11_07 untuk checkpoint terbaru.
+Jalur file/RAM Ebl sudah terpetakan, jadi prioritas adalah entry awal native
+pada PROD/Retail dan status autentikasi, bukan membuat partisi baru. Ide uji
+pertama setelah entry tersedia adalah aplikasi EFI diagnostik yang kembali ke
+pemanggilnya, sebelum port BDS penuh. Ebl FFS type 9 bukan driver otomatis.
+Early callback hotkey pada 0x1DC0 lebih dulu daripada LinuxLoader, sedangkan
+SetupApp handler 0x56E4 tetap sesudah default apps kembali. Jangan menyatukan
+dua tahap itu. mountfv dan loadfv juga memakai jalur pemasangan FV berbeda.
 Jangan menyamakan handler log OEM dengan perintah yang bebas efek tulis:
 uefilog mempunyai cabang save. Belum ada resep transfer log USB yang diuji.
 Tidak ada tes tambahan yang diminta kepada pengguna pada akhir checkpoint ini.

@@ -56,6 +56,7 @@ analisis. Tidak perlu membangun atau menjalankan firmware untuk langkah ini.
 .venv/bin/python src/recover_patch.py /path/to/gpt.zip
 .venv/bin/python src/map_bootstate.py /path/to/gpt.zip --out generated/bootstate
 .venv/bin/python src/trace_diagnostics.py /path/to/gpt.zip --out generated/bootstate
+.venv/bin/python src/trace_ebl_entry.py /path/to/gpt.zip --out generated/entry
 .venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --log generated/verification.txt
 ```
 
@@ -63,6 +64,11 @@ Verifikasi membandingkan seluruh byte hasil patch, menolak basis salah,
 memeriksa GUID volume, digest SHA-384, call edges, dan deklarasi protokol.
 Semua berlangsung offline terhadap berkas. Lulus verifikasi bukan hasil uji HP.
 BOOTSTATE_FINDINGS.md menjelaskan hasil pemetaan struktural dan batasnya.
+ENTRY_FINDINGS.md menjelaskan callback indirect QcomBds dan jalur file/RAM Ebl.
+Analyzer entry memakai CN UEFI dari ZIP asli, tanpa membutuhkan HP atau source
+kernel online. Tautan/hash source pembanding ada di bukti entry. Menjalankan
+ulang probe DT bersifat opsional: tools/collect_reboot_dt.js hanya membaca tree
+Android dan mencetak JSON; hasil lama sudah tersimpan tanpa identifier perangkat.
 Dua alat baru hanya mengeluarkan JSON/disassembly; kandidat CN dihitung dalam
 memori dan tidak dibuat menjadi file firmware. Source pembanding DeviceInfo
 dipin dalam summary bukti; tidak dibutuhkan koneksi online untuk mengulang

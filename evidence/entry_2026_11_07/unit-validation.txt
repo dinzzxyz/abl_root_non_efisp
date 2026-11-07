@@ -1,0 +1,23 @@
+test_empty_entries_extended_records_and_count_bound (test_boot_metadata_collector.GptCollectorTests.test_empty_entries_extended_records_and_count_bound) ... ok
+test_type_endianness_sector_sizes_and_unique_guid_omission (test_boot_metadata_collector.GptCollectorTests.test_type_endianness_sector_sizes_and_unique_guid_omission) ... ok
+test_adrl_encoding_across_page_boundary (test_bootstate_analysis.BootstateStructuralTests.test_adrl_encoding_across_page_boundary) ... ok
+test_branch_targets_and_distinct_address_spaces (test_bootstate_analysis.BootstateStructuralTests.test_branch_targets_and_distinct_address_spaces) ... ok
+test_sink_rejects_register_clobber_and_intervening_branch (test_bootstate_analysis.BootstateStructuralTests.test_sink_rejects_register_clobber_and_intervening_branch) ... ok
+test_unknown_hash_fails_before_pe_parsing (test_bootstate_analysis.BootstateStructuralTests.test_unknown_hash_fails_before_pe_parsing) ... ok
+test_branch_join_does_not_inherit_only_fallthrough_value (test_ebl_entry.EblEntryTests.test_branch_join_does_not_inherit_only_fallthrough_value) ... ok
+test_clobbers_calls_and_invalid_words_stop_xrefs (test_ebl_entry.EblEntryTests.test_clobbers_calls_and_invalid_words_stop_xrefs) ... ok
+test_interleaved_adrps_and_nonidentity_rvas (test_ebl_entry.EblEntryTests.test_interleaved_adrps_and_nonidentity_rvas) ... ok
+test_table_thunk_uses_rva_mapping_and_rejects_loop (test_ebl_entry.EblEntryTests.test_table_thunk_uses_rva_mapping_and_rejects_loop) ... ok
+test_unknown_images_fail_before_pe_parsing (test_ebl_entry.EblEntryTests.test_unknown_images_fail_before_pe_parsing) ... ok
+test_cycle_is_rejected (test_live_boot.LiveBootTests.test_cycle_is_rejected) ... ok
+test_inconsistent_fats_and_truncated_volume_rejected (test_live_boot.LiveBootTests.test_inconsistent_fats_and_truncated_volume_rejected) ... ok
+test_log_allowlist_rejects_sensitive_suffix_and_unrelated_lines (test_live_boot.LiveBootTests.test_log_allowlist_rejects_sensitive_suffix_and_unrelated_lines) ... ok
+test_noncontiguous_chain_and_large_sectors (test_live_boot.LiveBootTests.test_noncontiguous_chain_and_large_sectors) ... ok
+test_does_not_trust_reported_esp_flag_or_inconsistent_size (test_metadata_analysis.MetadataAnalysisTests.test_does_not_trust_reported_esp_flag_or_inconsistent_size) ... ok
+test_prefix_hash_match_also_requires_exact_reference_length (test_metadata_analysis.MetadataAnalysisTests.test_prefix_hash_match_also_requires_exact_reference_length) ... ok
+test_tabs_and_literal_escaped_tabs_produce_same_result (test_metadata_analysis.MetadataAnalysisTests.test_tabs_and_literal_escaped_tabs_produce_same_result) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.010s
+
+OK

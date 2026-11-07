@@ -18,6 +18,8 @@ Pemetaan kandidat Boot State CN dan handler diagnostik OEM ada di
 [BOOTSTATE_FINDINGS.md](BOOTSTATE_FINDINGS.md).
 Log UEFI yang diambil langsung serta isi Tools FV/FAT12 ada di
 [LIVE_BOOT_FINDINGS.md](LIVE_BOOT_FINDINGS.md).
+Peta callback awal QcomBds dan jalur file/RAM Ebl native ada di
+[ENTRY_FINDINGS.md](ENTRY_FINDINGS.md).
 
 ## Hasil utama
 
@@ -42,6 +44,10 @@ Log UEFI yang diambil langsung serta isi Tools FV/FAT12 ada di
 7. Pembacaan perangkat menemukan lima log UEFI pada volume FAT12 di `logfs`,
    19 aplikasi native pada `toolsfv` termasuk Shell/Ebl/Menu, dan rekaman
    boot stock yang menunjukkan NV volatile. Entry kustom belum teruji.
+8. Ebl utama mempunyai `start` (LoadImage/StartImage), `loadfv`
+   (ProcessFirmwareVolume dari buffer) dan `mountfv` (FV bersarang).
+   Callback hotkey QcomBds memang berjalan sebelum default apps, tetapi
+   entry Ebl sebelum LinuxLoader dan penerimaan image kustom belum terbukti.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -59,6 +65,8 @@ dan tahap pengembangan berikutnya.
 | `src/map_bootstate.py` | Anchor struktural CN/engineering, byte kandidat dan kalibrasi |
 | `src/trace_diagnostics.py` | Tabel OEM CN dan cabang argumen handler log |
 | `src/analyze_live_boot.py` | FAT12 bounded, cuplikan log terpilih dan inventaris Tools FV |
+| `src/trace_ebl_entry.py` | Callback protokol QcomBds dan jalur file/RAM Ebl native |
+| `tools/collect_reboot_dt.js` | Inventaris DT reboot/mode terbatas, hanya membaca |
 | `tools/collect_live_boot.js` | Probe root dan capture block terbatas, hanya membaca |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
 | `tools/collect_boot_metadata.sh` | Hash firmware terpasang, ukuran dan GPT type GUID |

@@ -101,3 +101,26 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
   pengujian korupsi filesystem dan batas privasi, serta panduan pemulihan.
 - Jalur yang layak diteruskan adalah caller Ebl/Shell sebelum LinuxLoader;
   belum ada entry kustom atau image modifikasi yang diuji pada perangkat.
+
+## 2026-11-07 — callback awal dan jembatan file/RAM Ebl native
+
+- Menemukan provider protokol platform di QcomBds sendiri dan mengurai tujuh
+  callback. Callback hotkey +0x28 dipanggil sebelum default apps; SetupApp
+  launch tetap sesudahnya. Ini memperjelas batas analisis direct call terdahulu.
+- Mengikuti callback awal: BDSHotKeyState, input key, OsIndications, counter
+  perhatian dan pembacaan OEMSetupApp. Pemanggilan SerialPort Lib tidak
+  disalahartikan sebagai launcher Ebl. Entry Ebl sebelum LinuxLoader belum ada.
+- Membuktikan hubungan tabel command Ebl utama dengan handler start, loadfv,
+  mountfv. Memetakan LoadImage/StartImage, DXE ProcessFirmwareVolume +0x98,
+  installer FVB untuk FV bersarang dan Dispatch +0x80, beserta constructor
+  DXE Services GUID dan byte instruksinya.
+- Memeriksa DT live secara hanya baca: 5.615 direktori, tanpa error/batas,
+  tanpa properti mode-*. Memeriksa tabel reboot-reason source publik MiCode
+  yang dipin; tidak ada entry uefi. Tidak menyamakan source dengan kernel KSU
+  yang belum dicocokkan, serta tidak menjalankan reboot percobaan.
+- Menambahkan analyzer offline, lima pengujian negatif dan collector DT.
+  Seluruh 18 pengujian unit dan pipeline firmware/live lulus. Metadata source,
+  disassembly, hash, cara reproduksi dan batas runtime disimpan ke Git.
+- Hipotesis lanjutan: entry Ebl native → probe EFI file/RAM → port BDS;
+  entry, autentikasi, visibilitas filesystem dan pengganti SuperFbStore masih
+  harus dibuktikan. Tidak ada flash atau eksekusi image kustom pada HP.

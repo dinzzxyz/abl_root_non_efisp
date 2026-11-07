@@ -1,0 +1,498 @@
+{
+  "sha256": "306bed8aaca6c2a31b6bee8360d1e9c727440ed50664bf3e107420ec103c5761",
+  "ffs_type": 9,
+  "pe_subsystem": 10,
+  "address_space": "PE file offsets and RVAs, not UEFI ELF offsets",
+  "registrations": [
+    {
+      "file_offset": "0x14040",
+      "rva": "0x14040",
+      "bytes": "f03e010000000000f73e01000000000000000000000000003435000000000000",
+      "name": "loadfv",
+      "help": " devname; Load PI FV from device",
+      "handler_rva": "0x3534"
+    },
+    {
+      "file_offset": "0x14060",
+      "rva": "0x14060",
+      "bytes": "5c34010000000000183f01000000000000000000000000007433000000000000",
+      "name": "start",
+      "help": " path; EFI Boot Device:filepath. fs1:\\EFI\\BOOT.EFI",
+      "handler_rva": "0x3374"
+    },
+    {
+      "file_offset": "0x176d8",
+      "rva": "0x176d8",
+      "bytes": "0e730100000000002673010000000000000000000000000094dc000000000000",
+      "name": "mountfv partitionlabel;",
+      "help": " Mounts a FV from partition",
+      "handler_rva": "0xdc94"
+    }
+  ],
+  "dxe_services_guid": "05ad34ba-6f02-4214-952e-4da0398e2bb9",
+  "guid_rva": "0x19028",
+  "dxe_services_constructors": [
+    {
+      "file_offset": "0x4120",
+      "rva": "0x4120",
+      "bytes": "a00000b0",
+      "mnemonic": "adrp",
+      "operands": "x0, #0x19000"
+    },
+    {
+      "file_offset": "0x4124",
+      "rva": "0x4124",
+      "bytes": "a10000d0",
+      "mnemonic": "adrp",
+      "operands": "x1, #0x1a000"
+    },
+    {
+      "file_offset": "0x4128",
+      "rva": "0x4128",
+      "bytes": "00a00091",
+      "mnemonic": "add",
+      "operands": "x0, x0, #0x28"
+    },
+    {
+      "file_offset": "0x412c",
+      "rva": "0x412c",
+      "bytes": "21c03891",
+      "mnemonic": "add",
+      "operands": "x1, x1, #0xe30"
+    },
+    {
+      "file_offset": "0x4130",
+      "rva": "0x4130",
+      "bytes": "64110094",
+      "mnemonic": "bl",
+      "operands": "#0x86c0"
+    },
+    {
+      "file_offset": "0x87a8",
+      "rva": "0x87a8",
+      "bytes": "800000b0",
+      "mnemonic": "adrp",
+      "operands": "x0, #0x19000"
+    },
+    {
+      "file_offset": "0x87ac",
+      "rva": "0x87ac",
+      "bytes": "810000d0",
+      "mnemonic": "adrp",
+      "operands": "x1, #0x1a000"
+    },
+    {
+      "file_offset": "0x87b0",
+      "rva": "0x87b0",
+      "bytes": "00a00091",
+      "mnemonic": "add",
+      "operands": "x0, x0, #0x28"
+    },
+    {
+      "file_offset": "0x87b4",
+      "rva": "0x87b4",
+      "bytes": "21a03991",
+      "mnemonic": "add",
+      "operands": "x1, x1, #0xe68"
+    },
+    {
+      "file_offset": "0x87b8",
+      "rva": "0x87b8",
+      "bytes": "c2ffff97",
+      "mnemonic": "bl",
+      "operands": "#0x86c0"
+    }
+  ],
+  "loadfv_file_read": {
+    "file_offset": "0x35a4",
+    "rva": "0x35a4",
+    "bytes": "49270094",
+    "mnemonic": "bl",
+    "operands": "#0xd2c8"
+  },
+  "loadfv_ram_calls": [
+    {
+      "file_offset": "0x3578",
+      "rva": "0x3578",
+      "bytes": "a80000f0",
+      "mnemonic": "adrp",
+      "operands": "x8, #0x1a000"
+    },
+    {
+      "file_offset": "0x357c",
+      "rva": "0x357c",
+      "bytes": "e2230091",
+      "mnemonic": "add",
+      "operands": "x2, sp, #8"
+    },
+    {
+      "file_offset": "0x3580",
+      "rva": "0x3580",
+      "bytes": "810245a9",
+      "mnemonic": "ldp",
+      "operands": "x1, x0, [x20, #0x50]"
+    },
+    {
+      "file_offset": "0x3584",
+      "rva": "0x3584",
+      "bytes": "081947f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0xe30]"
+    },
+    {
+      "file_offset": "0x3588",
+      "rva": "0x3588",
+      "bytes": "084d40f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0x98]"
+    },
+    {
+      "file_offset": "0x358c",
+      "rva": "0x358c",
+      "bytes": "00013fd6",
+      "mnemonic": "blr",
+      "operands": "x8"
+    },
+    {
+      "file_offset": "0x35b8",
+      "rva": "0x35b8",
+      "bytes": "a80000f0",
+      "mnemonic": "adrp",
+      "operands": "x8, #0x1a000"
+    },
+    {
+      "file_offset": "0x35bc",
+      "rva": "0x35bc",
+      "bytes": "a0835ff8",
+      "mnemonic": "ldur",
+      "operands": "x0, [x29, #-8]"
+    },
+    {
+      "file_offset": "0x35c0",
+      "rva": "0x35c0",
+      "bytes": "e10b40f9",
+      "mnemonic": "ldr",
+      "operands": "x1, [sp, #0x10]"
+    },
+    {
+      "file_offset": "0x35c4",
+      "rva": "0x35c4",
+      "bytes": "e2230091",
+      "mnemonic": "add",
+      "operands": "x2, sp, #8"
+    },
+    {
+      "file_offset": "0x35c8",
+      "rva": "0x35c8",
+      "bytes": "081947f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0xe30]"
+    },
+    {
+      "file_offset": "0x35cc",
+      "rva": "0x35cc",
+      "bytes": "084d40f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0x98]"
+    },
+    {
+      "file_offset": "0x35d0",
+      "rva": "0x35d0",
+      "bytes": "00013fd6",
+      "mnemonic": "blr",
+      "operands": "x8"
+    }
+  ],
+  "process_firmware_volume_field": "0x98",
+  "dxe_dispatch_field": "0x80",
+  "mountfv_file_calls": [
+    {
+      "file_offset": "0xdd74",
+      "rva": "0xdd74",
+      "bytes": "55fdff97",
+      "mnemonic": "bl",
+      "operands": "#0xd2c8"
+    },
+    {
+      "file_offset": "0xdd84",
+      "rva": "0xdd84",
+      "bytes": "b6140094",
+      "mnemonic": "bl",
+      "operands": "#0x1305c"
+    },
+    {
+      "file_offset": "0x130f4",
+      "rva": "0x130f4",
+      "bytes": "cfe1ff97",
+      "mnemonic": "bl",
+      "operands": "#0xb830"
+    },
+    {
+      "file_offset": "0xb8c4",
+      "rva": "0xb8c4",
+      "bytes": "2affff97",
+      "mnemonic": "bl",
+      "operands": "#0xb56c"
+    },
+    {
+      "file_offset": "0xde18",
+      "rva": "0xde18",
+      "bytes": "c3140094",
+      "mnemonic": "bl",
+      "operands": "#0x13124"
+    },
+    {
+      "file_offset": "0xde20",
+      "rva": "0xde20",
+      "bytes": "110c0094",
+      "mnemonic": "bl",
+      "operands": "#0x10e64"
+    }
+  ],
+  "mountfv_help": [
+    {
+      "rva": "0x15f9f",
+      "text": "Error: MountFv requires Fv partition name or Guid.\n"
+    },
+    {
+      "rva": "0x15fd3",
+      "text": "eg: MountFv toolsfv.\n"
+    },
+    {
+      "rva": "0x15fe9",
+      "text": "eg: MountFv -g 11111111-1111-1111-1111-111111111111.\r\n"
+    },
+    {
+      "rva": "0x16020",
+      "text": "eg: MountFv -f <fsx:\filename.fv> \r\n"
+    }
+  ],
+  "nested_fv_install": [
+    {
+      "file_offset": "0xb7d4",
+      "rva": "0xb7d4",
+      "bytes": "e83247f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x23, #0xe60]"
+    },
+    {
+      "file_offset": "0xb7d8",
+      "rva": "0xb7d8",
+      "bytes": "82620091",
+      "mnemonic": "add",
+      "operands": "x2, x20, #0x18"
+    },
+    {
+      "file_offset": "0xb7dc",
+      "rva": "0xb7dc",
+      "bytes": "80220091",
+      "mnemonic": "add",
+      "operands": "x0, x20, #8"
+    },
+    {
+      "file_offset": "0xb7e0",
+      "rva": "0xb7e0",
+      "bytes": "840a40f9",
+      "mnemonic": "ldr",
+      "operands": "x4, [x20, #0x10]"
+    },
+    {
+      "file_offset": "0xb7e4",
+      "rva": "0xb7e4",
+      "bytes": "f44f43a9",
+      "mnemonic": "ldp",
+      "operands": "x20, x19, [sp, #0x30]"
+    },
+    {
+      "file_offset": "0xb7e8",
+      "rva": "0xb7e8",
+      "bytes": "610000d0",
+      "mnemonic": "adrp",
+      "operands": "x1, #0x19000"
+    },
+    {
+      "file_offset": "0xb7ec",
+      "rva": "0xb7ec",
+      "bytes": "630000d0",
+      "mnemonic": "adrp",
+      "operands": "x3, #0x19000"
+    },
+    {
+      "file_offset": "0xb7f0",
+      "rva": "0xb7f0",
+      "bytes": "06a540f9",
+      "mnemonic": "ldr",
+      "operands": "x6, [x8, #0x148]"
+    },
+    {
+      "file_offset": "0xb7f4",
+      "rva": "0xb7f4",
+      "bytes": "21a00491",
+      "mnemonic": "add",
+      "operands": "x1, x1, #0x128"
+    },
+    {
+      "file_offset": "0xb7f8",
+      "rva": "0xb7f8",
+      "bytes": "f65742a9",
+      "mnemonic": "ldp",
+      "operands": "x22, x21, [sp, #0x20]"
+    },
+    {
+      "file_offset": "0xb7fc",
+      "rva": "0xb7fc",
+      "bytes": "63a00791",
+      "mnemonic": "add",
+      "operands": "x3, x3, #0x1e8"
+    },
+    {
+      "file_offset": "0xb800",
+      "rva": "0xb800",
+      "bytes": "e5031faa",
+      "mnemonic": "mov",
+      "operands": "x5, xzr"
+    },
+    {
+      "file_offset": "0xb804",
+      "rva": "0xb804",
+      "bytes": "f85f41a9",
+      "mnemonic": "ldp",
+      "operands": "x24, x23, [sp, #0x10]"
+    },
+    {
+      "file_offset": "0xb808",
+      "rva": "0xb808",
+      "bytes": "fd7bc4a8",
+      "mnemonic": "ldp",
+      "operands": "x29, x30, [sp], #0x40"
+    },
+    {
+      "file_offset": "0xb80c",
+      "rva": "0xb80c",
+      "bytes": "c0001fd6",
+      "mnemonic": "br",
+      "operands": "x6"
+    }
+  ],
+  "nested_fv_protocol_guid": "8f644fa9-e850-4db1-9ce2-0b44698e8da4",
+  "start_load_image": [
+    {
+      "file_offset": "0x3410",
+      "rva": "0x3410",
+      "bytes": "083347f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x24, #0xe60]"
+    },
+    {
+      "file_offset": "0x3414",
+      "rva": "0x3414",
+      "bytes": "a90000f0",
+      "mnemonic": "adrp",
+      "operands": "x9, #0x1a000"
+    },
+    {
+      "file_offset": "0x3418",
+      "rva": "0x3418",
+      "bytes": "e48f40a9",
+      "mnemonic": "ldp",
+      "operands": "x4, x3, [sp, #8]"
+    },
+    {
+      "file_offset": "0x341c",
+      "rva": "0x341c",
+      "bytes": "a52300d1",
+      "mnemonic": "sub",
+      "operands": "x5, x29, #8"
+    },
+    {
+      "file_offset": "0x3420",
+      "rva": "0x3420",
+      "bytes": "e0031f2a",
+      "mnemonic": "mov",
+      "operands": "w0, wzr"
+    },
+    {
+      "file_offset": "0x3424",
+      "rva": "0x3424",
+      "bytes": "212947f9",
+      "mnemonic": "ldr",
+      "operands": "x1, [x9, #0xe50]"
+    },
+    {
+      "file_offset": "0x3428",
+      "rva": "0x3428",
+      "bytes": "e2031faa",
+      "mnemonic": "mov",
+      "operands": "x2, xzr"
+    },
+    {
+      "file_offset": "0x342c",
+      "rva": "0x342c",
+      "bytes": "086540f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0xc8]"
+    },
+    {
+      "file_offset": "0x3430",
+      "rva": "0x3430",
+      "bytes": "00013fd6",
+      "mnemonic": "blr",
+      "operands": "x8"
+    }
+  ],
+  "start_image": [
+    {
+      "file_offset": "0x34d8",
+      "rva": "0x34d8",
+      "bytes": "083347f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x24, #0xe60]"
+    },
+    {
+      "file_offset": "0x34dc",
+      "rva": "0x34dc",
+      "bytes": "a14300d1",
+      "mnemonic": "sub",
+      "operands": "x1, x29, #0x10"
+    },
+    {
+      "file_offset": "0x34e0",
+      "rva": "0x34e0",
+      "bytes": "a0835ff8",
+      "mnemonic": "ldur",
+      "operands": "x0, [x29, #-8]"
+    },
+    {
+      "file_offset": "0x34e4",
+      "rva": "0x34e4",
+      "bytes": "e2630091",
+      "mnemonic": "add",
+      "operands": "x2, sp, #0x18"
+    },
+    {
+      "file_offset": "0x34e8",
+      "rva": "0x34e8",
+      "bytes": "086940f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0xd0]"
+    },
+    {
+      "file_offset": "0x34ec",
+      "rva": "0x34ec",
+      "bytes": "00013fd6",
+      "mnemonic": "blr",
+      "operands": "x8"
+    }
+  ],
+  "findings": [
+    "loadfv reads a file or device buffer and calls DXE Services ProcessFirmwareVolume.",
+    "mountfv -f reads a file and recursively processes nested FVs with a local FVB installer.",
+    "mountfv also accepts partition labels and -g GUID selection; paths differ from loadfv.",
+    "mountfv's common tail reconnects controllers and calls DXE Dispatch.",
+    "start uses Boot Services LoadImage and StartImage; authentication acceptance is untested.",
+    "FV mounting, driver dispatch, and starting a type-9 application are separate operations.",
+    "Ebl is a type-9 application, so its presence alone is not a preboot entry mechanism."
+  ],
+  "custom_efi_entry_tested": false,
+  "hardware_writes_or_reboots": false
+}

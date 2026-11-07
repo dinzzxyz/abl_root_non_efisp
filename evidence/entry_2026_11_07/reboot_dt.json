@@ -1,0 +1,48 @@
+{
+  "kind": "read-only reboot-mode device-tree inventory",
+  "visited": 5615,
+  "limit_reached": false,
+  "depth_pruned": 0,
+  "read_errors": 0,
+  "nodes": [
+    {
+      "path": "/soc/reboot_reason",
+      "properties": {
+        "compatible": {
+          "size": 19,
+          "hex": "71636f6d2c7265626f6f742d726561736f6e00",
+          "text": "qcom,reboot-reason,"
+        }
+      },
+      "children": []
+    },
+    {
+      "path": "/soc/qcom,msm-imem@14680000/restart_reason@65c",
+      "properties": {
+        "compatible": {
+          "size": 29,
+          "hex": "71636f6d2c6d736d2d696d656d2d726573746172745f726561736f6e00",
+          "text": "qcom,msm-imem-restart_reason,"
+        }
+      },
+      "children": []
+    },
+    {
+      "path": "/soc/qcom,spmi@c42d000/qcom,pmk8550@0/sdam@7100/fmd-chg-pon@9f",
+      "properties": {},
+      "children": []
+    },
+    {
+      "path": "/soc/qcom,spmi@c42d000/qcom,pmk8550@0/sdam@7100/fmd-cont-after-pon@9c",
+      "properties": {},
+      "children": []
+    },
+    {
+      "path": "/soc/qcom,spmi@c42d000/qcom,pmk8550@0/sdam@7100/restart@48",
+      "properties": {},
+      "children": []
+    }
+  ],
+  "mode_properties": [],
+  "hardware_writes_or_reboots": false
+}

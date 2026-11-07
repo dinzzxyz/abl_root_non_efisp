@@ -37,6 +37,7 @@ def main():
                                 "--out", str(generated / "continued")]),
             ("map_bootstate.py", ["--out", str(generated / "bootstate")]),
             ("trace_diagnostics.py", ["--out", str(generated / "bootstate")]),
+            ("trace_ebl_entry.py", ["--out", str(generated / "entry")]),
         ]:
             run = subprocess.run([sys.executable, str(project / "src" / script),
                                   str(args.archive), *options],
@@ -101,6 +102,15 @@ def main():
         require(summary["cn"]["qcombds_sha256"] == summary["eng"]["qcombds_sha256"],
                 "QcomBds differs between input builds")
         results.append("PASS: both UEFI images have 104 unique PEs and identical QcomBds")
+        entry = json.loads((generated / "entry/bds_entry.json").read_text())
+        ebl = json.loads((generated / "entry/ebl_ram_fv.json").read_text())
+        require(entry["callbacks"][4]["target_rva"] == "0x59dc" and
+                entry["default_call"]["file_offset"] == "0x1dec" and
+                ebl["process_firmware_volume_field"] == "0x98" and
+                ebl["registrations"][0]["name"] == "loadfv" and
+                not ebl["custom_efi_entry_tested"] and not ebl["hardware_writes_or_reboots"],
+                "Ebl bridge evidence or execution boundaries differ")
+        results.append("PASS: early platform callback table and native Ebl RAM/file routes match pinned PEs")
         trace = json.loads((generated / "continued/boot_container_trace.json").read_text())
         for tag in ("cn", "eng"):
             require(any(x["fv_name_guid"] == trace["dispatch"]["fv_argument_guid"]
