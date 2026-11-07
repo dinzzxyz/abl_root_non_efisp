@@ -1,0 +1,333 @@
+{
+  "qcombds_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+  "abl_dispatch_fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+  "tools_inner_fv_guid": "c4be3b58-1c19-4881-b101-8d02fce6708b",
+  "namespaces_differ": true,
+  "main_uefi_ebl_sha256": "306bed8aaca6c2a31b6bee8360d1e9c727440ed50664bf3e107420ec103c5761",
+  "tools_ebl_sha256": "187dbb53b7b692c4965991cf97dfba006bd967ef4044f4dfe0396d953ede3c9b",
+  "ebl_identical_in_main_uefi_and_toolsfv": false,
+  "tools_guid_file_offsets_in_ebl": [
+    "0x190b8"
+  ],
+  "direct_call_evidence": [
+    {
+      "file_offset": "0x1dec",
+      "rva": "0x1dec",
+      "bytes": "820c0094",
+      "mnemonic": "bl",
+      "operands": "#0x4ff4"
+    },
+    {
+      "file_offset": "0x5254",
+      "rva": "0x5254",
+      "bytes": "b60a0094",
+      "mnemonic": "bl",
+      "operands": "#0x7d2c"
+    },
+    {
+      "file_offset": "0x1e70",
+      "rva": "0x1e70",
+      "bytes": "1d0e0094",
+      "mnemonic": "bl",
+      "operands": "#0x56e4"
+    }
+  ],
+  "main_ebl_mountfv_help": {
+    "file_offset": "0x15fd3",
+    "text": "eg: MountFv toolsfv."
+  },
+  "oem_setup_handler": [
+    {
+      "file_offset": "0x56e4",
+      "rva": "0x56e4",
+      "bytes": "ffc301d1",
+      "mnemonic": "sub",
+      "operands": "sp, sp, #0x70"
+    },
+    {
+      "file_offset": "0x56e8",
+      "rva": "0x56e8",
+      "bytes": "fd7b05a9",
+      "mnemonic": "stp",
+      "operands": "x29, x30, [sp, #0x50]"
+    },
+    {
+      "file_offset": "0x56ec",
+      "rva": "0x56ec",
+      "bytes": "f33300f9",
+      "mnemonic": "str",
+      "operands": "x19, [sp, #0x60]"
+    },
+    {
+      "file_offset": "0x56f0",
+      "rva": "0x56f0",
+      "bytes": "fd430191",
+      "mnemonic": "add",
+      "operands": "x29, sp, #0x50"
+    },
+    {
+      "file_offset": "0x56f4",
+      "rva": "0x56f4",
+      "bytes": "c8000090",
+      "mnemonic": "adrp",
+      "operands": "x8, #0x1d000"
+    },
+    {
+      "file_offset": "0x56f8",
+      "rva": "0x56f8",
+      "bytes": "09088052",
+      "mnemonic": "mov",
+      "operands": "w9, #0x40"
+    },
+    {
+      "file_offset": "0x56fc",
+      "rva": "0x56fc",
+      "bytes": "080140f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8]"
+    },
+    {
+      "file_offset": "0x5700",
+      "rva": "0x5700",
+      "bytes": "a8831ff8",
+      "mnemonic": "stur",
+      "operands": "x8, [x29, #-8]"
+    },
+    {
+      "file_offset": "0x5704",
+      "rva": "0x5704",
+      "bytes": "e90300f9",
+      "mnemonic": "str",
+      "operands": "x9, [sp]"
+    },
+    {
+      "file_offset": "0x5708",
+      "rva": "0x5708",
+      "bytes": "5f170094",
+      "mnemonic": "bl",
+      "operands": "#0xb484"
+    },
+    {
+      "file_offset": "0x570c",
+      "rva": "0x570c",
+      "bytes": "800000d0",
+      "mnemonic": "adrp",
+      "operands": "x0, #0x17000"
+    },
+    {
+      "file_offset": "0x5710",
+      "rva": "0x5710",
+      "bytes": "e1230091",
+      "mnemonic": "add",
+      "operands": "x1, sp, #8"
+    },
+    {
+      "file_offset": "0x5714",
+      "rva": "0x5714",
+      "bytes": "001c2b91",
+      "mnemonic": "add",
+      "operands": "x0, x0, #0xac7"
+    },
+    {
+      "file_offset": "0x5718",
+      "rva": "0x5718",
+      "bytes": "e2030091",
+      "mnemonic": "mov",
+      "operands": "x2, sp"
+    },
+    {
+      "file_offset": "0x571c",
+      "rva": "0x571c",
+      "bytes": "dd0b0094",
+      "mnemonic": "bl",
+      "operands": "#0x8690"
+    },
+    {
+      "file_offset": "0x5720",
+      "rva": "0x5720",
+      "bytes": "c8000090",
+      "mnemonic": "adrp",
+      "operands": "x8, #0x1d000"
+    },
+    {
+      "file_offset": "0x5724",
+      "rva": "0x5724",
+      "bytes": "084144f9",
+      "mnemonic": "ldr",
+      "operands": "x8, [x8, #0x880]"
+    },
+    {
+      "file_offset": "0x5728",
+      "rva": "0x5728",
+      "bytes": "e80200b4",
+      "mnemonic": "cbz",
+      "operands": "x8, #0x5784"
+    },
+    {
+      "file_offset": "0x572c",
+      "rva": "0x572c",
+      "bytes": "c00200b5",
+      "mnemonic": "cbnz",
+      "operands": "x0, #0x5784"
+    },
+    {
+      "file_offset": "0x5730",
+      "rva": "0x5730",
+      "bytes": "e8234039",
+      "mnemonic": "ldrb",
+      "operands": "w8, [sp, #8]"
+    },
+    {
+      "file_offset": "0x5734",
+      "rva": "0x5734",
+      "bytes": "88020034",
+      "mnemonic": "cbz",
+      "operands": "w8, #0x5784"
+    },
+    {
+      "file_offset": "0x5738",
+      "rva": "0x5738",
+      "bytes": "3d000094",
+      "mnemonic": "bl",
+      "operands": "#0x582c"
+    },
+    {
+      "file_offset": "0x573c",
+      "rva": "0x573c",
+      "bytes": "c00000b4",
+      "mnemonic": "cbz",
+      "operands": "x0, #0x5754"
+    },
+    {
+      "file_offset": "0x5740",
+      "rva": "0x5740",
+      "bytes": "f30300aa",
+      "mnemonic": "mov",
+      "operands": "x19, x0"
+    },
+    {
+      "file_offset": "0x5744",
+      "rva": "0x5744",
+      "bytes": "880280d2",
+      "mnemonic": "mov",
+      "operands": "x8, #0x14"
+    },
+    {
+      "file_offset": "0x5748",
+      "rva": "0x5748",
+      "bytes": "0800f0f2",
+      "mnemonic": "movk",
+      "operands": "x8, #0x8000, lsl #48"
+    },
+    {
+      "file_offset": "0x574c",
+      "rva": "0x574c",
+      "bytes": "1f0008eb",
+      "mnemonic": "cmp",
+      "operands": "x0, x8"
+    },
+    {
+      "file_offset": "0x5750",
+      "rva": "0x5750",
+      "bytes": "81050054",
+      "mnemonic": "b.ne",
+      "operands": "#0x5800"
+    },
+    {
+      "file_offset": "0x5754",
+      "rva": "0x5754",
+      "bytes": "c0000090",
+      "mnemonic": "adrp",
+      "operands": "x0, #0x1d000"
+    },
+    {
+      "file_offset": "0x5758",
+      "rva": "0x5758",
+      "bytes": "e1230091",
+      "mnemonic": "add",
+      "operands": "x1, sp, #8"
+    },
+    {
+      "file_offset": "0x575c",
+      "rva": "0x575c",
+      "bytes": "00e00391",
+      "mnemonic": "add",
+      "operands": "x0, x0, #0xf8"
+    },
+    {
+      "file_offset": "0x5760",
+      "rva": "0x5760",
+      "bytes": "e2031faa",
+      "mnemonic": "mov",
+      "operands": "x2, xzr"
+    },
+    {
+      "file_offset": "0x5764",
+      "rva": "0x5764",
+      "bytes": "72090094",
+      "mnemonic": "bl",
+      "operands": "#0x7d2c"
+    },
+    {
+      "file_offset": "0x5768",
+      "rva": "0x5768",
+      "bytes": "0001f8b6",
+      "mnemonic": "tbz",
+      "operands": "x0, #0x3f, #0x5788"
+    },
+    {
+      "file_offset": "0x576c",
+      "rva": "0x576c",
+      "bytes": "810000d0",
+      "mnemonic": "adrp",
+      "operands": "x1, #0x17000"
+    },
+    {
+      "file_offset": "0x5770",
+      "rva": "0x5770",
+      "bytes": "e20300aa",
+      "mnemonic": "mov",
+      "operands": "x2, x0"
+    },
+    {
+      "file_offset": "0x5774",
+      "rva": "0x5774",
+      "bytes": "214c2b91",
+      "mnemonic": "add",
+      "operands": "x1, x1, #0xad3"
+    },
+    {
+      "file_offset": "0x5778",
+      "rva": "0x5778",
+      "bytes": "0000b052",
+      "mnemonic": "mov",
+      "operands": "w0, #-0x80000000"
+    },
+    {
+      "file_offset": "0x577c",
+      "rva": "0x577c",
+      "bytes": "12220094",
+      "mnemonic": "bl",
+      "operands": "#0xdfc4"
+    },
+    {
+      "file_offset": "0x5780",
+      "rva": "0x5780",
+      "bytes": "1f000014",
+      "mnemonic": "b",
+      "operands": "#0x57fc"
+    },
+    {
+      "file_offset": "0x5784",
+      "rva": "0x5784",
+      "bytes": "c003f8b7",
+      "mnemonic": "tbnz",
+      "operands": "x0, #0x3f, #0x57fc"
+    }
+  ],
+  "limitations": [
+    "GUID markers do not prove mounting or invoking the Tools FV",
+    "Default-app dispatch precedes the later setup handler on the documented path",
+    "No new pre-LinuxLoader entry has been runtime-tested"
+  ]
+}

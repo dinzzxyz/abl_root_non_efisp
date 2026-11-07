@@ -14,7 +14,7 @@ Jika GitHub tidak dapat dijangkau, ekstrak ZIP backup yang diunduh. Untuk
 memulihkan riwayat dari bundle pada aset rilis:
 
 ```bash
-git clone SM8750-research-history-2026-11-06.bundle recovered-research
+git clone SM8750-research-history-2026-11-07.bundle recovered-research
 cd recovered-research
 git remote set-url origin https://github.com/dinzzxyz/abl_root_non_efisp.git
 ```
@@ -78,6 +78,20 @@ Flag spoofing di atas sesuai klarifikasi pengguna pada kasus ini; jangan
 menandai laporan perangkat lain dengan flag itu tanpa informasi yang sesuai.
 Temuan fase 2 ada di BOOT_METADATA_FINDINGS.md.
 
+Untuk hasil live tanggal 7 November, sediakan kembali ZIP privat
+`SM8750-live-boot-inputs-2026-11-07.zip`. Ini berisi Tools FV, volume logfs,
+xbl_sc_logs dan probe, bukan source untuk dipublikasikan. Hash tiap anggota
+ada di LIVE_INPUTS.json. Kemudian jalankan:
+
+```bash
+.venv/bin/python src/analyze_live_boot.py /path/to/SM8750-live-boot-inputs-2026-11-07.zip --firmware /path/to/gpt.zip --out generated/live
+.venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --live-archive /path/to/SM8750-live-boot-inputs-2026-11-07.zip --log generated/full-validation.txt
+```
+
+Raw log mengandung identifier; analyzer hanya mengekspor baris yang cocok
+dengan pola lengkap yang diizinkan. Baca LIVE_BOOT_FINDINGS.md sebelum menarik
+kesimpulan entry dari keberadaan Shell atau filesystem FAT.
+
 ## 5. Baca bukti dengan ruang alamat yang tepat
 
 | Bentuk alamat | Contoh | Cara membaca |
@@ -140,8 +154,8 @@ menandai port sebagai bekerja sebelum ada log dan hasil runtime yang sesuai.
 Untuk membuat snapshot riwayat di luar repo:
 
 ```bash
-git bundle create ../SM8750-research-history-2026-11-06.bundle --all
-git bundle verify ../SM8750-research-history-2026-11-06.bundle
+git bundle create ../SM8750-research-history-2026-11-07.bundle --all
+git bundle verify ../SM8750-research-history-2026-11-07.bundle
 ```
 
 ## 8. Status koneksi GitHub pada sesi penelitian ini

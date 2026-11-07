@@ -25,6 +25,7 @@ def main():
     parser.add_argument("archive", type=Path)
     parser.add_argument("--upstream", type=Path, required=True)
     parser.add_argument("--log", type=Path)
+    parser.add_argument("--live-archive", type=Path, help="Optional private live-boot capture ZIP")
     args = parser.parse_args()
     project = Path(__file__).resolve().parent.parent
     results = []
@@ -128,12 +129,26 @@ def main():
                 all(row["variants"] for row in protocols["protocols"]),
                 "Protocol declarations unresolved or changed")
         results.append("PASS: 33 protocol declarations resolved from pinned source")
+        if args.live_archive:
+            run = subprocess.run([sys.executable, str(project / "src/analyze_live_boot.py"),
+                                  str(args.live_archive), "--firmware", str(args.archive),
+                                  "--out", str(generated / "live")],
+                                 text=True, capture_output=True, timeout=120)
+            require(run.returncode == 0, "Live analysis failed:\n" + run.stdout + run.stderr)
+            live = json.loads((generated / "live/summary.json").read_text())
+            relationship = json.loads((generated / "live/entry_relationships.json").read_text())
+            require(live["uefi_log_count"] == 5 and live["toolsfv_applications"] == 19 and
+                    live["shell_and_ebl_present"] and relationship["namespaces_differ"],
+                    "Live-capture evidence differs")
+            require(not live["hardware_writes_or_reboots"] and not live["custom_efi_entry_tested"],
+                    "Unexpected device execution claim")
+            results.append("PASS: private live input hashes, FAT12 logs, Tools FV apps, and BDS namespace cross-check")
         for source in (project / "src").glob("*.py"):
             py_compile.compile(str(source), cfile=str(Path(temporary) / (source.stem + ".pyc")),
                                doraise=True)
         subprocess.run(["sh", "-n", str(project / "tools/collect_readonly.sh")], check=True)
         results.append("PASS: Python syntax and Android collector shell syntax")
-    results.append("NOT TESTED: device execution, custom BDS entry, signature acceptance, or working fake lock")
+    results.append("NOT TESTED: modified firmware execution, custom BDS entry, signature acceptance, or working fake lock")
     log = "\n".join(results) + "\n"
     if args.log:
         args.log.parent.mkdir(parents=True, exist_ok=True)

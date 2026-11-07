@@ -1,0 +1,19 @@
+{
+  "capture_date_jakarta": "2026-11-07",
+  "uid": 0,
+  "captured_utc": "2026-11-06T23:35:04.614Z",
+  "bootconfig_selected": [
+    "androidboot.secureboot = \"1\"",
+    "androidboot.verifiedbootstate = \"orange\"",
+    "androidboot.vbmeta.device_state = \"unlocked\"",
+    "androidboot.slot_suffix = \"_a\""
+  ],
+  "logfs_volume_bytes": 5242880,
+  "logfs_partition_bytes_from_prior_gpt": 8388608,
+  "uefi_log_count": 5,
+  "toolsfv_applications": 19,
+  "shell_and_ebl_present": true,
+  "hardware_writes_or_reboots": false,
+  "custom_efi_entry_tested": false,
+  "raw_firmware_or_logs_exported_by_analyzer": false
+}

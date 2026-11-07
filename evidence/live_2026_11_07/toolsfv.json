@@ -1,0 +1,534 @@
+{
+  "partition_read_bytes": 1048576,
+  "sha256": "89c78f7adf193dbecdde5835fafddf8a1f7ded7c1af73136439359ec90d56a88",
+  "firmware_volumes": [
+    {
+      "origin": "raw",
+      "buffer_offset": "0x0",
+      "fv_length": "0x60000",
+      "header_length": "0x48",
+      "header_checksum_valid": true,
+      "filesystem_guid": "8c8ce578-8a3d-4f1c-9935-896185c32dd3",
+      "fv_name_guid": null
+    },
+    {
+      "origin": "raw/lzma@0x78",
+      "buffer_offset": "0x8",
+      "fv_length": "0x1f6000",
+      "header_length": "0x48",
+      "header_checksum_valid": true,
+      "filesystem_guid": "8c8ce578-8a3d-4f1c-9935-896185c32dd3",
+      "fv_name_guid": "c4be3b58-1c19-4881-b101-8d02fce6708b"
+    },
+    {
+      "origin": "raw/lzma@0x78",
+      "buffer_offset": "0x1e2c77",
+      "fv_length": "0x10080",
+      "header_length": "0x48",
+      "header_checksum_valid": true,
+      "filesystem_guid": "8c8ce578-8a3d-4f1c-9935-896185c32dd3",
+      "fv_name_guid": null
+    }
+  ],
+  "named_files": [
+    {
+      "name": "Cmd",
+      "ffs_guid": "484523a5-6a18-463f-ea1d-de3d740abad5",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "cea4891ef50c3f2703ef5d6650b063e7b2422d70732b9fa2446396ef66a1299c",
+        "size_bytes": 110592,
+        "origin": "raw",
+        "blob_offset": "0x10",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "ListVars",
+      "ffs_guid": "7efd675b-b69b-4be9-9da2-16a12658a1ae",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "b02a06fbc66be3ffa6cd9da470c93da2c6b7a97a70633b1ee3f0ddd727b486b3",
+        "size_bytes": 36864,
+        "origin": "raw",
+        "blob_offset": "0x1c",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "Menu",
+      "ffs_guid": "a9f91c13-4df7-3952-6811-f6b4479b3c0c",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "84f4ad6eed1f66a35bcd74da688e02a9a9b5319acdf4a03dbc9931a2c28762cf",
+        "size_bytes": 57344,
+        "origin": "raw",
+        "blob_offset": "0x14",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "Pgm",
+      "ffs_guid": "484523a5-6a18-463f-ea1d-de3d740abadf",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "2962dd9ade468727cae9f18135ac106138bdc1214543c2c9673fa626125edc52",
+        "size_bytes": 40960,
+        "origin": "raw",
+        "blob_offset": "0x10",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "RPMBProvision",
+      "ffs_guid": "f7b0199c-756b-4972-a48c-4508151d8bbb",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "01e95683b78feb6bf50acfcf869a293e4bf8ba3b5332e92e0990429ba0f64373",
+        "size_bytes": 36864,
+        "origin": "raw",
+        "blob_offset": "0x24",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "RPMBErase",
+      "ffs_guid": "42578984-bba3-43a0-a412-b8f611022b28",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "d017e7b9d4921c42f977bf448c447d9f76f249b79fa27f72015e774b7b444e4d",
+        "size_bytes": 32768,
+        "origin": "raw",
+        "blob_offset": "0x4",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "UEFINVErase",
+      "ffs_guid": "ae4de1e7-b20b-4984-bf03-2e0ff0ac5864",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "0feda06c71aac9363feffd9210374380071c24e601a2bb612c1d591d188953ea",
+        "size_bytes": 36864,
+        "origin": "raw",
+        "blob_offset": "0x20",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "DelBootVars",
+      "ffs_guid": "193787e1-e5c6-4c66-bbb2-4fa1df2af09a",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "a24b89e0290383262f5d3707934c3a23f8cad45d1b3ed82a5e5d07c141edad68",
+        "size_bytes": 36864,
+        "origin": "raw",
+        "blob_offset": "0x20",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "UfsEyemonApp",
+      "ffs_guid": "706d469b-8224-48b6-ba40-4630d83fae64",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "5ff67426ad6f720a079c38bd1e4be7727c1f883902fb213529a7ea32f16176b0",
+        "size_bytes": 49152,
+        "origin": "raw",
+        "blob_offset": "0x24",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "UfsPhytuneApp",
+      "ffs_guid": "73fbd9fe-629d-4f3a-9da0-2fda014849f3",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "e66c1f78587f9c18c4a9fe8de7efacdbb66f738eb865988e16f1eb465b90c3b5",
+        "size_bytes": 36864,
+        "origin": "raw",
+        "blob_offset": "0x24",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "UsbfnMsdApp",
+      "ffs_guid": "1c207232-4086-9be7-db16-159d66ab466a",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "95ede0eb0f43597091109195b91b7735a1a02f1694bd8ff0ae0c8fb97dee57f5",
+        "size_bytes": 40960,
+        "origin": "raw",
+        "blob_offset": "0x4",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "SecurityToggleApp",
+      "ffs_guid": "a3ef0b47-4f84-4f73-a5c1-e1242e60ba16",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "888ed6deb10eab521457bdf7c96bd9e032b6891761da20158ee46f73f42f4fe2",
+        "size_bytes": 40960,
+        "origin": "raw",
+        "blob_offset": "0x2c",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "DebugPolicyToggleApp",
+      "ffs_guid": "1c8407ed-86a9-45e2-83d4-5a64d83588f2",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "9d7fbf46769bc2e356b773761508ef0a8d156a290fd901cc0164bb023633a604",
+        "size_bytes": 40960,
+        "origin": "raw",
+        "blob_offset": "0x4",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "CapsuleApp",
+      "ffs_guid": "4cef31da-8682-4274-9cc4-aee7516a5e7b",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "64a81c43935089daa94171da529e8d56245d214208d37d13e0fbbb628cc97ac0",
+        "size_bytes": 69632,
+        "origin": "raw",
+        "blob_offset": "0x20",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "Ebl",
+      "ffs_guid": "3cef354a-3b7a-4519-ad70-72a134698311",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "187dbb53b7b692c4965991cf97dfba006bd967ef4044f4dfe0396d953ede3c9b",
+        "size_bytes": 118784,
+        "origin": "raw",
+        "blob_offset": "0x10",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "Mptest",
+      "ffs_guid": "decaa93a-472a-e0e6-d1af-2d93fec89b40",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "4d05a8889ef07f518d014f3f337f16088bac070302ee2ffb4c7d3b343acef687",
+        "size_bytes": 57344,
+        "origin": "raw",
+        "blob_offset": "0x18",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "Shell",
+      "ffs_guid": "7c04a583-9e3e-4f1c-ad65-e05268d0b4d1",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "4f719ad470bc4c18a3fd4c1a0f43f36b915fb9ecd5a250a59b7f5f5ed2ff7f3a",
+        "size_bytes": 1015808,
+        "origin": "raw",
+        "blob_offset": "0x14",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "WinDsdtUpdateControllerUI",
+      "ffs_guid": "a9f19c13-4df7-3952-6811-f6b4479b3c0c",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "7c9e12074d924786995d2b5a29fb673ba033053f7a03f8ebd675f0cdb2612c66",
+        "size_bytes": 57344,
+        "origin": "raw",
+        "blob_offset": "0x3c",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "MemoryProfileInfo",
+      "ffs_guid": "21429b90-5f67-4e93-af55-1d314d646e12",
+      "file_type": "0x9",
+      "pe": {
+        "sha256": "37dd61259d360b79222478e9d80dd6dcfffe9e109015e906f70ffd587080f568",
+        "size_bytes": 45056,
+        "origin": "raw",
+        "blob_offset": "0x2c",
+        "machine": "0xaa64",
+        "subsystem": 10,
+        "entry_rva": "0x1000",
+        "image_base": "0x0",
+        "markers": {
+          "efisp": {},
+          "Loading GBL app": {},
+          "Starting GBL app": {},
+          "LoadImageNoAuthWrapper": {},
+          "LinuxLoader": {},
+          "BOOTENTRIES": {}
+        }
+      }
+    },
+    {
+      "name": "USB_LA_Menu.cfg",
+      "ffs_guid": "a91d838e-a5fa-4138-825d-455e23030790",
+      "file_type": "0x2"
+    },
+    {
+      "name": "USB_WP_Menu.cfg",
+      "ffs_guid": "2fc8ee93-d400-44a1-86e5-f5c45d729ee2",
+      "file_type": "0x2"
+    },
+    {
+      "name": "USB_HLOS_Menu.cfg",
+      "ffs_guid": "a55591dc-4e6e-4372-a2d2-866ca4e386b3",
+      "file_type": "0x2"
+    },
+    {
+      "name": "USB_Port_Menu.cfg",
+      "ffs_guid": "a9dbdeb0-f15f-4aef-a003-6ae0ff3f5238",
+      "file_type": "0x2"
+    },
+    {
+      "name": "PS8830_capsule",
+      "ffs_guid": "a7d24d3b-6b3a-4d27-b6c6-a82ff0ff0f04",
+      "file_type": "0x2"
+    },
+    {
+      "name": "Uefi_Menu.cfg",
+      "ffs_guid": "a91d838e-a5fa-4138-825d-455e23030791",
+      "file_type": "0x2"
+    },
+    {
+      "name": "Pmic_Menu.cfg",
+      "ffs_guid": "a91d838e-a5fa-4138-825d-455e23030792",
+      "file_type": "0x2"
+    },
+    {
+      "name": "Config_Menu.cfg",
+      "ffs_guid": "a91d838e-a5fa-4138-825d-455e23030793",
+      "file_type": "0x2"
+    },
+    {
+      "name": "Test_Menu.cfg",
+      "ffs_guid": "a91d838e-a5fa-4138-825d-455e23030794",
+      "file_type": "0x2"
+    },
+    {
+      "name": "EUD_Menu.cfg",
+      "ffs_guid": "623b76f1-b9cf-4d24-86cc-a8198dc53921",
+      "file_type": "0x2"
+    },
+    {
+      "name": "Clock_Menu.cfg",
+      "ffs_guid": "7d1a8624-0a00-435f-b4df-de7271a846c6",
+      "file_type": "0x2"
+    },
+    {
+      "name": "DriverList.cfg",
+      "ffs_guid": "96195f52-9eaa-436d-9a86-0fa02acb39b0",
+      "file_type": "0x2"
+    }
+  ],
+  "application_count": 19,
+  "execution_proven": false
+}

@@ -1,6 +1,6 @@
 # Titik lanjut untuk sesi atau kontributor berikutnya
 
-Updated: 6 November 2026, Asia/Jakarta.
+Updated: 7 November 2026, Asia/Jakarta.
 
 ## Tujuan pengguna
 
@@ -64,6 +64,18 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
 18. Memetakan tabel 34 command CN dan handler lkmsg/lpmsg/uefilog. Handler
     uefilog mempunyai cabang argumen save, sehingga belum dianggap hanya
     membaca. Tidak ada command OEM dieksekusi.
+19. Mengambil snapshot read-only langsung dari HP: toolsfv 1 MiB, volume
+    logfs 5 MiB, xbl_sc_logs 128 KiB, serta probe header/bootconfig. Input
+    firmware dan log mentah disimpan privat, bukan pada repo publik.
+20. Memeriksa FAT12 pada logfs: sektor 4096, 1273 cluster, dua FAT identik,
+    dan lima file UEFILOG0.TXT–UEFILOG4.TXT masing-masing 64 KiB.
+21. Menginventarisasi 19 aplikasi Tools FV, termasuk Shell, Ebl dan Menu.
+    Namespace inner Tools FV c4be3b58-1c19-4881-b101-8d02fce6708b berbeda
+    dari namespace ABL yang dipakai dispatch default.
+22. Membaca log stock: Secure Boot On, PROD/Retail TRUE, NV tables VOLATILE,
+    VB2 orange, OS Loader dan penghentian Boot Services. Ini bukan uji port.
+23. Menemukan tujuh kelompok XBL marker 463–469 tanpa match pola kegagalan
+    PIL/ELF yang dicari; penyebab brick lama masih belum terbukti.
 
 ## Status yang belum boleh dianggap selesai
 
@@ -106,7 +118,13 @@ Sesudah itu baru pilih media payload dan uji ABI/protokol BDS.
 Identitas build, hash prefix komponen boot, dan metadata GPT sekarang tersedia.
 Baca BOOT_METADATA_FINDINGS.md serta evidence/device_2026_11_06 terlebih dahulu.
 Baca BOOTSTATE_FINDINGS.md serta evidence/bootstate_2026_11_06 untuk hasil baru.
-Lanjutkan analisis entry EFI, autentikasi PIL dan provider log/variable storage.
+Baca LIVE_BOOT_FINDINGS.md dan evidence/live_2026_11_07: sekarang log stock
+serta Tools FV asli tersedia. Jalankan analyzer dengan dua ZIP privat menurut
+RECOVERY.md; jangan meminta ulang collector metadata fase 1/2 tanpa alasan baru.
+Lanjutkan caller Ebl, pemasangan Tools FV, gate retail/menu dan autentikasi
+aplikasi sebelum LinuxLoader. Jangan menganggap Shell yang tersedia sudah
+dapat dijalankan, atau logfs FAT12 sebagai ESP. NV volatile perlu diperhitungkan
+dalam usulan BootNext/BootOrder; itu tidak membuktikan semua storage TEE volatile.
 Jangan menyamakan handler log OEM dengan perintah yang bebas efek tulis:
 uefilog mempunyai cabang save. Belum ada resep transfer log USB yang diuji.
 Tidak ada tes tambahan yang diminta kepada pengguna pada akhir checkpoint ini.

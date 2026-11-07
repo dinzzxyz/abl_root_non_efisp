@@ -3,9 +3,11 @@
 Read README.md, HANDOFF.md, LAPORAN.md, and RESEARCH_CONTINUED.md before making
 technical conclusions. Preserve original evidence and hash/version boundaries.
 For the newer CN candidate and OEM diagnostics, also read BOOTSTATE_FINDINGS.md.
+For the live Tools FV/FAT12/stock-log capture, read LIVE_BOOT_FINDINGS.md.
 
-This repository currently contains static analysis and exact reconstruction of
-a supplied EFI payload. It does not contain a verified SM8750 SuperFastboot port.
+This repository contains static analysis, exact reconstruction of a supplied
+EFI payload, and read-only stock boot-log observations. It does not contain a
+verified SM8750 SuperFastboot port.
 Do not describe static marker matches as successful device execution.
 
 Use absolute file offsets, PE RVA, and decompressed-buffer offsets explicitly;

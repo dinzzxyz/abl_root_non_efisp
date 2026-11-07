@@ -1,0 +1,22 @@
+{
+  "collector": "tools/collect_live_boot.js",
+  "collector_sha256": "709dfb31fd4e726e39814fc47b711af66a2cc2fea23f04a3129001cb32251c20",
+  "execution": "capture mode executed on authorized root device; stdout limited to metadata during verification",
+  "all_capture_hashes_match_original_snapshot": true,
+  "captures": {
+    "toolsfv.bin": {
+      "size": 1048576,
+      "sha256": "89c78f7adf193dbecdde5835fafddf8a1f7ded7c1af73136439359ec90d56a88"
+    },
+    "logfs-fat12.bin": {
+      "size": 5242880,
+      "sha256": "1e20c12c68dc23708a28dcb9ff75eb2a083565ef2e92785d299c3bd28e9f5221"
+    },
+    "xbl_sc_logs.bin": {
+      "size": 131072,
+      "sha256": "bbbd4032e6f34db8e5b9ddf96ee59da2c90700e4b18da508972ec4f0cd3e8338"
+    }
+  },
+  "block_device_open_mode": "r",
+  "mounts_or_partition_writes_or_reboots": false
+}

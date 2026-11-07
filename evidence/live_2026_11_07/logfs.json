@@ -1,0 +1,549 @@
+{
+  "capture_sha256": "1e20c12c68dc23708a28dcb9ff75eb2a083565ef2e92785d299c3bd28e9f5221",
+  "bpb": {
+    "fat_type": "FAT12",
+    "bytes_per_sector": 4096,
+    "sectors_per_cluster": 1,
+    "reserved_sectors": 1,
+    "fat_count": 2,
+    "fat_copies_equal": true,
+    "sectors_per_fat": 1,
+    "root_entries": 512,
+    "total_sectors": 1280,
+    "volume_bytes": 5242880,
+    "data_clusters": 1273,
+    "root_directory_offset": "0x3000",
+    "data_offset": "0x7000",
+    "reader_scope": "short aliases; LFN records skipped; no writes"
+  },
+  "files": [
+    {
+      "path": "UEFILOG0.TXT",
+      "size": 65536,
+      "sha256": "f32cf80d62be48a04ab511624ee254a0b7b80b99691e4d65a83c673bd0a39c86"
+    },
+    {
+      "path": "UEFILOG1.TXT",
+      "size": 65536,
+      "sha256": "07648a8e1c86c726ba92ae71dd44e24b5f2512ddaf63c8636aa80174efb8b2a0"
+    },
+    {
+      "path": "UEFILOG2.TXT",
+      "size": 65536,
+      "sha256": "b0bbd91024eb5ed92a147157d8edefb14d80929e114eb1743d8af4cb09766251"
+    },
+    {
+      "path": "UEFILOG3.TXT",
+      "size": 65536,
+      "sha256": "96afdb3f66d95e0dd29eb9ec4884e22e8e2c9b3faa20d70435d96de2af221af7"
+    },
+    {
+      "path": "UEFILOG4.TXT",
+      "size": 65536,
+      "sha256": "2e2d1f4d062396aea642124715540793f34343aee0b80fb83539413e2f97ac3b"
+    }
+  ],
+  "logs": {
+    "UEFILOG4.TXT": {
+      "size": 65536,
+      "sha256": "2e2d1f4d062396aea642124715540793f34343aee0b80fb83539413e2f97ac3b",
+      "line_count": 629,
+      "dump_header": "=== Dump occured at 2026-11-05 20:03:17 ===",
+      "selected_lines": [
+        {
+          "line": 7,
+          "text": "S - Secure Boot: On"
+        },
+        {
+          "line": 292,
+          "text": "[00002417] UEFI Ver      : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 293,
+          "text": "[00002417] Build Info    : 64b Jul 22 2026 14:56:04"
+        },
+        {
+          "line": 295,
+          "text": "[00002417] PROD Mode     : TRUE"
+        },
+        {
+          "line": 296,
+          "text": "[00002417] Retail        : TRUE"
+        },
+        {
+          "line": 394,
+          "text": "[00003851] INFO: UEFI NV tables are enabled as VOLATILE!"
+        },
+        {
+          "line": 395,
+          "text": "[00003851] UEFI Ver           : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 432,
+          "text": "[00004105] POST Time      [ 4105] OS Loader"
+        },
+        {
+          "line": 439,
+          "text": "[00004113] Loader Build Info: Jul 22 2026 23:10:59"
+        },
+        {
+          "line": 443,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 451,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 452,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 453,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 485,
+          "text": "[00004145] Booting from slot (_a)"
+        },
+        {
+          "line": 486,
+          "text": "[00004146] Booting Into Mission Mode"
+        },
+        {
+          "line": 512,
+          "text": "[00004304] KeyMasterSetRotAndBootState Set RoT success"
+        },
+        {
+          "line": 513,
+          "text": "[00004304] KeyMasterSetRotAndBootState Set Boot State success"
+        },
+        {
+          "line": 514,
+          "text": "[00004306] VB2: Authenticate complete! boot state is: orange"
+        },
+        {
+          "line": 515,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 516,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 523,
+          "text": "[00004326] VB2: boot state: orange(1)"
+        },
+        {
+          "line": 628,
+          "text": "Shutting Down UEFI Boot Services: 5184 ms"
+        },
+        {
+          "line": 629,
+          "text": "[00005184] Start EBS        [ 5184]"
+        }
+      ]
+    },
+    "UEFILOG3.TXT": {
+      "size": 65536,
+      "sha256": "96afdb3f66d95e0dd29eb9ec4884e22e8e2c9b3faa20d70435d96de2af221af7",
+      "line_count": 629,
+      "dump_header": "=== Dump occured at 2026-11-05 20:10:42 ===",
+      "selected_lines": [
+        {
+          "line": 7,
+          "text": "S - Secure Boot: On"
+        },
+        {
+          "line": 292,
+          "text": "[00002414] UEFI Ver      : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 293,
+          "text": "[00002414] Build Info    : 64b Jul 22 2026 14:56:04"
+        },
+        {
+          "line": 295,
+          "text": "[00002414] PROD Mode     : TRUE"
+        },
+        {
+          "line": 296,
+          "text": "[00002414] Retail        : TRUE"
+        },
+        {
+          "line": 394,
+          "text": "[00003832] INFO: UEFI NV tables are enabled as VOLATILE!"
+        },
+        {
+          "line": 395,
+          "text": "[00003832] UEFI Ver           : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 432,
+          "text": "[00004088] POST Time      [ 4088] OS Loader"
+        },
+        {
+          "line": 439,
+          "text": "[00004096] Loader Build Info: Jul 22 2026 23:10:59"
+        },
+        {
+          "line": 443,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 451,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 452,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 453,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 485,
+          "text": "[00004128] Booting from slot (_a)"
+        },
+        {
+          "line": 486,
+          "text": "[00004129] Booting Into Mission Mode"
+        },
+        {
+          "line": 512,
+          "text": "[00004287] KeyMasterSetRotAndBootState Set RoT success"
+        },
+        {
+          "line": 513,
+          "text": "[00004287] KeyMasterSetRotAndBootState Set Boot State success"
+        },
+        {
+          "line": 514,
+          "text": "[00004289] VB2: Authenticate complete! boot state is: orange"
+        },
+        {
+          "line": 515,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 516,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 523,
+          "text": "[00004309] VB2: boot state: orange(1)"
+        },
+        {
+          "line": 628,
+          "text": "Shutting Down UEFI Boot Services: 5155 ms"
+        },
+        {
+          "line": 629,
+          "text": "[00005155] Start EBS        [ 5155]"
+        }
+      ]
+    },
+    "UEFILOG2.TXT": {
+      "size": 65536,
+      "sha256": "b0bbd91024eb5ed92a147157d8edefb14d80929e114eb1743d8af4cb09766251",
+      "line_count": 629,
+      "dump_header": "=== Dump occured at 2026-11-06 7:31:30 ===",
+      "selected_lines": [
+        {
+          "line": 7,
+          "text": "S - Secure Boot: On"
+        },
+        {
+          "line": 292,
+          "text": "[00002421] UEFI Ver      : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 293,
+          "text": "[00002421] Build Info    : 64b Jul 22 2026 14:56:04"
+        },
+        {
+          "line": 295,
+          "text": "[00002421] PROD Mode     : TRUE"
+        },
+        {
+          "line": 296,
+          "text": "[00002421] Retail        : TRUE"
+        },
+        {
+          "line": 394,
+          "text": "[00003838] INFO: UEFI NV tables are enabled as VOLATILE!"
+        },
+        {
+          "line": 395,
+          "text": "[00003838] UEFI Ver           : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 432,
+          "text": "[00004094] POST Time      [ 4094] OS Loader"
+        },
+        {
+          "line": 439,
+          "text": "[00004103] Loader Build Info: Jul 22 2026 23:10:59"
+        },
+        {
+          "line": 443,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 451,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 452,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 453,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 485,
+          "text": "[00004136] Booting from slot (_a)"
+        },
+        {
+          "line": 486,
+          "text": "[00004136] Booting Into Mission Mode"
+        },
+        {
+          "line": 512,
+          "text": "[00004296] KeyMasterSetRotAndBootState Set RoT success"
+        },
+        {
+          "line": 513,
+          "text": "[00004296] KeyMasterSetRotAndBootState Set Boot State success"
+        },
+        {
+          "line": 514,
+          "text": "[00004298] VB2: Authenticate complete! boot state is: orange"
+        },
+        {
+          "line": 515,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 516,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 523,
+          "text": "[00004317] VB2: boot state: orange(1)"
+        },
+        {
+          "line": 628,
+          "text": "Shutting Down UEFI Boot Services: 5201 ms"
+        },
+        {
+          "line": 629,
+          "text": "[00005201] Start EBS        [ 5201]"
+        }
+      ]
+    },
+    "UEFILOG1.TXT": {
+      "size": 65536,
+      "sha256": "07648a8e1c86c726ba92ae71dd44e24b5f2512ddaf63c8636aa80174efb8b2a0",
+      "line_count": 629,
+      "dump_header": "=== Dump occured at 2026-11-06 8:30:10 ===",
+      "selected_lines": [
+        {
+          "line": 7,
+          "text": "S - Secure Boot: On"
+        },
+        {
+          "line": 292,
+          "text": "[00002414] UEFI Ver      : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 293,
+          "text": "[00002414] Build Info    : 64b Jul 22 2026 14:56:04"
+        },
+        {
+          "line": 295,
+          "text": "[00002414] PROD Mode     : TRUE"
+        },
+        {
+          "line": 296,
+          "text": "[00002414] Retail        : TRUE"
+        },
+        {
+          "line": 394,
+          "text": "[00003833] INFO: UEFI NV tables are enabled as VOLATILE!"
+        },
+        {
+          "line": 395,
+          "text": "[00003833] UEFI Ver           : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 432,
+          "text": "[00004088] POST Time      [ 4088] OS Loader"
+        },
+        {
+          "line": 439,
+          "text": "[00004096] Loader Build Info: Jul 22 2026 23:10:59"
+        },
+        {
+          "line": 443,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 451,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 452,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 453,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 485,
+          "text": "[00004130] Booting from slot (_a)"
+        },
+        {
+          "line": 486,
+          "text": "[00004130] Booting Into Mission Mode"
+        },
+        {
+          "line": 512,
+          "text": "[00004290] KeyMasterSetRotAndBootState Set RoT success"
+        },
+        {
+          "line": 513,
+          "text": "[00004290] KeyMasterSetRotAndBootState Set Boot State success"
+        },
+        {
+          "line": 514,
+          "text": "[00004292] VB2: Authenticate complete! boot state is: orange"
+        },
+        {
+          "line": 515,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 516,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 523,
+          "text": "[00004312] VB2: boot state: orange(1)"
+        },
+        {
+          "line": 628,
+          "text": "Shutting Down UEFI Boot Services: 5174 ms"
+        },
+        {
+          "line": 629,
+          "text": "[00005174] Start EBS        [ 5174]"
+        }
+      ]
+    },
+    "UEFILOG0.TXT": {
+      "size": 65536,
+      "sha256": "f32cf80d62be48a04ab511624ee254a0b7b80b99691e4d65a83c673bd0a39c86",
+      "line_count": 629,
+      "dump_header": "=== Dump occured at 2026-11-06 23:52:00 ===",
+      "selected_lines": [
+        {
+          "line": 7,
+          "text": "S - Secure Boot: On"
+        },
+        {
+          "line": 292,
+          "text": "[00002423] UEFI Ver      : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 293,
+          "text": "[00002423] Build Info    : 64b Jul 22 2026 14:56:04"
+        },
+        {
+          "line": 295,
+          "text": "[00002423] PROD Mode     : TRUE"
+        },
+        {
+          "line": 296,
+          "text": "[00002423] Retail        : TRUE"
+        },
+        {
+          "line": 394,
+          "text": "[00003838] INFO: UEFI NV tables are enabled as VOLATILE!"
+        },
+        {
+          "line": 395,
+          "text": "[00003838] UEFI Ver           : 6.0.260722.BOOT.MXF.2.5.1-00265-PAKALA-1.104421.2"
+        },
+        {
+          "line": 432,
+          "text": "[00004093] POST Time      [ 4093] OS Loader"
+        },
+        {
+          "line": 439,
+          "text": "[00004102] Loader Build Info: Jul 22 2026 23:10:59"
+        },
+        {
+          "line": 443,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 451,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 452,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 453,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 485,
+          "text": "[00004134] Booting from slot (_a)"
+        },
+        {
+          "line": 486,
+          "text": "[00004134] Booting Into Mission Mode"
+        },
+        {
+          "line": 512,
+          "text": "[00004292] KeyMasterSetRotAndBootState Set RoT success"
+        },
+        {
+          "line": 513,
+          "text": "[00004293] KeyMasterSetRotAndBootState Set Boot State success"
+        },
+        {
+          "line": 514,
+          "text": "[00004294] VB2: Authenticate complete! boot state is: orange"
+        },
+        {
+          "line": 515,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 516,
+          "text": "VB: RWDeviceState: Succeed using rpmb!"
+        },
+        {
+          "line": 523,
+          "text": "[00004314] VB2: boot state: orange(1)"
+        },
+        {
+          "line": 628,
+          "text": "Shutting Down UEFI Boot Services: 5196 ms"
+        },
+        {
+          "line": 629,
+          "text": "[00005196] Start EBS        [ 5196]"
+        }
+      ]
+    }
+  },
+  "privacy": "Only allowlisted complete log lines are included; raw files stay private"
+}

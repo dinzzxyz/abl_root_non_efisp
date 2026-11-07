@@ -12,7 +12,10 @@ PASS: both UEFI images have 104 unique PEs and identical QcomBds
 PASS: actual ABL FV GUID, embedded SHA-384, and call edges match for both builds
 PASS: changing the ELF payload breaks the embedded digest match
 PASS: 33 protocol declarations resolved from pinned source
+PASS: private live input hashes, FAT12 logs, Tools FV apps, and BDS namespace cross-check
 PASS: Python syntax and Android collector shell syntax
-NOT TESTED: device execution, custom BDS entry, signature acceptance, or working fake lock
-PASS: 9 synthetic/unit tests; details in evidence/bootstate_2026_11_06/unit-validation.txt
-PASS: shell syntax for both Android collectors
+NOT TESTED: modified firmware execution, custom BDS entry, signature acceptance, or working fake lock
+PASS: 13 synthetic/unit tests; details in evidence/live_2026_11_07/unit-validation.txt
+PASS: 2 private identifier canaries absent from public live evidence and report
+PASS: collector Node syntax
+PASS: collector executed read-only on device; all three hashes matched the original capture

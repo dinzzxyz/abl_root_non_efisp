@@ -1,0 +1,3 @@
+PASS: 2 private identifier canaries absent from public live evidence and report
+PASS: collector Node syntax
+PASS: collector executed read-only on device; all three hashes matched the original capture

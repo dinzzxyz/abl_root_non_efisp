@@ -1,0 +1,75 @@
+{
+  "size": 131072,
+  "sha256": "bbbd4032e6f34db8e5b9ddf96ee59da2c90700e4b18da508972ec4f0cd3e8338",
+  "magic": "IMTL",
+  "marker_occurrences": [
+    {
+      "file_offset": "0x1002",
+      "counter": 463
+    },
+    {
+      "file_offset": "0x22a5",
+      "counter": 463
+    },
+    {
+      "file_offset": "0x5002",
+      "counter": 464
+    },
+    {
+      "file_offset": "0x62a5",
+      "counter": 464
+    },
+    {
+      "file_offset": "0x9002",
+      "counter": 465
+    },
+    {
+      "file_offset": "0xa2a5",
+      "counter": 465
+    },
+    {
+      "file_offset": "0xd002",
+      "counter": 466
+    },
+    {
+      "file_offset": "0xe2a5",
+      "counter": 466
+    },
+    {
+      "file_offset": "0x11002",
+      "counter": 467
+    },
+    {
+      "file_offset": "0x122a5",
+      "counter": 467
+    },
+    {
+      "file_offset": "0x15002",
+      "counter": 468
+    },
+    {
+      "file_offset": "0x162a5",
+      "counter": 468
+    },
+    {
+      "file_offset": "0x19002",
+      "counter": 469
+    },
+    {
+      "file_offset": "0x1a2a5",
+      "counter": 469
+    }
+  ],
+  "unique_marker_counters": [
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469
+  ],
+  "targeted_failure_pattern": "(?i)(?:auth[^\\r\\n\\0]{0,30}fail|invalid elf|not an elf|pil[^\\r\\n\\0]{0,40}(?:fail|error)|ABL[^\\r\\n\\0]{0,40}(?:fail|error))",
+  "targeted_failure_matches": 0,
+  "scope": "Absence of these strings is not a diagnosis of an earlier failed boot"
+}

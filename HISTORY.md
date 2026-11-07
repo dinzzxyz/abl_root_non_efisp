@@ -81,3 +81,23 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
 - Menambahkan BOOTSTATE_FINDINGS.md, dua alat analisis, JSON, disassembly,
   dan pemeriksaan regresi. Entry EFI/autentikasi serta runtime tetap belum
   terbukti; tidak ada image flashable atau command OEM yang diuji.
+
+## 2026-11-07 — capture live logfs, Tools FV dan XBL
+
+- Membaca partisi melalui Desktop Commander pada Android dengan uid=0,
+  tanpa flash, mount, reboot atau perubahan konfigurasi boot.
+- Mengambil volume FAT12 5 MiB dalam partisi logfs 8 MiB; kedua FAT identik,
+  lima UEFILOG*.TXT masing-masing 64 KiB dapat dibaca lengkap.
+- Memperoleh bukti boot stock: secure boot On, PROD/Retail TRUE, NV volatile,
+  VB2 orange, lalu ExitBootServices. Bootconfig kernel juga orange/unlocked;
+  properti Android yang di-spoof tetap tidak dipakai sebagai bukti lock.
+- Mengurai Tools FV asli: 19 aplikasi PE, termasuk Shell/Ebl/Menu. Inner FV
+  berbeda GUID dari ABL FV. Ebl main UEFI merujuk GUID Tools FV dan memiliki
+  bantuan MountFv, tetapi PE-nya berbeda dari Ebl yang ada di Tools FV.
+- Memeriksa tujuh kelompok log XBL dengan marker 463–469. Tidak ada match
+  pencarian kegagalan PIL/ELF yang ditargetkan; tidak menyimpulkan penyebab brick.
+- Menyimpan masukan mentah secara privat dan hanya metadata/cuplik log yang
+  diseleksi ke repo. Menambahkan analyzer FAT12 bounded, collector Node,
+  pengujian korupsi filesystem dan batas privasi, serta panduan pemulihan.
+- Jalur yang layak diteruskan adalah caller Ebl/Shell sebelum LinuxLoader;
+  belum ada entry kustom atau image modifikasi yang diuji pada perangkat.

@@ -1,0 +1,25 @@
+{
+  "capture_date_jakarta": "2026-11-07",
+  "method": "Read-only bounded block reads over the authorized Desktop Commander root process",
+  "files": {
+    "toolsfv.bin": {
+      "size": 1048576,
+      "sha256": "89c78f7adf193dbecdde5835fafddf8a1f7ded7c1af73136439359ec90d56a88"
+    },
+    "logfs-fat12.bin": {
+      "size": 5242880,
+      "sha256": "1e20c12c68dc23708a28dcb9ff75eb2a083565ef2e92785d299c3bd28e9f5221"
+    },
+    "xbl_sc_logs.bin": {
+      "size": 131072,
+      "sha256": "bbbd4032e6f34db8e5b9ddf96ee59da2c90700e4b18da508972ec4f0cd3e8338"
+    },
+    "probe.json": {
+      "size": 2538,
+      "sha256": "0a5119f7fe5e2cffbc37429af263a864116453369e343b8afa5ff1881ca37bbd"
+    }
+  },
+  "privacy": "Original logs and firmware are private inputs; do not upload these raw files to the source repository.",
+  "archive_sha256": "fb840928450501e02ed5ed7585baa75ef3ad3f452c74c0b3b14df6d32f07c049",
+  "input_acquisition": "Private read-only device capture supplied by the owner; original bytes are excluded from Git."
+}

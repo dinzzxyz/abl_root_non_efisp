@@ -1,0 +1,17 @@
+PASS: analyze.py reproduces evidence from input bytes
+PASS: trace_paths.py reproduces evidence from input bytes
+PASS: map_bootstate.py reproduces evidence from input bytes
+PASS: trace_diagnostics.py reproduces evidence from input bytes
+PASS: patch recovery is byte-identical; 9 changed bytes
+PASS: unique structural anchors in CN/ENG; engineering calibration is byte-identical
+PASS: structural analyzer refuses one-byte mutations of both identified builds
+PASS: 34-entry CN command table and diagnostic save branch match input bytes
+PASS: hash guard rejects CN firmware
+PASS: hash guard rejects one-byte engineering mutation
+PASS: both UEFI images have 104 unique PEs and identical QcomBds
+PASS: actual ABL FV GUID, embedded SHA-384, and call edges match for both builds
+PASS: changing the ELF payload breaks the embedded digest match
+PASS: 33 protocol declarations resolved from pinned source
+PASS: private live input hashes, FAT12 logs, Tools FV apps, and BDS namespace cross-check
+PASS: Python syntax and Android collector shell syntax
+NOT TESTED: modified firmware execution, custom BDS entry, signature acceptance, or working fake lock

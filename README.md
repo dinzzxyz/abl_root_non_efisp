@@ -1,6 +1,6 @@
 # Penelusuran SuperFastboot SM8750 / annibale
 
-Tanggal: 6 November 2026. Status: **analisis statis dan rekonstruksi patch**.
+Updated: 7 November 2026. Status: **analisis statis, rekonstruksi patch dan log stock**.
 Paket ini berisi source alat analisis, bukti, dan catatan pengembangan.
 Belum merupakan port SuperFastboot yang dapat di-flash.
 
@@ -16,6 +16,8 @@ Analisis hash firmware/GPT dari collector fase 2 ada di
 [BOOT_METADATA_FINDINGS.md](BOOT_METADATA_FINDINGS.md).
 Pemetaan kandidat Boot State CN dan handler diagnostik OEM ada di
 [BOOTSTATE_FINDINGS.md](BOOTSTATE_FINDINGS.md).
+Log UEFI yang diambil langsung serta isi Tools FV/FAT12 ada di
+[LIVE_BOOT_FINDINGS.md](LIVE_BOOT_FINDINGS.md).
 
 ## Hasil utama
 
@@ -37,6 +39,9 @@ Pemetaan kandidat Boot State CN dan handler diagnostik OEM ada di
    meski mask patcher upstream menghasilkan nol hit. Metode itu merekonstruksi
    seluruh byte hasil engineering lama dan menghasilkan resep kandidat CN:
    10 byte / empat rentang, belum diuji runtime dan tidak diekspor sebagai image.
+7. Pembacaan perangkat menemukan lima log UEFI pada volume FAT12 di `logfs`,
+   19 aplikasi native pada `toolsfv` termasuk Shell/Ebl/Menu, dan rekaman
+   boot stock yang menunjukkan NV volatile. Entry kustom belum teruji.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -53,6 +58,8 @@ dan tahap pengembangan berikutnya.
 | `src/analyze_boot_metadata.py` | Perbandingan laporan prefix hash, ukuran dan GPT |
 | `src/map_bootstate.py` | Anchor struktural CN/engineering, byte kandidat dan kalibrasi |
 | `src/trace_diagnostics.py` | Tabel OEM CN dan cabang argumen handler log |
+| `src/analyze_live_boot.py` | FAT12 bounded, cuplikan log terpilih dan inventaris Tools FV |
+| `tools/collect_live_boot.js` | Probe root dan capture block terbatas, hanya membaca |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
 | `tools/collect_boot_metadata.sh` | Hash firmware terpasang, ukuran dan GPT type GUID |
 | `evidence/` | Hasil analisis, hash, konfigurasi terpilih, dan disassembly |
@@ -116,7 +123,7 @@ commit berikutnya. Aset rilis memuat ZIP source dan bundle riwayat Git untuk
 pemulihan. Untuk memulihkan bundle ke folder baru:
 
 ```bash
-git clone SM8750-research-history-2026-11-06.bundle recovered-research
+git clone SM8750-research-history-2026-11-07.bundle recovered-research
 ```
 
 Keberhasilan push ini menggunakan login GitHub CLI yang diselesaikan pengguna;

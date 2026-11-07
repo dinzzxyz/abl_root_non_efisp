@@ -1,0 +1,4 @@
+PASS: pinned capture hashes; FAT12 bounds, matching FATs and five complete UEFI logs
+PASS: toolsfv inventory; native applications include Shell and Ebl
+PASS: public evidence contains only metadata and allowlisted log lines
+NOT TESTED: invoking Shell/GBL before LinuxLoader or accepting modified firmware
