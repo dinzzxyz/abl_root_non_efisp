@@ -147,3 +147,25 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
   ekstraksi PE independen dan batas signature. Bukti di annibale serta
   evidence/annibale_2026_11_07; panduan lanjutan pada ANNIBALE_BUILD.md.
 - Tidak menjalankan command flash, reboot, relock atau menulis partisi HP.
+
+## 2026-11-07 — contoh logo Fenrir dan program Ebl-first
+
+- Membaca logo.zip, script, teks dan screenshot build tanpa mengeksekusi
+  script kiriman atau mempublikasikan raw logo/screenshot.
+- File repack sudah memuat cert1/cert2 donor. Repair mempertahankannya,
+  menambah context-[0] 90 byte untuk hash baru dan memperbaiki alignment.
+  Hash image memakai padding nol 16 byte. Tidak menyamakan observasi file
+  dengan pengujian native verifier atau boot MediaTek baru.
+- Memin source primer Fenrir/liblk dan merujuk lisensinya tanpa menyalin
+  source upstream ke source MIT penelitian.
+- Memverifikasi signature stock UEFI dan ABL; ketiga cert identik. Kandidat
+  ABL v6 sudah mempertahankan signature/cert asli. Mengekspor data publik
+  cert serta signature donor sesuai permintaan pengguna.
+- Membuat hook QcomBds 0x5254 → 0x1C900: Ebl Main FV lalu LinuxLoader ABL FV
+  jika Ebl kembali. Program baru 72 byte tidak mengubah charger/PIL yang
+  lebih dulu berjalan dan tidak diterbitkan sebagai image OEM.
+- Delapan kasus emulasi ARM64/ABI dengan helper mock dan uji negatif baru
+  membuat seluruh 32 tes lulus. Belum ada uji EFI/USB/display/boot HP.
+- Menyimpan source generator, program/listing, cert, metadata dan panduan.
+  Jalur autentikasi perubahan UEFI atau tulis RAM awal masih belum ditemukan;
+  belum ada port SuperFastboot tanpa efisp yang berjalan di perangkat.

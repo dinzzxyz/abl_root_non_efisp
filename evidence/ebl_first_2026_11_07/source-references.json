@@ -1,0 +1,25 @@
+{
+  "fenrir": {
+    "repository": "R0rt1z2/fenrir",
+    "commit": "ed86ee4459d8fb2ce5031149d64d2dc7c90848ab",
+    "requirements_blob_sha": "0396b39440392fc092afdd873082d5c37c94420d",
+    "license": "AGPL-3.0",
+    "url": "https://github.com/R0rt1z2/fenrir/tree/ed86ee4459d8fb2ce5031149d64d2dc7c90848ab"
+  },
+  "liblk": {
+    "repository": "R0rt1z2/liblk",
+    "commit": "75c8f14f16457b6c53d950d18d1ed7d2a665bed6",
+    "license": "GPL-3.0-or-later",
+    "files": {
+      "liblk/structures/partition.py": "1363e7604eec50061f58f0a9e52d92164b6ec64d",
+      "liblk/structures/certificate.py": "2950c50209a41b638da78e6f042bc28cdd66d319",
+      "liblk/structures/header.py": "27bf335d44c9b01c30da9f74b922fa1122cfa54c"
+    }
+  },
+  "new_parser_and_hook_source": "Independently written; upstream source is referenced, not vendored",
+  "emulator": {
+    "package": "unicorn",
+    "version": "2.1.4",
+    "primary_url": "https://pypi.org/project/unicorn/2.1.4/"
+  }
+}

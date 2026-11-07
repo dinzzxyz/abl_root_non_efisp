@@ -1,0 +1,346 @@
+{
+  "status": "OFFLINE HOOK STUDY; NOT A FLASHABLE OR AUTHENTICATED IMAGE",
+  "qcombds_pe_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+  "address_space": "QcomBds PE RVA and converted file offsets, not ABL/UEFI ELF offsets",
+  "call_rva": "0x5254",
+  "call_file_offset": "0x5254",
+  "original_call_bytes": "b60a0094",
+  "proposed_call_bytes": "ab5d0094",
+  "launch_helper_rva": "0x7d2c",
+  "stub_rva": "0x1c900",
+  "stub_file_offset": "0x1c900",
+  "stub_size": 72,
+  "stub_instruction_count": 16,
+  "stub_hex": "fd7bbea9f35301a9f30300aaf40301aa000000b000e0039141010010e2031faa03adff97e00313aae10314aae2031faaffacff97f35341a9fd7bc2a8c0035fd6450062006c000000",
+  "stub_sha256": "c23fd7d7575070f8b87de2d7990ad95d856d407c7353aae25017c5c807d0f234",
+  "stub_rows": [
+    {
+      "file_offset": "0x1c900",
+      "rva": "0x1c900",
+      "bytes": "fd7bbea9",
+      "mnemonic": "stp",
+      "operands": "x29, x30, [sp, #-0x20]!"
+    },
+    {
+      "file_offset": "0x1c904",
+      "rva": "0x1c904",
+      "bytes": "f35301a9",
+      "mnemonic": "stp",
+      "operands": "x19, x20, [sp, #0x10]"
+    },
+    {
+      "file_offset": "0x1c908",
+      "rva": "0x1c908",
+      "bytes": "f30300aa",
+      "mnemonic": "mov",
+      "operands": "x19, x0"
+    },
+    {
+      "file_offset": "0x1c90c",
+      "rva": "0x1c90c",
+      "bytes": "f40301aa",
+      "mnemonic": "mov",
+      "operands": "x20, x1"
+    },
+    {
+      "file_offset": "0x1c910",
+      "rva": "0x1c910",
+      "bytes": "000000b0",
+      "mnemonic": "adrp",
+      "operands": "x0, #0x1d000"
+    },
+    {
+      "file_offset": "0x1c914",
+      "rva": "0x1c914",
+      "bytes": "00e00391",
+      "mnemonic": "add",
+      "operands": "x0, x0, #0xf8"
+    },
+    {
+      "file_offset": "0x1c918",
+      "rva": "0x1c918",
+      "bytes": "41010010",
+      "mnemonic": "adr",
+      "operands": "x1, #0x1c940"
+    },
+    {
+      "file_offset": "0x1c91c",
+      "rva": "0x1c91c",
+      "bytes": "e2031faa",
+      "mnemonic": "mov",
+      "operands": "x2, xzr"
+    },
+    {
+      "file_offset": "0x1c920",
+      "rva": "0x1c920",
+      "bytes": "03adff97",
+      "mnemonic": "bl",
+      "operands": "#0x7d2c"
+    },
+    {
+      "file_offset": "0x1c924",
+      "rva": "0x1c924",
+      "bytes": "e00313aa",
+      "mnemonic": "mov",
+      "operands": "x0, x19"
+    },
+    {
+      "file_offset": "0x1c928",
+      "rva": "0x1c928",
+      "bytes": "e10314aa",
+      "mnemonic": "mov",
+      "operands": "x1, x20"
+    },
+    {
+      "file_offset": "0x1c92c",
+      "rva": "0x1c92c",
+      "bytes": "e2031faa",
+      "mnemonic": "mov",
+      "operands": "x2, xzr"
+    },
+    {
+      "file_offset": "0x1c930",
+      "rva": "0x1c930",
+      "bytes": "ffacff97",
+      "mnemonic": "bl",
+      "operands": "#0x7d2c"
+    },
+    {
+      "file_offset": "0x1c934",
+      "rva": "0x1c934",
+      "bytes": "f35341a9",
+      "mnemonic": "ldp",
+      "operands": "x19, x20, [sp, #0x10]"
+    },
+    {
+      "file_offset": "0x1c938",
+      "rva": "0x1c938",
+      "bytes": "fd7bc2a8",
+      "mnemonic": "ldp",
+      "operands": "x29, x30, [sp], #0x20"
+    },
+    {
+      "file_offset": "0x1c93c",
+      "rva": "0x1c93c",
+      "bytes": "c0035fd6",
+      "mnemonic": "ret",
+      "operands": ""
+    }
+  ],
+  "literal_name": "Ebl",
+  "literal_rva": "0x1c940",
+  "main_fv_guid_rva": "0x1d0f8",
+  "main_fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+  "original_abl_fv_guid_rva": "0x1d0e8",
+  "original_abl_fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+  "proposed_pe_buffer_sha256": "6a2ae633b79c979dfffad7df8100c5c624fc52c5cc71601a16139f635a7da16e",
+  "static_direct_branch_refs_into_padding": [],
+  "aligned_qword_refs_into_padding": [],
+  "padding_globally_proven_unused": false,
+  "flow": [
+    "Existing charger application and PIL ABL preparation remain before the hook",
+    "Launch Ebl in Main FV using the native BDS helper",
+    "If Ebl returns, restore original arguments and launch LinuxLoader in ABL FV",
+    "Return LinuxLoader status to original continuation RVA 0x5258"
+  ],
+  "authentication_limit": "Modifying QcomBds requires an accepted UEFI modification or pre-existing runtime write path; neither is established",
+  "abl_modified_by_this_hook": false,
+  "firmware_image_emitted": false,
+  "runtime_uefi_or_authentication_tested": false,
+  "hardware_writes_or_reboots": false,
+  "main_fv_applications": [
+    {
+      "name": "QcomChargerApp",
+      "ffs_guid": "eee9c2b1-16ca-4f34-87ea-2e6d1e160cc4",
+      "ffs_type": 9,
+      "pe_sha256": "c4b83678eb48192c44320d9c1c52647b19e7214a83da46f9af211c7897f53987",
+      "origin": "raw/lzma@0x4e268",
+      "fv_expanded_buffer_offset": "0x8"
+    },
+    {
+      "name": "Ebl",
+      "ffs_guid": "3cef354a-3b7a-4519-ad70-72a134698311",
+      "ffs_type": 9,
+      "pe_sha256": "306bed8aaca6c2a31b6bee8360d1e9c727440ed50664bf3e107420ec103c5761",
+      "origin": "raw/lzma@0x4e268",
+      "fv_expanded_buffer_offset": "0x8"
+    }
+  ],
+  "arm64_emulation": {
+    "engine": "Unicorn",
+    "version": "2.1.4",
+    "cases": [
+      {
+        "image_base": "0x10000000",
+        "ebl_status": "0x0",
+        "linuxloader_status": "0x0",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0x10000000",
+        "ebl_status": "0x0",
+        "linuxloader_status": "0x8000000000000001",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0x10000000",
+        "ebl_status": "0x800000000000000e",
+        "linuxloader_status": "0x0",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0x10000000",
+        "ebl_status": "0x800000000000000e",
+        "linuxloader_status": "0x8000000000000001",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0xb7000000",
+        "ebl_status": "0x0",
+        "linuxloader_status": "0x0",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0xb7000000",
+        "ebl_status": "0x0",
+        "linuxloader_status": "0x8000000000000001",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0xb7000000",
+        "ebl_status": "0x800000000000000e",
+        "linuxloader_status": "0x0",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      },
+      {
+        "image_base": "0xb7000000",
+        "ebl_status": "0x800000000000000e",
+        "linuxloader_status": "0x8000000000000001",
+        "calls": [
+          {
+            "fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+            "name": "Ebl",
+            "arg2": 0,
+            "sp_aligned_16": true
+          },
+          {
+            "fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+            "name": "LinuxLoader",
+            "arg2": 0,
+            "sp_aligned_16": true
+          }
+        ],
+        "stack_and_callee_saved_registers_restored": true,
+        "original_continuation_reached": true
+      }
+    ],
+    "bds_helper_mocked": true,
+    "uefi_firmware_executed": false,
+    "interpretation": "ARM64 control-flow/ABI test only, not EFI execution or authentication"
+  }
+}

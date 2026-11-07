@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--upstream", type=Path, required=True)
     parser.add_argument("--log", type=Path)
     parser.add_argument("--live-archive", type=Path, help="Optional private live-boot capture ZIP")
+    parser.add_argument("--logo-archive", type=Path, help="Optional user-provided MediaTek comparison ZIP")
     args = parser.parse_args()
     project = Path(__file__).resolve().parent.parent
     results = []
@@ -38,6 +39,7 @@ def main():
             ("map_bootstate.py", ["--out", str(generated / "bootstate")]),
             ("trace_diagnostics.py", ["--out", str(generated / "bootstate")]),
             ("trace_ebl_entry.py", ["--out", str(generated / "entry")]),
+            ("plan_ebl_first.py", ["--out", str(generated / "ebl-first"), "--emulate"]),
         ]:
             run = subprocess.run([sys.executable, str(project / "src" / script),
                                   str(args.archive), *options],
@@ -133,6 +135,15 @@ def main():
                 pil["consumer_argument"] == "ABL" and not pil["ebl_entry_established"],
                 "PIL protocol producer/consumer binding differs")
         results.append("PASS: early platform callback table and native Ebl RAM/file routes match pinned PEs")
+        hook = json.loads((generated / "ebl-first/hook-plan.json").read_text())
+        require(hook["call_rva"] == "0x5254" and hook["stub_size"] == 72 and
+                len(hook["arm64_emulation"]["cases"]) == 8 and
+                not hook["firmware_image_emitted"] and not hook["runtime_uefi_or_authentication_tested"],
+                "Ebl-first hook study or execution boundaries differ")
+        require((generated / "ebl-first/ebl_first_stub.bin").read_bytes() ==
+                (project / "annibale/research/ebl_first_stub.bin").read_bytes(),
+                "Published hook program bytes differ from the generator")
+        results.append("PASS: 72-byte Ebl-first hook, Main FV inventory and eight emulated ARM64 ABI/status cases")
         trace = json.loads((generated / "continued/boot_container_trace.json").read_text())
         for tag in ("cn", "eng"):
             require(any(x["fv_name_guid"] == trace["dispatch"]["fv_argument_guid"]
@@ -175,6 +186,24 @@ def main():
             require(not live["hardware_writes_or_reboots"] and not live["custom_efi_entry_tested"],
                     "Unexpected device execution claim")
             results.append("PASS: private live input hashes, FAT12 logs, Tools FV apps, and BDS namespace cross-check")
+        if args.logo_archive:
+            logo_out = generated / "logo-comparison"
+            cert_out = generated / "abl-certificates"
+            run = subprocess.run([sys.executable, str(project / "src/analyze_logo_donor.py"),
+                                  str(args.logo_archive), "--firmware", str(args.archive),
+                                  "--out", str(logo_out), "--cert-out", str(cert_out)],
+                                 text=True, capture_output=True, timeout=120)
+            require(run.returncode == 0, "Logo comparison failed:\n" + run.stdout + run.stderr)
+            comparison = json.loads((logo_out / "comparison.json").read_text())
+            require(comparison["logo1"]["override_prefix_size"] == 90 and
+                    comparison["repacked_already_has_donor_certificate_payloads"] and
+                    comparison["qualcomm"]["stock_abl_and_uefi_share_all_three_certificate_bytes"] and
+                    comparison["qualcomm"]["packaged_candidate_already_preserves_abl_signature_and_certificates"],
+                    "Logo/Qualcomm certificate comparison differs")
+            for file in cert_out.iterdir():
+                require(file.read_bytes() == (project / "annibale/research/certs" / file.name).read_bytes(),
+                        "Exported ABL certificate/signature bytes differ")
+            results.append("PASS: MediaTek 90-byte hash override/alignment, Qualcomm stock signatures and exact ABL certificate exports")
         for source in (project / "src").glob("*.py"):
             py_compile.compile(str(source), cfile=str(Path(temporary) / (source.stem + ".pyc")),
                                doraise=True)

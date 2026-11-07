@@ -1,0 +1,290 @@
+{
+  "archive_sha256": "549ddd66d6719553e2cfa035f0cecb68bef376a60c7eda0b4c988085066d0267",
+  "members": [
+    {
+      "name": "stock/logo.img",
+      "size": 5419008,
+      "sha256": "801e1dc036c17b7cc2ecba1e71453f8eb8592df3e225f5ec059520ab29895117"
+    },
+    {
+      "name": "mod/logo_dash-repack.bin",
+      "size": 5502339,
+      "sha256": "ce4865b6132958aeabad988c7eded90ed0a9ce565899d127af41c0f42907cdd7"
+    },
+    {
+      "name": "mod-signed/logo_dash-repack-signed.bin",
+      "size": 5500912,
+      "sha256": "cb0ca9dc1cfa07193219682db6af0eed8fdbcd5afcff63ba592492e8f6f6c7f7"
+    }
+  ],
+  "images": {
+    "stock/logo.img": [
+      {
+        "name": "logo1",
+        "file_offset": "0x0",
+        "size": 113005,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "e31a5c2d1c0210c1205776710a61536a34bacf9261ab78401af7ebb286e8b1ad",
+        "payload_sha256": "b52ef84080bbb9074acf2e57c62625fd860f66febf17728d3270731522a1f305",
+        "image_sha256_zero_padded_16": "50c17b112a16d676448bdceaeee3633affda7ee8b4c99c147708f020a2ab6b81"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x1bb70",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "f32cf198b3d26d28a25df20c97f1443d8ff0268521e94ce58ae597e70b347a76",
+        "image_sha256_zero_padded_16": "1c55373fdf55cc9283a7f3e22113b2e97b47504a35bc30da127d4d051fb52ec2"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x1c440",
+        "size": 982,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "e58f8c502e0e8466892b6eb8791c6868239880cd31af81ba3df9481ffdb7ca4c",
+        "payload_sha256": "46cb04e724c6cb9b38a430885fa6baa4edfd7b85a68f0e5c939eafc27ed01e81",
+        "image_sha256_zero_padded_16": "fb0b28691e72622943ef62b6d43a1e5f1e89de0d7a3b1b64c96964f2c7898938"
+      },
+      {
+        "name": "logo2",
+        "file_offset": "0x1ca20",
+        "size": 5295939,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "5760b81bd6cdb20f27cce6954f93766b954ff4c9478cc0bbe4a28e78a0d56748",
+        "payload_sha256": "d13c0dc93bd1c241f682a58b72afe579791326800f8436591dfda9da19d75c0c",
+        "image_sha256_zero_padded_16": "cfe2c87f6bea62340386e5b3f30d0ccbd6381108901035112ca180e31018c4e4"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x529b70",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "407a53b2151f66cbad5a590c2dc5a6628219ab03aeefb3af810bbb8d2f4f58f5",
+        "image_sha256_zero_padded_16": "07812a8cf61af00e738439d9fe9a79a41d5031766037c6088a15c617266386ab"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x52a440",
+        "size": 982,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "8994577cde9a931d5775183306457a6f7ac88e5be63148f1c3fd9cc87293dd36",
+        "payload_sha256": "cb70bb559f983861391eeaa754a89d92fddf0650984a420169509d6840f5191a",
+        "image_sha256_zero_padded_16": "8f229a105231669651c897e243fff06e977dfdb942d1a5cc23cf99c9febad69a"
+      }
+    ],
+    "mod/logo_dash-repack.bin": [
+      {
+        "name": "logo1",
+        "file_offset": "0x0",
+        "size": 196321,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "cbec789ff37e68513f30ebc3d320ba8bea37541990b344805a6fc4d1ef64d7f1",
+        "payload_sha256": "eb697382ae98dadf2bc1c17d75f6f36f403077d93ec23ea12d7945bb0b9c53fb",
+        "image_sha256_zero_padded_16": "285b25e88f24aeec7cf841fb9048eaabd3c10d304bf55366b14734538cf31dd4"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x300f3",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": false,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "f32cf198b3d26d28a25df20c97f1443d8ff0268521e94ce58ae597e70b347a76",
+        "image_sha256_zero_padded_16": "1c55373fdf55cc9283a7f3e22113b2e97b47504a35bc30da127d4d051fb52ec2"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x309c3",
+        "size": 982,
+        "declared_alignment": 16,
+        "header_aligned": false,
+        "header_sha256": "e58f8c502e0e8466892b6eb8791c6868239880cd31af81ba3df9481ffdb7ca4c",
+        "payload_sha256": "46cb04e724c6cb9b38a430885fa6baa4edfd7b85a68f0e5c939eafc27ed01e81",
+        "image_sha256_zero_padded_16": "fb0b28691e72622943ef62b6d43a1e5f1e89de0d7a3b1b64c96964f2c7898938"
+      },
+      {
+        "name": "logo2",
+        "file_offset": "0x30fa3",
+        "size": 5295939,
+        "declared_alignment": 16,
+        "header_aligned": false,
+        "header_sha256": "5760b81bd6cdb20f27cce6954f93766b954ff4c9478cc0bbe4a28e78a0d56748",
+        "payload_sha256": "d13c0dc93bd1c241f682a58b72afe579791326800f8436591dfda9da19d75c0c",
+        "image_sha256_zero_padded_16": "cfe2c87f6bea62340386e5b3f30d0ccbd6381108901035112ca180e31018c4e4"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x53e0f3",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": false,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "407a53b2151f66cbad5a590c2dc5a6628219ab03aeefb3af810bbb8d2f4f58f5",
+        "image_sha256_zero_padded_16": "07812a8cf61af00e738439d9fe9a79a41d5031766037c6088a15c617266386ab"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x53e9c3",
+        "size": 982,
+        "declared_alignment": 16,
+        "header_aligned": false,
+        "header_sha256": "8994577cde9a931d5775183306457a6f7ac88e5be63148f1c3fd9cc87293dd36",
+        "payload_sha256": "cb70bb559f983861391eeaa754a89d92fddf0650984a420169509d6840f5191a",
+        "image_sha256_zero_padded_16": "8f229a105231669651c897e243fff06e977dfdb942d1a5cc23cf99c9febad69a"
+      }
+    ],
+    "mod-signed/logo_dash-repack-signed.bin": [
+      {
+        "name": "logo1",
+        "file_offset": "0x0",
+        "size": 196321,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "cbec789ff37e68513f30ebc3d320ba8bea37541990b344805a6fc4d1ef64d7f1",
+        "payload_sha256": "eb697382ae98dadf2bc1c17d75f6f36f403077d93ec23ea12d7945bb0b9c53fb",
+        "image_sha256_zero_padded_16": "285b25e88f24aeec7cf841fb9048eaabd3c10d304bf55366b14734538cf31dd4"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x300f0",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "f32cf198b3d26d28a25df20c97f1443d8ff0268521e94ce58ae597e70b347a76",
+        "image_sha256_zero_padded_16": "1c55373fdf55cc9283a7f3e22113b2e97b47504a35bc30da127d4d051fb52ec2"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x309c0",
+        "size": 1072,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "df1cdace89645516acf58f1cdbc343dc94682f5e74c27c75f3de2e6cecbb82ec",
+        "payload_sha256": "a04664be8604ae9b4f4e79f7715672eb32b6e721c37aa705afb159b32b135a72",
+        "image_sha256_zero_padded_16": "a04664be8604ae9b4f4e79f7715672eb32b6e721c37aa705afb159b32b135a72"
+      },
+      {
+        "name": "logo2",
+        "file_offset": "0x30ff0",
+        "size": 5295939,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "5760b81bd6cdb20f27cce6954f93766b954ff4c9478cc0bbe4a28e78a0d56748",
+        "payload_sha256": "d13c0dc93bd1c241f682a58b72afe579791326800f8436591dfda9da19d75c0c",
+        "image_sha256_zero_padded_16": "cfe2c87f6bea62340386e5b3f30d0ccbd6381108901035112ca180e31018c4e4"
+      },
+      {
+        "name": "cert1",
+        "file_offset": "0x53e140",
+        "size": 1733,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "84f1b90fb9620a27edc409b990f3354537a7e2da1147b21bfe4668464b00f080",
+        "payload_sha256": "407a53b2151f66cbad5a590c2dc5a6628219ab03aeefb3af810bbb8d2f4f58f5",
+        "image_sha256_zero_padded_16": "07812a8cf61af00e738439d9fe9a79a41d5031766037c6088a15c617266386ab"
+      },
+      {
+        "name": "cert2",
+        "file_offset": "0x53ea10",
+        "size": 982,
+        "declared_alignment": 16,
+        "header_aligned": true,
+        "header_sha256": "8994577cde9a931d5775183306457a6f7ac88e5be63148f1c3fd9cc87293dd36",
+        "payload_sha256": "cb70bb559f983861391eeaa754a89d92fddf0650984a420169509d6840f5191a",
+        "image_sha256_zero_padded_16": "8f229a105231669651c897e243fff06e977dfdb942d1a5cc23cf99c9febad69a"
+      }
+    ]
+  },
+  "logo1": {
+    "modified_payload_retained": true,
+    "cert1_payload_identical_to_donor": true,
+    "donor_cert2_preserved_as_suffix": true,
+    "override_prefix_size": 90,
+    "override_prefix_hex": "a058060760867693160204032100cbec789ff37e68513f30ebc3d320ba8bea37541990b344805a6fc4d1ef64d7f1060760867693160201032100285b25e88f24aeec7cf841fb9048eaabd3c10d304bf55366b14734538cf31dd4",
+    "override_hashes": {
+      "header_sha256": "cbec789ff37e68513f30ebc3d320ba8bea37541990b344805a6fc4d1ef64d7f1",
+      "image_sha256": "285b25e88f24aeec7cf841fb9048eaabd3c10d304bf55366b14734538cf31dd4"
+    },
+    "hashes_match_new_header_and_zero_padded_image": true,
+    "plain_unpadded_payload_hash_equals_advertised": false,
+    "stock_cert2_contains_stock_header_hash": true,
+    "stock_cert2_contains_new_header_hash": false
+  },
+  "repacked_already_has_donor_certificate_payloads": true,
+  "repacked_misaligned_headers": [
+    "0x300f3",
+    "0x309c3",
+    "0x30fa3",
+    "0x53e0f3",
+    "0x53e9c3"
+  ],
+  "repaired_all_headers_aligned": true,
+  "logo2_payload_and_certificates_unchanged": true,
+  "interpretation": "Observed repair combines a MediaTek context-[0] hash override and container alignment; it is more than copying certificate bytes",
+  "uploaded_signing_script_executed": false,
+  "native_mtk_verifier_or_hardware_tested": false,
+  "qualcomm": {
+    "abl_stock": {
+      "elf_sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309",
+      "elf_class": 1,
+      "hash_segment_offset": "0x51000",
+      "software_id": "0x1c",
+      "signed_range": [
+        "0x51000",
+        "0x511b0"
+      ],
+      "signature_offset": "0x511b0",
+      "signature_der_size": 103,
+      "certificates_offset": "0x51218",
+      "certificate_sha256": [
+        "2c2a1a828954062434bc11cd496fea487427fbdb6f79874ba204c33a0f9d71c3",
+        "565c7eed6f0576e970dca2053d9e09360af68736104459cf38089bbfb9c6c247",
+        "1c845b8080d4ce3edfc89649269e28627c8fa789cca6282a6828ac014940d063"
+      ],
+      "certificate_chain_block_sha256": "2db56392f5071f25891019d63793d694fadbd0306868c2c4407cbe3275c3678d",
+      "segment_digests_valid": true,
+      "original_signature_valid_with_embedded_leaf_key": true,
+      "one_hash_byte_counterfactual_signature_valid": false,
+      "counterfactual_is_signature_only_not_a_rebuilt_image": true,
+      "trailing_hash_segment_bytes": 0
+    },
+    "uefi_stock": {
+      "elf_sha256": "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a",
+      "elf_class": 2,
+      "hash_segment_offset": "0x2b4000",
+      "software_id": "0x9",
+      "signed_range": [
+        "0x2b4000",
+        "0x2b41b0"
+      ],
+      "signature_offset": "0x2b41b0",
+      "signature_der_size": 102,
+      "certificates_offset": "0x2b4218",
+      "certificate_sha256": [
+        "2c2a1a828954062434bc11cd496fea487427fbdb6f79874ba204c33a0f9d71c3",
+        "565c7eed6f0576e970dca2053d9e09360af68736104459cf38089bbfb9c6c247",
+        "1c845b8080d4ce3edfc89649269e28627c8fa789cca6282a6828ac014940d063"
+      ],
+      "certificate_chain_block_sha256": "2db56392f5071f25891019d63793d694fadbd0306868c2c4407cbe3275c3678d",
+      "segment_digests_valid": true,
+      "original_signature_valid_with_embedded_leaf_key": true,
+      "one_hash_byte_counterfactual_signature_valid": false,
+      "counterfactual_is_signature_only_not_a_rebuilt_image": true,
+      "trailing_hash_segment_bytes": 676
+    },
+    "stock_abl_and_uefi_share_all_three_certificate_bytes": true,
+    "packaged_candidate_already_preserves_abl_signature_and_certificates": true,
+    "copying_certificate_is_not_equivalent_to_a_hash_override_parser": true,
+    "device_runtime_authentication_policy_tested": false
+  }
+}

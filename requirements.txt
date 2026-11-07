@@ -2,3 +2,4 @@ capstone==5.0.9
 pefile==2024.8.26
 uefi_firmware==1.16
 cryptography==50.0.0
+unicorn==2.1.4

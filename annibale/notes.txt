@@ -228,6 +228,35 @@ kebijakan autentikasi yang benar-benar terjangkau, baru pengujian EFI minimal.
 Hadirnya file patch di folder annibale tidak menandakan port SuperFastboot
 tanpa efisp sudah selesai. Catat hasil runtime/log dan hash setiap revisi.
 
+9. CHECKPOINT EBL-FIRST DAN CONTOH FENRIR
+
+Source penuh terbaru memuat EBL_FIRST_FINDINGS.md dan folder research.
+research/ebl_first_stub.bin adalah program ARM64 baru 72 byte, BUKAN image
+partisi. Rencana pada hook-plan.json menempatkannya di PE QcomBds pada UEFI:
+call RVA 0x5254 dialihkan ke RVA 0x1C900 untuk Ebl Main FV, kemudian meneruskan
+LinuxLoader ABL FV bila Ebl kembali. Dua base alamat dan status sukses/error
+diuji pada emulator; helper peluncur UEFI dimock. Belum ada eksekusi EFI/HP.
+
+File ELF hasil patch di folder induk tetap versi riset v6 dengan hash bbf89327...
+dan tidak mengandung hook ini. Belum ada image UEFI modifikasi yang diterbitkan.
+Penerapan hook memerlukan autentikasi perubahan UEFI atau jalur tulis RAM awal
+yang belum ditemukan. Area padding calon stub belum dibuktikan aman global.
+
+research/certs berisi DER leaf/intermediate/root ABL asli, chain beserta
+padding 3360 byte, dan signature asli 104 byte. Semua diekstrak identik dari
+default, sesuai permintaan pengguna. Ini sertifikat publik, bukan private key.
+Kandidat ABL v6 sebenarnya sudah mempertahankan blok itu secara identik.
+
+Contoh logo MediaTek pengguna menambahkan context-[0] override hash 90 byte
+dan memperbaiki alignment sambil mempertahankan cert donor. Mekanisme parser
+tersebut belum ditemukan pada jalur Qualcomm yang diperiksa. ABL dan UEFI
+stock Qualcomm bahkan memakai tiga cert yang identik, dengan signature image
+masing-masing valid; perubahan signed data membuat signature tidak cocok.
+
+Generator hook dan analyzer berada di src pada root source penelitian penuh,
+bukan hanya src default-ABL dalam paket annibale. Cara reproduksi lengkap
+terdapat pada research/README.md dan EBL_FIRST_FINDINGS.md.
+
 Referensi primer format/sintaks yang diperiksa:
 https://github.com/msm8916-mainline/qtestsign/blob/0eef3b552b1ada848f22bad38ab2e40407307c5b/mbn/hashseg.py
 https://android.googlesource.com/platform/system/core/+/3c4123065410c700dc924796779f5c0559ab0ad1/fastboot/fastboot.cpp

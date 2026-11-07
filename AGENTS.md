@@ -20,6 +20,9 @@ Record hashes and private input acquisition notes instead of embedding secrets.
 Exception explicitly requested by the user on 7 November: include the identified
 CN stock ABL and its reproducible research ELF in annibale/src and annibale.
 This does not authorize adding other firmware, private logs or EDL loaders.
+The later logo/Fenrir request authorizes exporting public ABL certificates and
+the original signature under annibale/research/certs. The new Ebl-first program
+is an offline hook study. Read EBL_FIRST_FINDINGS.md before extending claims.
 The requested fastboot notes must distinguish syntax/reference instructions
 from an image accepted by device authentication; do not claim bootability.
 

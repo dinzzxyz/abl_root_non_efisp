@@ -101,6 +101,18 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
     walau digest dan rantai sertifikat valid. Ini bukan image OEM-resigned.
 31. Mengikat consumer ABL pada QcomBds 0x4F4C ke interface PILDxe 0x171B8,
     method +8 → 0x1790 → helper 0x1FC0. Tidak menemukan launcher Ebl baru.
+32. Membaca logo.zip tanpa mengeksekusi script. Repack sudah membawa cert
+    donor; repair menambah context-[0] 90 byte, hash baru dengan padding nol
+    16 byte dan mengembalikan alignment. Raw logo/screenshot tetap privat.
+33. Memvalidasi signature UEFI stock dan menemukan tiga cert identik dengan
+    ABL. Mengekspor DER leaf/intermediate/root, chain dan signature ABL asli
+    sesuai permintaan; tidak ada private key atau signature baru.
+34. Membuat hook study 72 byte: call QcomBds 0x5254 → 0x1C900, Ebl Main FV
+    lalu LinuxLoader ABL FV bila kembali, continuation 0x5258. Tidak membuat
+    image UEFI modifikasi; ABL kandidat v6 tidak berubah.
+35. Delapan skenario emulasi ARM64 menguji ABI/error/two image bases dengan
+    helper native dimock. Delapan unit tambahan membuat total 32 tes lulus.
+    Ini belum merupakan pengujian Ebl, protokol UEFI atau perangkat.
 
 ## Status yang belum boleh dianggap selesai
 
@@ -160,6 +172,12 @@ annibale/build-report.json. Rebuild: python3 annibale/src/patch.py --check.
 Audit signature membutuhkan annibale/src/requirements.txt dan menghasilkan
 stock VALID versus kandidat INVALID. Jangan menyamakan lulus reproduksi atau
 sertifikat valid dengan signature kandidat valid. Tidak ada flashing otomatis.
+Baca EBL_FIRST_FINDINGS.md untuk checkpoint berikutnya. Generator baru:
+src/plan_ebl_first.py dan src/analyze_logo_donor.py; input logo dipin dalam
+LOGO_INPUTS.json. Program/listing/JSON dan cert ada di annibale/research.
+Padding belum dibuktikan aman secara global; console/protokol native,
+autentikasi perubahan UEFI dan jalur tulis RAM awal tetap belum terbukti.
+Jangan menyebut prototype sebagai entry Ebl yang sudah dicapai di retail.
 Jalur file/RAM Ebl sudah terpetakan, jadi prioritas adalah entry awal native
 pada PROD/Retail dan status autentikasi, bukan membuat partisi baru. Ide uji
 pertama setelah entry tersedia adalah aplikasi EFI diagnostik yang kembali ke

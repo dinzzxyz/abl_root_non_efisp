@@ -1,0 +1,39 @@
+{
+  "name": "logo.zip",
+  "size": 15367950,
+  "sha256": "549ddd66d6719553e2cfa035f0cecb68bef376a60c7eda0b4c988085066d0267",
+  "members": [
+    {
+      "name": "mod-signed/logo_dash-repack-signed.bin",
+      "size": 5500912,
+      "sha256": "cb0ca9dc1cfa07193219682db6af0eed8fdbcd5afcff63ba592492e8f6f6c7f7"
+    },
+    {
+      "name": "mod/logo_dash-repack.bin",
+      "size": 5502339,
+      "sha256": "ce4865b6132958aeabad988c7eded90ed0a9ce565899d127af41c0f42907cdd7"
+    },
+    {
+      "name": "output fenrir.jpg",
+      "size": 588381,
+      "sha256": "aba894240d4c72fefc8db542838bc3a47ef45e13aa749d953f7d25ffcc74ae0a"
+    },
+    {
+      "name": "sign_logo.py",
+      "size": 5122,
+      "sha256": "f3b94d1870d66548ac885ac24c6c5433ffde9ddf3cef3325a27745641dd2e149"
+    },
+    {
+      "name": "stock/logo.img",
+      "size": 5419008,
+      "sha256": "801e1dc036c17b7cc2ecba1e71453f8eb8592df3e225f5ec059520ab29895117"
+    },
+    {
+      "name": "teks.txt",
+      "size": 1086,
+      "sha256": "e8189970174966d9fadeb23a77a10b09bbba60195884c1a2ecd4de221292d1cf"
+    }
+  ],
+  "raw_files_published": false,
+  "uploaded_script_executed": false
+}

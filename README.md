@@ -1,6 +1,6 @@
 # Penelusuran SuperFastboot SM8750 / annibale
 
-Updated: 7 November 2026. Status: **analisis statis, rekonstruksi patch dan log stock**.
+Updated: 7 November 2026. Status: **analisis statis, rekonstruksi, emulasi stub dan log stock**.
 Paket ini berisi source alat analisis, bukti, dan catatan pengembangan.
 Belum merupakan port SuperFastboot yang dapat di-flash.
 
@@ -24,6 +24,9 @@ Paket perangkat yang diminta pengguna ada di [annibale](annibale), dengan
 default ABL, hasil repack ELF, script dan [notes.txt](annibale/notes.txt).
 Lihat [ANNIBALE_BUILD.md](ANNIBALE_BUILD.md): digest hasil valid, tetapi
 **signature OEM kandidat invalid dan belum ada uji boot**.
+Perbandingan logo/Fenrir, sertifikat asli dan prototype Ebl-first ada di
+[EBL_FIRST_FINDINGS.md](EBL_FIRST_FINDINGS.md) dan [annibale/research](annibale/research).
+Emulasi memakai helper UEFI yang dimock; belum merupakan eksekusi EFI.
 
 ## Hasil utama
 
@@ -56,6 +59,13 @@ Lihat [ANNIBALE_BUILD.md](ANNIBALE_BUILD.md): digest hasil valid, tetapi
 9. Repack ELF mempertahankan header/container dan memperbarui digest.
    Audit ECDSA P-384/SHA-384 memvalidasi signature stock, sementara
    signature yang dipertahankan pada kandidat invalid.
+10. Contoh logo pengguna menambah override hash context-[0] 90 byte dan
+    memperbaiki alignment sambil mempertahankan cert donor. ABL dan UEFI
+    Qualcomm stock memakai tiga cert yang sama, dengan signature image
+    tetap mengikat signed data masing-masing.
+11. Program baru 72 byte mengusulkan Ebl Main FV sebelum LinuxLoader ABL FV
+    pada call QcomBds 0x5254. Delapan kasus CPU/ABI lulus di emulator;
+    autentikasi perubahan UEFI dan boot perangkat belum terbukti.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -74,6 +84,8 @@ dan tahap pengembangan berikutnya.
 | `src/trace_diagnostics.py` | Tabel OEM CN dan cabang argumen handler log |
 | `src/analyze_live_boot.py` | FAT12 bounded, cuplikan log terpilih dan inventaris Tools FV |
 | `src/trace_ebl_entry.py` | Callback protokol QcomBds dan jalur file/RAM Ebl native |
+| `src/plan_ebl_first.py` | Generator program hook dan emulasi ARM64 dengan helper UEFI mock |
+| `src/analyze_logo_donor.py` | Perbandingan MTK/Qualcomm dan ekspor sertifikat publik ABL |
 | `tools/collect_reboot_dt.js` | Inventaris DT reboot/mode terbatas, hanya membaca |
 | `tools/collect_live_boot.js` | Probe root dan capture block terbatas, hanya membaca |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |

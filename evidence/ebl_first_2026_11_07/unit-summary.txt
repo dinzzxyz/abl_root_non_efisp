@@ -1,0 +1,4 @@
+Command: python -m unittest discover -s tests -v
+Observed result: 32 tests passed.
+New coverage: ARM64 branch/ADR encodings, eight ABI/status cases, negative namespace/register-save cases, ASN.1 bounds, MTK alignment and stock v7 signature calibration.
+No native UEFI, MTK verifier, authentication policy or device execution was tested.

@@ -112,6 +112,20 @@ Raw log mengandung identifier; analyzer hanya mengekspor baris yang cocok
 dengan pola lengkap yang diizinkan. Baca LIVE_BOOT_FINDINGS.md sebelum menarik
 kesimpulan entry dari keberadaan Shell atau filesystem FAT.
 
+Prototype Ebl-first dan perbandingan logo membutuhkan dependency Unicorn dari
+requirements.txt. Source penuh repo diperlukan untuk menjalankan generator
+hook; file 72 byte di paket annibale merupakan program studi, bukan image EFI.
+
+```bash
+.venv/bin/python src/plan_ebl_first.py /path/to/gpt.zip --out generated/ebl-first --emulate
+.venv/bin/python src/analyze_logo_donor.py /path/to/logo.zip --firmware /path/to/gpt.zip --out generated/logo-comparison --cert-out generated/abl-certs
+.venv/bin/python src/verify_research.py /path/to/gpt.zip --upstream ../gbl_root_canoe --live-archive /path/to/SM8750-live-boot-inputs-2026-11-07.zip --logo-archive /path/to/logo.zip --log generated/all-validation.txt
+```
+
+LOGO_INPUTS.json memuat hash input logo.zip yang dikirim pengguna. Tanpa ZIP
+tersebut, bagian perbandingan logo dapat dilewati; generator hook dan analisis
+firmware lainnya tetap dapat dijalankan. Rincian ada di EBL_FIRST_FINDINGS.md.
+
 ## 5. Baca bukti dengan ruang alamat yang tepat
 
 | Bentuk alamat | Contoh | Cara membaca |
