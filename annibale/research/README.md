@@ -1,4 +1,10 @@
-# Ebl lebih dulu: program riset, bukan image partisi
+# Ebl lebih dulu: program dan rujukan image eksperimen
+
+Checkpoint v8 sekarang memuat **container UEFI ELF lengkap** pada folder
+induk: `OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf`. Builder dan default
+ada di `../src`; panduannya `UEFI_EBL_FIRST_BUILD.md` pada root repo/paket.
+Signature OEM hasil invalid dan belum diuji boot. ABL lama tidak mengandung
+hook ini. Penjelasan program v7 di bawah tetap khusus untuk stub/generator.
 
 Program baru `ebl_first_stub.bin` berukuran **72 byte**, terdiri dari 16
 instruksi ARM64 dan literal UTF-16 `Ebl`. `ebl_first.S` adalah listing untuk

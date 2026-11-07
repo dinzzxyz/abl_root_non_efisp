@@ -13,3 +13,7 @@ history.bundle
 # Explicit user-requested, hash-pinned annibale stock/research ABL pair.
 !annibale/OS3.0.307.0.WPKCNXM_abl.elf
 !annibale/src/OS3.0.307.0.WPKCNXM_abl.elf
+
+# User requested the actual Ebl-first container and its reproducible default.
+!annibale/OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf
+!annibale/src/OS3.0.307.0.WPKCNXM_uefi.elf

@@ -1,0 +1,157 @@
+{
+  "device": "annibale",
+  "build": "OS3.0.307.0.WPKCNXM",
+  "target_component": "UEFI / QcomBds, NOT ABL",
+  "status": "EXPERIMENTAL CONTAINER; OEM SIGNATURE INVALID; NO DEVICE BOOT TEST",
+  "stock_filename": "OS3.0.307.0.WPKCNXM_uefi.elf",
+  "candidate_filename": "OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf",
+  "stock_elf_sha256": "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a",
+  "patched_elf_sha256": "4d27c3300126e46e0f736a45d8899a02c9277baa4250d47744fcdb35abd112cd",
+  "elf_size": 2839004,
+  "stock_qcombds_pe_sha256": "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78",
+  "patched_qcombds_pe_sha256": "6a2ae633b79c979dfffad7df8100c5c624fc52c5cc71601a16139f635a7da16e",
+  "qcombds_pe_size": 131072,
+  "pe_changed_byte_count": 63,
+  "edits": [
+    {
+      "pe_file_offset": "0x5254",
+      "pe_rva": "0x5254",
+      "expanded_buffer_offset": "0x3c6b48",
+      "size": 4,
+      "before": "b60a0094",
+      "after": "ab5d0094"
+    },
+    {
+      "pe_file_offset": "0x1c900",
+      "pe_rva": "0x1c900",
+      "expanded_buffer_offset": "0x3de1f4",
+      "size": 72,
+      "before": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "after": "fd7bbea9f35301a9f30300aaf40301aa000000b000e0039141010010e2031faa03adff97e00313aae10314aae2031faaffacff97f35341a9fd7bc2a8c0035fd6450062006c000000"
+    }
+  ],
+  "stub_sha256": "c23fd7d7575070f8b87de2d7990ad95d856d407c7353aae25017c5c807d0f234",
+  "stub_padding_globally_proven_unused": false,
+  "main_fv_guid": "631008b0-b2d1-410a-8b49-2c5c4d8ecc7e",
+  "fallback_abl_fv_guid": "046fae99-cf2e-49ed-a6a8-a1488b7e80d3",
+  "flow": [
+    "Reach original QcomBds LinuxLoader call at RVA 0x5254 after charger/PIL preparation",
+    "Launch native Ebl in Main FV via helper RVA 0x7D2C",
+    "If Ebl returns, launch original LinuxLoader in ABL FV and return to RVA 0x5258"
+  ],
+  "expanded_size": 4321288,
+  "expanded_qcombds_pe_offset": "0x3c18f4",
+  "expanded_sha256": "2f01752bd7656acbd50f92f04d169a28bb57ac9fe114548ef5db2a6cf20606e8",
+  "lzma_elf_file_offset": "0x4e268",
+  "stock_lzma_size": 668275,
+  "patched_lzma_size": 662182,
+  "compression": {
+    "id": 4611686018427387905,
+    "dict_size": 16777216,
+    "lc": 3,
+    "lp": 0,
+    "pb": 2,
+    "mode": 2,
+    "nice_len": 273,
+    "mf": 20,
+    "depth": 0
+  },
+  "main_ffs_elf_file_offset": "0x4e238",
+  "main_ffs_size": 662230,
+  "main_ffs_header_checksum": "0xc8",
+  "padding_ffs_elf_file_offset": "0xefd10",
+  "padding_ffs_size": 6096,
+  "padding_ffs_header_hex": "ffffffffffffffffffffffffffffffff39aaf000d01700f8",
+  "outer_files_before": [
+    {
+      "offset": "0x1048",
+      "size": 4000,
+      "type": "0xf0",
+      "guid": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+    },
+    {
+      "offset": "0x1fe8",
+      "size": 311320,
+      "type": "0x3",
+      "guid": "8af09f13-44c5-96ec-1437-dd899cb5ee5d"
+    },
+    {
+      "offset": "0x4e000",
+      "size": 561,
+      "type": "0x2",
+      "guid": "dde58710-41cd-4306-dbfb-3fa90bb1d2dd"
+    },
+    {
+      "offset": "0x4e238",
+      "size": 668323,
+      "type": "0xb",
+      "guid": "9e21fd93-9c72-4c15-8c4b-e77f1db2d792"
+    },
+    {
+      "offset": "0xf14e0",
+      "size": 579916,
+      "type": "0xb",
+      "guid": "d14c51ed-4f4d-2f2d-eae4-77914692d046"
+    }
+  ],
+  "outer_files_after": [
+    {
+      "offset": "0x1048",
+      "size": 4000,
+      "type": "0xf0",
+      "guid": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+    },
+    {
+      "offset": "0x1fe8",
+      "size": 311320,
+      "type": "0x3",
+      "guid": "8af09f13-44c5-96ec-1437-dd899cb5ee5d"
+    },
+    {
+      "offset": "0x4e000",
+      "size": 561,
+      "type": "0x2",
+      "guid": "dde58710-41cd-4306-dbfb-3fa90bb1d2dd"
+    },
+    {
+      "offset": "0x4e238",
+      "size": 662230,
+      "type": "0xb",
+      "guid": "9e21fd93-9c72-4c15-8c4b-e77f1db2d792"
+    },
+    {
+      "offset": "0xefd10",
+      "size": 6096,
+      "type": "0xf0",
+      "guid": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+    },
+    {
+      "offset": "0xf14e0",
+      "size": 579916,
+      "type": "0xb",
+      "guid": "d14c51ed-4f4d-2f2d-eae4-77914692d046"
+    }
+  ],
+  "following_ffs_elf_file_offset_preserved": "0xf14e0",
+  "other_ffs_contents_and_offsets_preserved": true,
+  "fv_and_ffs_checksums_valid": true,
+  "elf_program_headers_preserved": true,
+  "payload_digest_file_offset": "0x2b4150",
+  "payload_sha384": "ecb64dee07ab0f3761b8cf89350b5e95efc5ecea2cd5fff26f4690d0b99cafe3cc227d5fdd5fc94bd716b03509740286",
+  "oem_signed_range": [
+    "0x2b4000",
+    "0x2b41b0"
+  ],
+  "oem_signature_file_offset": "0x2b41b0",
+  "oem_signature_size": 104,
+  "certificate_chain_file_range": [
+    "0x2b4218",
+    "0x2b4f38"
+  ],
+  "signature_certificates_and_trailing_bytes_preserved": true,
+  "oem_signature_regenerated": false,
+  "abl_modified": false,
+  "new_superfastboot_payload_included": false,
+  "runtime_efi_or_authentication_tested": false,
+  "hardware_writes_or_reboots": false
+}

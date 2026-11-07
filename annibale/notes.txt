@@ -2,7 +2,8 @@ ANNIBALE / SM8750 — OS3.0.307.0.WPKCNXM
 7 November 2026, Asia/Jakarta
 
 STATUS FILE HASIL
-File di folder ini adalah kandidat riset ABL ELF yang sudah dikemas ulang.
+Folder ini memuat ABL ELF riset lama dan UEFI ELF Ebl-first eksperimen v8.
+Ebl-first diterapkan dalam QcomBds di UEFI, BUKAN dalam ABL. Periksa bagian 10.
 Format container, header FV/FFS dan digest payload telah diperiksa offline.
 SIGNATURE OEM HASIL PATCH INVALID. Belum layak diperlakukan sebagai image yang
 siap di-flash pada Xiaomi retail dengan autentikasi firmware aktif.
@@ -20,6 +21,20 @@ src/OS3.0.307.0.WPKCNXM_abl.elf
   Default/asli, belum dipatch, persis cn/abl.elf dari gpt.zip pengguna.
   Ukuran: 335672 byte.
   SHA-256: d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309
+
+OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf
+  UEFI lengkap dengan hook Ebl Main FV sebelum LinuxLoader ABL FV.
+  Ukuran: 2839004 byte. Ini komponen berbeda dari ABL di atas.
+  SHA-256: 4d27c3300126e46e0f736a45d8899a02c9277baa4250d47744fcdb35abd112cd
+
+src/OS3.0.307.0.WPKCNXM_uefi.elf
+  Default UEFI asli, persis cn/uefi.elf dalam gpt.zip, 2839004 byte.
+  SHA-256: 1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a
+
+src/patch_uefi_ebl_first.py dan src/verify_uefi_signature.py
+  Builder UEFI stdlib dan audit signature, memakai helper source ABL yang
+  bersebelahan. Detail ada pada uefi-ebl-first-build-report.json dan
+  uefi-ebl-first-signature-audit.json. Hasil signature: stock VALID, mod INVALID.
 
 src/patch.py
   Script Python standar untuk mengulang hasil patch dan repack secara identik.
@@ -237,8 +252,9 @@ call RVA 0x5254 dialihkan ke RVA 0x1C900 untuk Ebl Main FV, kemudian meneruskan
 LinuxLoader ABL FV bila Ebl kembali. Dua base alamat dan status sukses/error
 diuji pada emulator; helper peluncur UEFI dimock. Belum ada eksekusi EFI/HP.
 
-File ELF hasil patch di folder induk tetap versi riset v6 dengan hash bbf89327...
-dan tidak mengandung hook ini. Belum ada image UEFI modifikasi yang diterbitkan.
+File ABL hasil patch di folder induk tetap versi riset v6 dengan hash bbf89327...
+dan tidak mengandung hook ini. Pada v7 hanya program studi yang diterbitkan;
+v8 sekarang menambahkan image UEFI lengkap seperti dijelaskan di bagian 10.
 Penerapan hook memerlukan autentikasi perubahan UEFI atau jalur tulis RAM awal
 yang belum ditemukan. Area padding calon stub belum dibuktikan aman global.
 
@@ -256,6 +272,91 @@ masing-masing valid; perubahan signed data membuat signature tidak cocok.
 Generator hook dan analyzer berada di src pada root source penelitian penuh,
 bukan hanya src default-ABL dalam paket annibale. Cara reproduksi lengkap
 terdapat pada research/README.md dan EBL_FIRST_FINDINGS.md.
+
+10. IMAGE UEFI EBL-FIRST V8: REPRODUKSI DAN REFERENSI KOMPONEN
+
+File baru berakhiran _uefi_EBL_FIRST_RESEARCH.elf adalah UEFI ELF64 wrapper,
+bukan ABL ELF32. Jangan rename menjadi abl.elf atau boot.elf untuk flash ABL.
+Hook mengubah call PE QcomBds raw/RVA 0x5254 dari b60a0094 ke ab5d0094, lalu
+memasang stub 72 byte pada PE raw/RVA 0x1C900. PE QcomBds berada pada offset
+0x3C18F4 BUFFER DEKOMPRESI; LZMA mulai pada offset FILE UEFI 0x4E268.
+Jangan memasukkan RVA itu langsung ke hex editor file ELF yang dikompresi.
+
+Stub memanggil Ebl Main FV melalui helper native 0x7D2C. Bila Ebl kembali,
+stub melanjutkan LinuxLoader pada ABL FV dengan argumen semula dan kembali
+ke RVA 0x5258. Charger/PIL ABL yang berjalan sebelum call tetap ada. Bila
+Ebl tidak kembali, LinuxLoader tidak dilanjutkan. ABL tidak dimodifikasi oleh
+hook ini dan tidak perlu diganti hanya untuk rancangan Ebl-first tersebut.
+Tidak ada payload GBL/SuperFastboot baru yang ditambahkan.
+
+Repack mempertahankan panjang ELF 2839004 byte, program headers, sertifikat,
+signature asli dan seluruh file lain. LZMA Main FV 668275 -> 662182 byte.
+PAD FFS baru 6096 byte di file UEFI 0xEFD10 menjaga FFS berikutnya tetap pada
+0xF14E0. Checksum header/chain file dan SHA-384 payload di 0x2B4150 diperbarui.
+Ekstraksi independen menemukan 104 PE, hanya QcomBds berubah, 103 lain identik.
+Jumlah byte PE yang berbeda: 63 dalam dua rentang patch 4 dan 72 byte.
+
+Reproduksi dari root repo, tanpa gpt.zip dan tanpa HP:
+
+  python3 annibale/src/patch_uefi_ebl_first.py --check
+  python3 -m pip install -r annibale/src/requirements.txt
+  python3 annibale/src/verify_uefi_signature.py --check
+
+Hilangkan --check untuk membuat ulang output yang belum ada. Untuk lokasi
+baru, tambahkan --output /path/hasil.elf --report /path/build-report.json.
+Script menolak basis hash lain, menimpa input atau output berbeda yang sudah
+ada. Semua script ini berjalan offline dan tidak menulis partisi perangkat.
+
+Signed range UEFI [0x2B4000,0x2B41B0), signature 0x2B41B0, cert 0x2B4218.
+DER signature 102 byte + dua nol; chain 3360 byte. Signature/cert dan 676 FF
+trailing dipertahankan identik. Signature stock VALID, hasil INVALID karena
+digest dalam signed data berubah. Tidak ada bypass autentikasi dibuktikan.
+Padding stub belum terbukti bebas dari seluruh referensi runtime. Console,
+input/protokol dan Ebl asli belum dijalankan; emulasi masih memakai helper mock.
+
+Tabel GPT capture menyebut uefi_a dan uefi_b, masing-masing 5242880 byte;
+itu bukan bukti izin flash ataupun penerimaan image. Sebelum riset perangkat,
+referensi pemeriksaan bootloader fastboot untuk KOMPONEN UEFI:
+
+  fastboot getvar current-slot
+  fastboot getvar has-slot:uefi
+  fastboot getvar is-userspace
+  fastboot getvar partition-size:uefi_a
+  fastboot getvar partition-size:uefi_b
+
+Contoh backup baca-saja ke komputer jika ADB root tersedia:
+
+  adb exec-out su -c 'cat /dev/block/by-name/uefi_a' > uefi_a.backup.bin
+  adb exec-out su -c 'cat /dev/block/by-name/uefi_b' > uefi_b.backup.bin
+
+Backup 5 MiB lebih besar daripada ELF 2839004 byte. Simpan di luar HP dan
+periksa hasil command. File ELF dan backup penuh bukan hash yang sama.
+
+FORMAT REFERENSI SAJA, BUKAN LANGKAH UJI YANG DIREKOMENDASIKAN SEKARANG:
+Jika jalur autentikasi dan pemulihan sudah dibuktikan pada lingkungan riset,
+format untuk SATU target slot A dari folder annibale adalah:
+
+  fastboot flash uefi_a OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf
+
+Untuk target B yang sengaja dipilih, ganti hanya target menjadi uefi_b.
+Kandidat saat ini signature-invalid; jangan jalankan contoh pada HP retail
+hanya karena fastboot menerima command tulis. Jangan flash kedua slot atau
+menganggap slot cadangan menjamin pemulihan UEFI. Gagal pada tahap ini dapat
+menghilangkan akses fastboot. Tidak ada flash/reboot yang dijalankan di sini.
+
+Bila fastboot masih tersedia dan target A yang sebelumnya diubah, referensi
+pemulihan UEFI asli adalah:
+
+  fastboot flash uefi_a src/OS3.0.307.0.WPKCNXM_uefi.elf
+
+Gunakan uefi_b jika hanya target B yang sebelumnya diubah. Jangan memakai
+file UEFI untuk partisi abl, boot, init_boot atau vbmeta. Jika fastboot sudah
+tidak tersedia, contoh ini tidak dapat memulihkan HP; kompatibilitas jalur
+EDL pengguna belum diuji. Tidak melakukan relock untuk eksperimen ini.
+
+Peta lengkap, hash dan batas bukti: UEFI_EBL_FIRST_BUILD.md di root repo/paket.
+Regresi penuh: 38 tes, termasuk stub yang diambil dari image hasil aktual;
+bukti offline di evidence/uefi_ebl_first_2026_11_07 pada paket source penuh.
 
 Referensi primer format/sintaks yang diperiksa:
 https://github.com/msm8916-mainline/qtestsign/blob/0eef3b552b1ada848f22bad38ab2e40407307c5b/mbn/hashseg.py

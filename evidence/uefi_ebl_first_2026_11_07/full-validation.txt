@@ -1,0 +1,27 @@
+PASS: analyze.py reproduces evidence from input bytes
+PASS: trace_paths.py reproduces evidence from input bytes
+PASS: map_bootstate.py reproduces evidence from input bytes
+PASS: trace_diagnostics.py reproduces evidence from input bytes
+PASS: trace_ebl_entry.py reproduces evidence from input bytes
+PASS: plan_ebl_first.py reproduces evidence from input bytes
+PASS: patch recovery is byte-identical; 9 changed bytes
+PASS: annibale stock equals ZIP; rebuilt ELF/report reproduce exactly; independent extraction matches CN candidate
+PASS: OEM stock ECDSA signature valid; research candidate invalid despite valid segment digests (not boot-ready)
+PASS: Ebl-first UEFI ELF/report reproduce exactly; default equals ZIP; 104 independent PE extractions show only QcomBds changed and 103 unchanged
+PASS: independent FV parser reaches following original FFS through new PAD; extracted QcomBds contains exact 72-byte stub/call
+PASS: UEFI stock ECDSA signature VALID, modified signature INVALID; original certificates/signature/trailing bytes preserved
+PASS: unique structural anchors in CN/ENG; engineering calibration is byte-identical
+PASS: structural analyzer refuses one-byte mutations of both identified builds
+PASS: 34-entry CN command table and diagnostic save branch match input bytes
+PASS: hash guard rejects CN firmware
+PASS: hash guard rejects one-byte engineering mutation
+PASS: both UEFI images have 104 unique PEs and identical QcomBds
+PASS: early platform callback table and native Ebl RAM/file routes match pinned PEs
+PASS: 72-byte Ebl-first hook, Main FV inventory and eight emulated ARM64 ABI/status cases
+PASS: actual ABL FV GUID, embedded SHA-384, and call edges match for both builds
+PASS: changing the ELF payload breaks the embedded digest match
+PASS: 33 protocol declarations resolved from pinned source
+PASS: private live input hashes, FAT12 logs, Tools FV apps, and BDS namespace cross-check
+PASS: MediaTek 90-byte hash override/alignment, Qualcomm stock signatures and exact ABL certificate exports
+PASS: Python syntax and Android collector shell syntax
+NOT TESTED: modified firmware execution, custom BDS entry, signature acceptance, or working fake lock

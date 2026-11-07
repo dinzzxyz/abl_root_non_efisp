@@ -169,3 +169,28 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
 - Menyimpan source generator, program/listing, cert, metadata dan panduan.
   Jalur autentikasi perubahan UEFI atau tulis RAM awal masih belum ditemukan;
   belum ada port SuperFastboot tanpa efisp yang berjalan di perangkat.
+
+## 2026-11-07 — image UEFI Ebl-first aktual untuk annibale (v8)
+
+- Melanjutkan permintaan upload sesudah sesi terputus. Checkpoint v7 hanya
+  menerbitkan stub/listing/rencana; kini hook dikemas ke ELF UEFI lengkap.
+  Pemanggil berada di QcomBds dalam UEFI, bukan ABL. ABL v6 tidak berubah.
+- Menyertakan UEFI default CN, hasil OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf,
+  builder stdlib, laporan, audit signature dan panduan. Hash stock 1488a82e...
+  dan hasil 4d27c330... dipin lengkap. Ukuran keduanya 2839004 byte.
+- Mengubah call PE/RVA 0x5254 dan memasang stub 72 byte di 0x1C900. Hash PE
+  sama dengan rencana v7 6a2ae633...; ada 63 byte berbeda dalam dua rentang.
+  Stub mendahulukan Ebl Main FV dan melanjutkan LinuxLoader ABL FV bila kembali.
+- Repack Main FV: LZMA 668275 → 662182 byte. PAD FFS 6096 byte di ELF 0xEFD10
+  mempertahankan file berikutnya pada 0xF14E0. ELF/program headers, file lain,
+  ukuran image, signature/cert dan trailing 676 FF tetap dipertahankan.
+  Header/file-chain/checksum dan SHA-384 diperiksa setelah ekstraksi ulang.
+- Ekstraktor PE independen menemukan 104 modul: hanya QcomBds berubah,
+  103 modul lain identik. Parser FV independen tetap menjangkau FFS berikutnya.
+  Enam tes baru mencakup container aktual, PAD/celah, digest, hash guard,
+  input-overwrite, signature dan byte hasil yang kembali diemulasi.
+- Seluruh 38 tes dan pipeline firmware/live/logo lulus. Signature UEFI stock
+  VALID, modifikasi INVALID dengan cert OEM asli. Ini belum image diterima
+  autentikasi, boot Ebl, atau port SuperFastboot yang berjalan di HP.
+- Panduan membedakan target UEFI/ABL dan memberi referensi fastboot yang
+  sesuai, tanpa menjalankan flash, reboot, relock atau penulisan partisi.

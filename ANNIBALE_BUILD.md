@@ -5,6 +5,10 @@ sekarang memuat ABL default, hasil patch berbentuk ELF, script reproduksi dan
 `notes.txt`. **ELF berhasil direkonstruksi offline; signature OEM hasilnya
 invalid.** Ini belum merupakan port SuperFastboot atau hasil boot di HP.
 
+Dokumen ini khusus pasangan **ABL**. Container **UEFI Ebl-first** yang
+ditambahkan pada v8 dijelaskan terpisah pada [UEFI_EBL_FIRST_BUILD.md](UEFI_EBL_FIRST_BUILD.md).
+Hook Ebl-first berada di QcomBds dalam UEFI; ABL di bawah tidak berubah.
+
 ## Berkas dan hash
 
 | Path relatif terhadap annibale | Peran |

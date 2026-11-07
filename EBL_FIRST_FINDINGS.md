@@ -145,9 +145,17 @@ tidak dilanjutkan oleh rancangan ini.
 Penerapan memerlukan modifikasi UEFI yang diterima autentikasi atau jalur
 tulis RAM sebelum dispatch. Keduanya belum ditemukan. Generator hanya
 menerbitkan program baru, listing dan JSON; tidak menulis PE/ELF OEM baru.
-Kandidat ABL v6 tidak berubah dan tidak menyertakan hook ini.
+Kandidat ABL v6 tidak berubah dan tidak menyertakan hook ini. Checkpoint v8
+berikutnya kini menambahkan builder terpisah dan image **UEFI** lengkap;
+lihat UEFI_EBL_FIRST_BUILD.md. Batas generator di atas tetap berlaku untuk
+src/plan_ebl_first.py, bukan pernyataan bahwa image v8 belum tersedia.
 
 ## 6. Reproduksi
+
+Untuk image UEFI eksperimen v8, bukan hanya program studi di bawah, jalankan
+`python3 annibale/src/patch_uefi_ebl_first.py --check` dan
+`python3 annibale/src/verify_uefi_signature.py --check`. Lihat
+UEFI_EBL_FIRST_BUILD.md untuk hash, repack dan bukti signature-invalid.
 
 ```bash
 .venv/bin/python src/plan_ebl_first.py /path/to/gpt.zip --out generated/ebl-first --emulate

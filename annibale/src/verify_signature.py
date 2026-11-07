@@ -35,13 +35,13 @@ def der_object(data, offset=0):
     return data[offset:end], end
 
 
-def signature_result(image):
-    patch.check_elf(image)
-    signature_block = image[patch.SIGNATURE_START:patch.CERT_START]
+def signature_result(image, *, layout=patch):
+    layout.check_elf(image)
+    signature_block = image[layout.SIGNATURE_START:layout.CERT_START]
     signature, end = der_object(signature_block)
     patch.require(signature_block[end:] == bytes(len(signature_block) - end),
                   "Unexpected ECDSA signature padding")
-    chain = image[patch.CERT_START:]
+    chain = image[layout.CERT_START:getattr(layout, "CERT_END", len(image))]
     certificates, cursor, sizes = [], 0, []
     while cursor < len(chain) and chain[cursor] == 0x30:
         patch.require(len(certificates) < 8, "Too many certificates")
@@ -54,7 +54,7 @@ def signature_result(image):
     key = certificates[0].public_key()
     patch.require(isinstance(key, ec.EllipticCurvePublicKey) and key.curve.name == "secp384r1",
                   "Expected OEM leaf P-384 public key")
-    signed_data = image[patch.PAYLOAD_END:patch.SIGNATURE_START]
+    signed_data = image[layout.PAYLOAD_END:layout.SIGNATURE_START]
     try:
         key.verify(signature, signed_data, ec.ECDSA(hashes.SHA384()))
         valid = True
@@ -75,23 +75,24 @@ def signature_result(image):
                       "cryptographic_signature_valid": link_valid})
     return {"elf_sha256": patch.sha256(image),
             "algorithm": "ECDSA secp384r1 with SHA-384",
-            "signed_file_range_start": hex(patch.PAYLOAD_END),
-            "signed_file_range_end_exclusive": hex(patch.SIGNATURE_START),
+            "signed_file_range_start": hex(layout.PAYLOAD_END),
+            "signed_file_range_end_exclusive": hex(layout.SIGNATURE_START),
             "signed_size": len(signed_data), "signed_data_sha384": hashlib.sha384(signed_data).hexdigest(),
-            "signature_file_offset": hex(patch.SIGNATURE_START),
+            "signature_file_offset": hex(layout.SIGNATURE_START),
             "signature_block_size": len(signature_block), "signature_der_size": len(signature),
             "signature_zero_padding_size": len(signature_block) - len(signature),
             "oem_image_signature_valid_with_embedded_leaf_key": valid,
-            "certificate_file_offset": hex(patch.CERT_START), "certificate_sizes": sizes,
+            "certificate_file_offset": hex(layout.CERT_START), "certificate_sizes": sizes,
             "certificate_sha256": [c.fingerprint(hashes.SHA256()).hex() for c in certificates],
             "certificate_padding_ff_size": len(chain) - cursor, "certificate_signature_links": links,
             "elf_header_and_payload_hashes_valid": True}
 
 
-def audit(stock, candidate):
-    patch.require(patch.sha256(stock) == patch.STOCK_SHA256, "Unknown stock ELF hash")
-    patch.require(patch.sha256(candidate) == patch.PATCHED_ELF_SHA256, "Unknown candidate ELF hash")
-    original, modified = signature_result(stock), signature_result(candidate)
+def audit(stock, candidate, *, layout=patch):
+    patch.require(patch.sha256(stock) == layout.STOCK_SHA256, "Unknown stock ELF hash")
+    patch.require(patch.sha256(candidate) == layout.PATCHED_ELF_SHA256, "Unknown candidate ELF hash")
+    original = signature_result(stock, layout=layout)
+    modified = signature_result(candidate, layout=layout)
     patch.require(original["oem_image_signature_valid_with_embedded_leaf_key"],
                   "Original signature failed; cannot use this interpretation as a calibrated check")
     patch.require(not modified["oem_image_signature_valid_with_embedded_leaf_key"],

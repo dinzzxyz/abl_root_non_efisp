@@ -18,7 +18,8 @@ ketika workspace atau konteks percakapan hilang.
   https://github.com/SuperTurtleDev/gbl_root_canoe.
 - Input asli: `gpt.zip`; hash dan seluruh nama file ada di `INPUTS.json`.
   Atas permintaan eksplisit pengguna, CN ABL default dan kandidat ELF hasil
-  repack sekarang disertakan dalam annibale. Komponen/log privat lain tidak.
+  repack sekarang disertakan dalam annibale. Permintaan lanjutan juga mencakup
+  UEFI stock dan ELF Ebl-first eksperimen. Komponen/log privat lain tidak.
 
 Login GitHub dan ketersediaan kredensial bergantung pada sesi. Jangan
 menganggap plugin yang dapat membaca repo otomatis dapat melakukan push.
@@ -113,6 +114,16 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
 35. Delapan skenario emulasi ARM64 menguji ABI/error/two image bases dengan
     helper native dimock. Delapan unit tambahan membuat total 32 tes lulus.
     Ini belum merupakan pengujian Ebl, protokol UEFI atau perangkat.
+36. Menindaklanjuti permintaan upload image Ebl-first: kini ada UEFI ELF lengkap
+    OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf, hash 4d27c330... (lengkap
+    di UEFI_EBL_FIRST_BUILD.md), default dan builder stdlib dalam annibale/src.
+    Ini QcomBds dalam UEFI, bukan ABL baru; ABL v6 tetap tidak berubah.
+37. Repack LZMA Main FV 668275 → 662182 byte, PAD FFS baru 6096 byte di ELF
+    0xEFD10 menjaga FFS berikutnya di 0xF14E0. Seluruh header/file-chain/digest
+    valid; 104 PE diekstrak independen, 103 identik dan hanya QcomBds berubah.
+38. Audit UEFI stock valid dan modifikasi invalid; cert/signature asli serta
+    676 trailing FF tetap identik. Total 38 tes termasuk eksekusi stub yang
+    diambil dari container aktual lulus. Helper masih mock, belum boot HP.
 
 ## Status yang belum boleh dianggap selesai
 
@@ -178,6 +189,11 @@ LOGO_INPUTS.json. Program/listing/JSON dan cert ada di annibale/research.
 Padding belum dibuktikan aman secara global; console/protokol native,
 autentikasi perubahan UEFI dan jalur tulis RAM awal tetap belum terbukti.
 Jangan menyebut prototype sebagai entry Ebl yang sudah dicapai di retail.
+Baca UEFI_EBL_FIRST_BUILD.md untuk v8 sesudah prototype: image UEFI sudah
+diterbitkan, bukan hanya stub, tetapi tetap signature-invalid dan belum diuji.
+Rebuild: python3 annibale/src/patch_uefi_ebl_first.py --check. Audit:
+python3 annibale/src/verify_uefi_signature.py --check. Default ikut paket;
+tidak perlu meminta gpt.zip ulang hanya untuk mereproduksi image ini.
 Jalur file/RAM Ebl sudah terpetakan, jadi prioritas adalah entry awal native
 pada PROD/Retail dan status autentikasi, bukan membuat partisi baru. Ide uji
 pertama setelah entry tersedia adalah aplikasi EFI diagnostik yang kembali ke

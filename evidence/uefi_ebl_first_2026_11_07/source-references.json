@@ -1,0 +1,37 @@
+{
+  "scope": "Primary format references for FFS padding/alignment/checksum; not proof of OEM authentication or runtime acceptance",
+  "pi_specification": {
+    "url": "https://uefi.org/specs/PI/1.10/V3_Code_Definitions.html",
+    "sections": "Firmware file header, integrity, EFI_FV_FILETYPE_FFS_PAD",
+    "access": "Official search-index excerpt; direct HTML request returned HTTP 403"
+  },
+  "edk2_snapshot": {
+    "repository": "https://github.com/SuperTurtleDev/gbl_root_canoe",
+    "commit": "4ef438cfde42943694fde5753bbf5d8c0b4ec02e",
+    "method": "Read local tracked files and verify Git blob IDs against that exact commit; independent Python implementation, no C source copied",
+    "files": [
+      {
+        "path": "submodules/uefi/edk2/MdePkg/Include/Pi/PiFirmwareFile.h",
+        "git_blob": "ec7729e9c36e5b2910d07e32999a284095cde394",
+        "use": "FFS header, PAD type, fixed checksum and state constants"
+      },
+      {
+        "path": "submodules/uefi/edk2/BaseTools/Source/C/GenFv/GenFvInternalLib.c",
+        "git_blob": "5d551275d8c9e8cc7956f29458249bb68ef1d147",
+        "lines": [
+          675,
+          692
+        ],
+        "use": "Zero checksum/File/State while calculating header checksum; fixed AA checksum; logical state 07 then erase-polarity conversion"
+      }
+    ]
+  },
+  "firmware_inputs": {
+    "manifest": "INPUTS.json",
+    "member": "cn/uefi.elf",
+    "sha256": "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a"
+  },
+  "hook_basis": "annibale/research/hook-plan.json",
+  "device_execution_tested": false,
+  "hardware_writes_or_reboots": false
+}

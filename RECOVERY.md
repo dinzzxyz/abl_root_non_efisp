@@ -26,7 +26,7 @@ diambil dari remote atau bundle yang lebih baru.
 
 Gunakan `gpt.zip` asli dari berkas percakapan/backup pribadi. Periksa SHA-256
 terhadap `INPUTS.json`. Jangan menganggap file dengan nama sama pasti identik.
-Atas permintaan pengguna, hanya CN ABL default dan hasil repack yang dipin
+Atas permintaan pengguna, CN ABL dan UEFI default serta hasil repack yang dipin
 disertakan dalam annibale; firmware komponen lain dan loader EDL tidak disalin.
 
 ```bash
@@ -91,12 +91,17 @@ Paket annibale dapat direproduksi tanpa ZIP masukan karena default disertakan:
 python3 annibale/src/patch.py --check
 python3 -m pip install -r annibale/src/requirements.txt
 python3 annibale/src/verify_signature.py --check
+python3 annibale/src/patch_uefi_ebl_first.py --check
+python3 annibale/src/verify_uefi_signature.py --check
 ```
 
 Hasil audit yang benar adalah stock VALID dan kandidat INVALID. Repack
 memperbaiki format/checksum/digest, bukan signature OEM. File ELF dan catatan
 fastboot yang diminta ada dalam annibale; baca ANNIBALE_BUILD.md dan
 annibale/notes.txt sebelum menafsirkan kandidat sebagai file untuk uji HP.
+UEFI Ebl-first v8 diterangkan pada UEFI_EBL_FIRST_BUILD.md. File bertanda
+uefi_EBL_FIRST_RESEARCH adalah container UEFI, tidak boleh ditukar dengan
+ABL. Kedua kandidat mempunyai signature invalid; tidak ada tes boot HP.
 
 Untuk hasil live tanggal 7 November, sediakan kembali ZIP privat
 `SM8750-live-boot-inputs-2026-11-07.zip`. Ini berisi Tools FV, volume logfs,

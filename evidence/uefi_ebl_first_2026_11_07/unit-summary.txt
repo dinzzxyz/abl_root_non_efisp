@@ -1,0 +1,4 @@
+python -m unittest discover -s tests -v
+38 tests passed.
+Six new UEFI container tests include exact rebuild, actual extracted stub/emulation, digest/source mutation rejection, PAD hole/header detection, unchanged-cert invalid signature, and input overwrite refusal.
+ARM64 native launch helper is mocked; no EFI firmware or device execution tested.

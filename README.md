@@ -1,6 +1,6 @@
 # Penelusuran SuperFastboot SM8750 / annibale
 
-Updated: 7 November 2026. Status: **analisis statis, rekonstruksi, emulasi stub dan log stock**.
+Updated: 7 November 2026. Status: **container eksperimen Ebl-first, analisis offline dan log stock**.
 Paket ini berisi source alat analisis, bukti, dan catatan pengembangan.
 Belum merupakan port SuperFastboot yang dapat di-flash.
 
@@ -27,6 +27,9 @@ Lihat [ANNIBALE_BUILD.md](ANNIBALE_BUILD.md): digest hasil valid, tetapi
 Perbandingan logo/Fenrir, sertifikat asli dan prototype Ebl-first ada di
 [EBL_FIRST_FINDINGS.md](EBL_FIRST_FINDINGS.md) dan [annibale/research](annibale/research).
 Emulasi memakai helper UEFI yang dimock; belum merupakan eksekusi EFI.
+Checkpoint v8 mengemas hook itu ke image UEFI lengkap dalam annibale.
+Baca [UEFI_EBL_FIRST_BUILD.md](UEFI_EBL_FIRST_BUILD.md): ini perubahan UEFI,
+**bukan ABL Ebl-first**, signature hasil invalid dan belum diuji boot HP.
 
 ## Hasil utama
 
@@ -65,7 +68,9 @@ Emulasi memakai helper UEFI yang dimock; belum merupakan eksekusi EFI.
     tetap mengikat signed data masing-masing.
 11. Program baru 72 byte mengusulkan Ebl Main FV sebelum LinuxLoader ABL FV
     pada call QcomBds 0x5254. Delapan kasus CPU/ABI lulus di emulator;
-    autentikasi perubahan UEFI dan boot perangkat belum terbukti.
+    autentikasi perubahan UEFI dan boot perangkat belum terbukti. Kini hook
+    tersedia dalam ELF UEFI eksperimen, dengan default, builder dan audit.
+    Ekstraksi ulang mempertahankan 103 modul lain dan mengganti hanya QcomBds.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -86,6 +91,8 @@ dan tahap pengembangan berikutnya.
 | `src/trace_ebl_entry.py` | Callback protokol QcomBds dan jalur file/RAM Ebl native |
 | `src/plan_ebl_first.py` | Generator program hook dan emulasi ARM64 dengan helper UEFI mock |
 | `src/analyze_logo_donor.py` | Perbandingan MTK/Qualcomm dan ekspor sertifikat publik ABL |
+| `annibale/src/patch_uefi_ebl_first.py` | Repack hook Ebl-first ke ELF UEFI lengkap dengan PAD FFS |
+| `annibale/src/verify_uefi_signature.py` | Audit stock UEFI VALID versus eksperimen INVALID |
 | `tools/collect_reboot_dt.js` | Inventaris DT reboot/mode terbatas, hanya membaca |
 | `tools/collect_live_boot.js` | Probe root dan capture block terbatas, hanya membaca |
 | `tools/collect_readonly.sh` | Informasi build, partisi, dan visibilitas EFI di Android |
@@ -102,8 +109,8 @@ menjalankan `fastboot`, `adb`, `su`, atau membuka perangkat blok.
 ## Menjalankan ulang
 
 Gunakan Python 3.10+ pada komputer Linux. Tempatkan ZIP masukan asli di luar
-repo ini. Atas permintaan pengguna, dua ABL annibale yang dipin disertakan;
-firmware komponen lain dan loader OEM tidak disalin.
+repo ini. Atas permintaan pengguna, pasangan stock/kandidat ABL dan UEFI
+annibale yang dipin disertakan; komponen lain dan loader OEM tidak disalin.
 Git dan ripgrep juga diperlukan untuk analisis lanjutan. Semua contoh
 restorasi dan checkout source acuan ada di RECOVERY.md.
 
@@ -144,7 +151,7 @@ lain, ulangi ekstraksi dan penelusuran; jangan menyalin offset langsung.
 
 Paket source ini dapat dimasukkan ke repo GitHub. Repo publik sebaiknya berisi
 source, hash, dan hasil penelitian. Pengecualian eksplisit pengguna adalah
-pasangan ABL annibale asli/kandidat. Loader EDL, kredensial dan data identitas
+pasangan ABL serta UEFI annibale asli/kandidat. Loader EDL, kredensial dan data identitas
 perangkat tidak ditambahkan. ZIP asli tetap diperlukan untuk analisis lengkap;
 reproduksi paket annibale dapat memakai default yang disertakan.
 

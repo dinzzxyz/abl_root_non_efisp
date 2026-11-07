@@ -9,7 +9,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from fwlib import largest_pe, read_member, sha256
+from fwlib import largest_pe, named_firmware_files, pe_images, read_member, sha256
 from map_bootstate import analyze_image
 from recover_patch import reproduce
 from trace_paths import audit_hash_segment
@@ -61,7 +61,7 @@ def main():
         with zipfile.ZipFile(args.archive) as archive:
             require(stock_elf.read_bytes() == read_member(archive, "cn/abl.elf"),
                     "Bundled annibale default differs from original ZIP member")
-        for script in ("patch.py", "verify_signature.py"):
+        for script in ("patch.py", "verify_signature.py", "patch_uefi_ebl_first.py", "verify_uefi_signature.py"):
             run = subprocess.run([sys.executable, str(annibale / "src" / script), "--check"],
                                  text=True, capture_output=True, timeout=120)
             require(run.returncode == 0, "Annibale " + script + " failed:\n" + run.stdout + run.stderr)
@@ -73,6 +73,32 @@ def main():
                 "Independent PE extraction differs from the previous CN candidate")
         results.append("PASS: annibale stock equals ZIP; rebuilt ELF/report reproduce exactly; independent extraction matches CN candidate")
         results.append("PASS: OEM stock ECDSA signature valid; research candidate invalid despite valid segment digests (not boot-ready)")
+        stock_uefi = annibale / "src/OS3.0.307.0.WPKCNXM_uefi.elf"
+        candidate_uefi = annibale / "OS3.0.307.0.WPKCNXM_uefi_EBL_FIRST_RESEARCH.elf"
+        with zipfile.ZipFile(args.archive) as archive:
+            require(stock_uefi.read_bytes() == read_member(archive, "cn/uefi.elf"),
+                    "Bundled UEFI default differs from original ZIP")
+        before = {sha256(p.data): p.data for p in pe_images(stock_uefi.read_bytes())}
+        after = {sha256(p.data): p.data for p in pe_images(candidate_uefi.read_bytes())}
+        require(len(before) == len(after) == 104 and
+                before.keys() - after.keys() == {
+                    "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78"} and
+                after.keys() - before.keys() == {
+                    "6a2ae633b79c979dfffad7df8100c5c624fc52c5cc71601a16139f635a7da16e"},
+                "UEFI module inventory changed beyond the single planned QcomBds PE")
+        require(all(before[k] == after[k] for k in before.keys() & after.keys()),
+                "An unrelated UEFI PE changed")
+        require(any(g == "d14c51ed-4f4d-2f2d-eae4-77914692d046"
+                    for f, n, g in named_firmware_files(candidate_uefi.read_bytes())),
+                "Independent FV parser cannot reach the original following FFS")
+        hooked_pe = after["6a2ae633b79c979dfffad7df8100c5c624fc52c5cc71601a16139f635a7da16e"]
+        require(hooked_pe[0x1C900:0x1C948] ==
+                (project / "annibale/research/ebl_first_stub.bin").read_bytes() and
+                hooked_pe[0x5254:0x5258] == bytes.fromhex("ab5d0094"),
+                "Actual container does not contain the planned Ebl-first code")
+        results.append("PASS: Ebl-first UEFI ELF/report reproduce exactly; default equals ZIP; 104 independent PE extractions show only QcomBds changed and 103 unchanged")
+        results.append("PASS: independent FV parser reaches following original FFS through new PAD; extracted QcomBds contains exact 72-byte stub/call")
+        results.append("PASS: UEFI stock ECDSA signature VALID, modified signature INVALID; original certificates/signature/trailing bytes preserved")
         maps = {tag: json.loads((generated / f"bootstate/{tag}_bootstate_map.json").read_text())
                 for tag in ("cn", "eng")}
         for tag, report in maps.items():
