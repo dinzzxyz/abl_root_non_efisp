@@ -1,0 +1,2 @@
+# Only needed for the optional offline signature audit. patch.py uses stdlib.
+cryptography==50.0.0

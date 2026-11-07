@@ -26,7 +26,8 @@ diambil dari remote atau bundle yang lebih baru.
 
 Gunakan `gpt.zip` asli dari berkas percakapan/backup pribadi. Periksa SHA-256
 terhadap `INPUTS.json`. Jangan menganggap file dengan nama sama pasti identik.
-Firmware OEM dan loader EDL tidak disalin ke repo publik ini.
+Atas permintaan pengguna, hanya CN ABL default dan hasil repack yang dipin
+disertakan dalam annibale; firmware komponen lain dan loader EDL tidak disalin.
 
 ```bash
 sha256sum /path/to/gpt.zip
@@ -83,6 +84,19 @@ python3 src/analyze_boot_metadata.py /path/to/sm8750-boot-metadata.txt --boot-pr
 Flag spoofing di atas sesuai klarifikasi pengguna pada kasus ini; jangan
 menandai laporan perangkat lain dengan flag itu tanpa informasi yang sesuai.
 Temuan fase 2 ada di BOOT_METADATA_FINDINGS.md.
+
+Paket annibale dapat direproduksi tanpa ZIP masukan karena default disertakan:
+
+```bash
+python3 annibale/src/patch.py --check
+python3 -m pip install -r annibale/src/requirements.txt
+python3 annibale/src/verify_signature.py --check
+```
+
+Hasil audit yang benar adalah stock VALID dan kandidat INVALID. Repack
+memperbaiki format/checksum/digest, bukan signature OEM. File ELF dan catatan
+fastboot yang diminta ada dalam annibale; baca ANNIBALE_BUILD.md dan
+annibale/notes.txt sebelum menafsirkan kandidat sebagai file untuk uji HP.
 
 Untuk hasil live tanggal 7 November, sediakan kembali ZIP privat
 `SM8750-live-boot-inputs-2026-11-07.zip`. Ini berisi Tools FV, volume logfs,

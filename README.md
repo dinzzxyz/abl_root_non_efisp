@@ -20,6 +20,10 @@ Log UEFI yang diambil langsung serta isi Tools FV/FAT12 ada di
 [LIVE_BOOT_FINDINGS.md](LIVE_BOOT_FINDINGS.md).
 Peta callback awal QcomBds dan jalur file/RAM Ebl native ada di
 [ENTRY_FINDINGS.md](ENTRY_FINDINGS.md).
+Paket perangkat yang diminta pengguna ada di [annibale](annibale), dengan
+default ABL, hasil repack ELF, script dan [notes.txt](annibale/notes.txt).
+Lihat [ANNIBALE_BUILD.md](ANNIBALE_BUILD.md): digest hasil valid, tetapi
+**signature OEM kandidat invalid dan belum ada uji boot**.
 
 ## Hasil utama
 
@@ -40,7 +44,8 @@ Peta callback awal QcomBds dan jalur file/RAM Ebl native ada di
 6. Pemindaian bentuk instruksi menemukan satu blok Boot State pada setiap ABL
    meski mask patcher upstream menghasilkan nol hit. Metode itu merekonstruksi
    seluruh byte hasil engineering lama dan menghasilkan resep kandidat CN:
-   10 byte / empat rentang, belum diuji runtime dan tidak diekspor sebagai image.
+   10 byte / empat rentang, belum diuji runtime. Script terpisah dalam annibale
+   kini mengemasnya sebagai ELF riset, tanpa signature OEM baru.
 7. Pembacaan perangkat menemukan lima log UEFI pada volume FAT12 di `logfs`,
    19 aplikasi native pada `toolsfv` termasuk Shell/Ebl/Menu, dan rekaman
    boot stock yang menunjukkan NV volatile. Entry kustom belum teruji.
@@ -48,6 +53,9 @@ Peta callback awal QcomBds dan jalur file/RAM Ebl native ada di
    (ProcessFirmwareVolume dari buffer) dan `mountfv` (FV bersarang).
    Callback hotkey QcomBds memang berjalan sebelum default apps, tetapi
    entry Ebl sebelum LinuxLoader dan penerimaan image kustom belum terbukti.
+9. Repack ELF mempertahankan header/container dan memperbarui digest.
+   Audit ECDSA P-384/SHA-384 memvalidasi signature stock, sementara
+   signature yang dipertahankan pada kandidat invalid.
 
 Baca [LAPORAN.md](LAPORAN.md) untuk offset, call graph, batas bukti,
 dan tahap pengembangan berikutnya.
@@ -82,7 +90,8 @@ menjalankan `fastboot`, `adb`, `su`, atau membuka perangkat blok.
 ## Menjalankan ulang
 
 Gunakan Python 3.10+ pada komputer Linux. Tempatkan ZIP masukan asli di luar
-repo ini; firmware dan loader OEM tidak disertakan dalam source yang dibagikan.
+repo ini. Atas permintaan pengguna, dua ABL annibale yang dipin disertakan;
+firmware komponen lain dan loader OEM tidak disalin.
 Git dan ripgrep juga diperlukan untuk analisis lanjutan. Semua contoh
 restorasi dan checkout source acuan ada di RECOVERY.md.
 
@@ -122,8 +131,10 @@ lain, ulangi ekstraksi dan penelusuran; jangan menyalin offset langsung.
 ## Backup dan GitHub
 
 Paket source ini dapat dimasukkan ke repo GitHub. Repo publik sebaiknya berisi
-source, hash, dan hasil penelitian, tanpa firmware OEM, loader EDL, kredensial,
-atau data identitas perangkat. ZIP masukan asli diperlukan untuk reproduksi.
+source, hash, dan hasil penelitian. Pengecualian eksplisit pengguna adalah
+pasangan ABL annibale asli/kandidat. Loader EDL, kredensial dan data identitas
+perangkat tidak ditambahkan. ZIP asli tetap diperlukan untuk analisis lengkap;
+reproduksi paket annibale dapat memakai default yang disertakan.
 
 Snapshot awal sudah dipush sebagai commit
 `fffb031ef92a1c1549aefec5337aa1a959a5a062`. Kelanjutan penelitian dicatat dalam
@@ -139,7 +150,8 @@ koneksi plugin semula dapat membaca tetapi menolak write dengan HTTP 403.
 
 ## Sumber dan lisensi
 
-Source Python baru dalam `src/` menggunakan lisensi MIT, lihat `LICENSE`.
+Source Python baru dalam `src/` dan `annibale/src/` menggunakan lisensi MIT,
+lihat `LICENSE`. Firmware OEM dalam annibale tidak direlisensi menjadi MIT.
 Proyek acuan memiliki lisensi GPL-3.0; source upstream dan firmware OEM
 tidak direlisensi oleh paket ini. Catatan analisis merujuk hasil pemeriksaan
 terhadap berkas yang diberikan pengguna dan repo upstream.

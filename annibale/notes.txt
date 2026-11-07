@@ -1,0 +1,234 @@
+ANNIBALE / SM8750 — OS3.0.307.0.WPKCNXM
+7 November 2026, Asia/Jakarta
+
+STATUS FILE HASIL
+File di folder ini adalah kandidat riset ABL ELF yang sudah dikemas ulang.
+Format container, header FV/FFS dan digest payload telah diperiksa offline.
+SIGNATURE OEM HASIL PATCH INVALID. Belum layak diperlakukan sebagai image yang
+siap di-flash pada Xiaomi retail dengan autentikasi firmware aktif.
+Belum ada uji boot, fake lock, entry EFI kustom atau SuperFastboot pada HP.
+
+1. ISI FOLDER
+
+OS3.0.307.0.WPKCNXM_abl.elf
+  Hasil empat rentang patch CN, kemudian dikemas kembali sebagai ABL ELF32.
+  Ini keluaran yang diminta sebagai hasil boot.elf; tidak dibuat alias kedua.
+  Ukuran: 335672 byte.
+  SHA-256: bbf89327ec2060f83d5e9ec068fd77d2fe2010caee865be176c835bb6dc3447a
+
+src/OS3.0.307.0.WPKCNXM_abl.elf
+  Default/asli, belum dipatch, persis cn/abl.elf dari gpt.zip pengguna.
+  Ukuran: 335672 byte.
+  SHA-256: d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309
+
+src/patch.py
+  Script Python standar untuk mengulang hasil patch dan repack secara identik.
+  Menolak basis/hash lain dan input/output yang menunjuk file yang sama.
+  Tidak menjalankan adb, fastboot, mount, reboot atau akses partisi.
+
+src/verify_signature.py dan src/requirements.txt
+  Audit ECDSA P-384/SHA-384 secara offline dengan public key di sertifikat OEM.
+  Hasil yang diharapkan: asli VALID, kandidat INVALID.
+
+build-report.json
+  Offset, byte sebelum/sesudah, hash PE dan ELF, ukuran kompresi, checksum,
+  digest dan batas autentikasi. Alamat PE tidak boleh dipakai sebagai offset ELF.
+
+signature-audit.json
+  Bukti signature asli lolos, signature kandidat gagal, dengan tiga sertifikat
+  dan hubungan signature sertifikat yang diperiksa. Ini tidak membaca root key
+  fuse atau kebijakan autentikasi runtime perangkat.
+
+SHA256SUMS.txt
+  Checksum seluruh berkas paket selain file checksum itu sendiri.
+
+Source Python baru berlisensi MIT. Firmware OEM asli maupun turunannya tetap
+milik pemegang hak asal dan tidak direlisensi menjadi MIT oleh repo ini.
+
+2. APA YANG DIPATCH
+
+Empat rentang berikut berada dalam PE LinuxLoader CN hasil ekstraksi:
+
+PE 0x3A398: 37 a9 ff 97 -> 20 00 80 52
+  BL getter -> MOV W0,#1.
+PE 0x3B774: 28 00 80 52 -> 08 00 80 52
+  MOV W8,#1 -> MOV W8,#0.
+PE 0x3B7B8: ea 03 01 39 -> ff 03 01 39
+  STRB W10 -> STRB WZR pada [SP,#0x40].
+PE 0x45674: e9 02 00 b0 29 b1 23 91 -> 69 02 00 90 29 25 39 91
+  Alamat string unlocked -> locked.
+
+Total 10 byte berbeda pada PE dengan panjang tetap 1179648 byte.
+SHA-256 PE sesudah patch:
+9b55fb1ee70b3519a947160033d4d9929edf6d045d6dbc0c4e39b23fdf8fffc5
+
+Ini kandidat yang sudah dipetakan di BOOTSTATE_FINDINGS.md, bukan pemanggil
+GBL/SuperFastboot baru. Tidak ditambahkan partisi efisp, driver atau menu BDS.
+Efek runtime seluruh patch belum dibuktikan. Label locked tidak membuktikan
+bootloader terkunci nyata, secure boot diterima, atau attestation berubah.
+
+3. JALUR REPACK DAN TEMUAN BARU
+
+ELF asli mempunyai PT_LOAD di offset file 0x1000, ukuran 0x50000.
+LZMA berada di offset ELF 0x1078. Hasil dekompresi berukuran 0x1200C8;
+inner FV mulai pada offset buffer 0x8 dan PE pada offset buffer 0xB8.
+
+Script mengganti empat rentang PE, mengompresi kembali, memperbarui ukuran
+GUID-defined section dan FFS luar, lalu menghitung ulang checksum header FFS.
+Sisa PT_LOAD diisi 0xFF sesuai pola asli. Header ELF dan program header tetap.
+SHA-384 PT_LOAD yang baru ditulis di offset ELF 0x51150.
+
+Stream LZMA asli: 311404 byte. Stream hasil: 310149 byte.
+Keduanya muat dalam PT_LOAD asli tanpa menggeser hash segment atau sertifikat.
+Checksum header FV/FFS dan semua digest segmen yang diperiksa tetap valid.
+
+Namun hash segment MBN v7 mempunyai signature OEM ECDSA P-384/SHA-384:
+  Data bertanda tangan: offset ELF 0x51000 sampai sebelum 0x511B0 (432 byte).
+  Signature: offset ELF 0x511B0, blok 104 byte.
+  DER signature aktual 103 byte, diikuti satu byte padding 0x00.
+  Sertifikat: offset ELF 0x51218, ukuran DER 600, 689 dan 724 byte.
+  Sisa area sertifikat: 1347 byte 0xFF.
+
+Signature asli berhasil diverifikasi memakai leaf public key yang disertakan.
+Signature yang disalin ke kandidat GAGAL karena digest dalam signed data
+berubah. Sertifikatnya masih valid satu sama lain; itu tidak memperbaiki
+signature image. Memperbarui digest atau memakai qtestsign tidak memberikan
+private key OEM. Tidak ada signature OEM baru atau bypass autentikasi dibuat.
+
+Ini batas berbeda dari unlock Android/AVB dan properti yang dimodifikasi
+modul spoofing. Log stock perangkat sebelumnya menyebut Secure Boot On.
+Modul spoofing tidak perlu dicopot untuk reproduksi offline ini.
+
+Penelusuran entry tetap belum menemukan caller Ebl yang terbukti berjalan
+sebelum LinuxLoader pada retail. Jalur pemuatan ABL melalui protokol PIL
+tidak boleh disalahartikan sebagai jalur pemanggil Ebl.
+
+4. MENGULANG HASIL PATCH
+
+Jalankan dari root repo menggunakan Python 3.10+ yang mendukung lzma:
+
+  python3 annibale/src/patch.py
+
+Atau dari dalam folder annibale:
+
+  python3 src/patch.py
+
+Untuk memeriksa berkas yang sudah ada tanpa menulisnya:
+
+  python3 annibale/src/patch.py --check
+
+Untuk output baru di luar paket:
+
+  python3 annibale/src/patch.py --output /path/baru/boot.elf --report /path/baru/build-report.json
+
+Script memeriksa hash sumber lengkap, byte asal, batas kompresi, checksum,
+digest, payload hasil ekstraksi ulang dan hash keluaran yang dipin. Berkas
+output/report yang sudah ada tetapi berbeda tidak ditimpa. Hasil diuji pada
+Python/liblzma lingkungan penelitian; jika implementasi kompresor lain
+menghasilkan byte berbeda, script berhenti sebelum menerbitkan hasil.
+
+Audit signature opsional, dari root repo:
+
+  python3 -m pip install -r annibale/src/requirements.txt
+  python3 annibale/src/verify_signature.py
+  python3 annibale/src/verify_signature.py --check
+
+Audit ini tidak membuat signature baru. INVALID untuk kandidat adalah hasil
+penelitian yang diharapkan, bukan hasil boot yang berhasil.
+
+Di Linux, cek semua file dari folder annibale:
+
+  sha256sum -c SHA256SUMS.txt
+
+5. FASTBOOT: PEMERIKSAAN DAN BATAS PAKET INI
+
+Bagian ini menjelaskan sintaks yang diminta. Tidak ada perintah di bawah yang
+dijalankan oleh script atau oleh penelitian ini pada HP.
+
+Hubungkan HP dalam bootloader fastboot, lalu periksa dari komputer:
+
+  fastboot devices
+  fastboot getvar product
+  fastboot getvar current-slot
+  fastboot getvar has-slot:abl
+  fastboot getvar is-userspace
+  fastboot getvar partition-size:abl_a
+  fastboot getvar partition-size:abl_b
+
+is-userspace=yes berarti fastbootd; ABL termasuk firmware bootloader, jadi
+gunakan bootloader fastboot untuk pekerjaan ini. Jika getvar tidak didukung,
+jangan mengarang nilai jawabannya. Cocokkan perangkat/build, slot dan ukuran
+dengan data yang benar-benar tersedia. Tabel GPT yang dibaca pada penelitian
+ini memang memiliki abl_a dan abl_b; akses flash dari fastboot belum diuji.
+Status locked/green dari getprop yang di-spoof tidak cukup untuk keputusan ini.
+
+Jika ADB root tersedia, contoh backup baca-saja ke komputer sebelum pengujian:
+
+  adb exec-out su -c 'cat /dev/block/by-name/abl_a' > abl_a.backup.bin
+  adb exec-out su -c 'cat /dev/block/by-name/abl_b' > abl_b.backup.bin
+
+Backup partisi penuh dapat lebih panjang daripada file ELF; hash seluruh
+backup tidak harus sama dengan hash file ELF 335672 byte. Periksa keberhasilan
+command dan simpan backup di luar HP. Tidak ada script backup/flash otomatis.
+
+6. FASTBOOT: FORMAT PERINTAH FLASH
+
+KANDIDAT DALAM PAKET INI MASIH SIGNATURE-INVALID. Contoh berikut HANYA FORMAT
+REFERENSI untuk penelitian pada lingkungan yang sudah mempunyai jalur
+autentikasi/pemulihan yang dibuktikan, atau untuk image pengganti yang telah
+diterima autentikasinya. Ini bukan rekomendasi menjalankannya pada HP retail
+pengguna sekarang. Membuat ELF yang benar tidak cukup untuk melewati PIL.
+
+Dari folder annibale, contoh menulis SATU target slot A:
+
+  fastboot flash abl_a OS3.0.307.0.WPKCNXM_abl.elf
+
+Jika slot yang sengaja dipilih untuk pengujian adalah B, formatnya:
+
+  fastboot flash abl_b OS3.0.307.0.WPKCNXM_abl.elf
+
+Pilih salah satu target berdasarkan rencana dan hasil getvar, bukan menjalankan
+keduanya berurutan. Jangan memakai abl_ab atau --slot all untuk percobaan ini.
+Jangan menjalankan set_active hanya untuk menebak jalur yang akan dipakai.
+Menyisakan satu ABL asli tidak menjamin perangkat dapat pulih apabila gagal
+sebelum USB fastboot tersedia.
+
+OKAY saat flash membuktikan command tulis selesai, bukan bahwa signature akan
+diterima pada boot berikutnya. Paket ini tidak mengeksekusi reboot setelah
+flash, dan tidak mengklaim tersedia jalur dry-run fastboot untuk menguji ABL.
+fastboot boot ditujukan untuk image boot, bukan tes aman bagi file ABL ELF ini.
+Jangan flash berkas ini ke boot, init_boot, vendor_boot atau vbmeta.
+Jangan melakukan relock bootloader untuk mencoba kandidat ini.
+
+7. MEMULIHKAN ABL ASLI JIKA FASTBOOT MASIH DAPAT DIAKSES
+
+Dari folder annibale, pulihkan hanya slot yang sebelumnya diubah, dengan
+firmware/perangkat yang sudah dicocokkan. Untuk target A:
+
+  fastboot flash abl_a src/OS3.0.307.0.WPKCNXM_abl.elf
+
+Atau untuk target B:
+
+  fastboot flash abl_b src/OS3.0.307.0.WPKCNXM_abl.elf
+
+Periksa hasil command. Bila pemulihan berhasil dan rencana pemulihan tidak
+memerlukan langkah lain, perintah melanjutkan boot adalah:
+
+  fastboot reboot
+
+Jika fastboot sudah tidak tersedia, command ini tidak dapat memulihkan HP.
+Paket ini tidak menyertakan loader EDL, prosedur bypass akun atau bukti bahwa
+berkas noauth pengguna pasti kompatibel. Jalur pemulihan tersebut belum diuji.
+
+8. CARA MELANJUTKAN PENELITIAN
+
+Baca HANDOFF.md, BOOTSTATE_FINDINGS.md, ENTRY_FINDINGS.md dan
+ANNIBALE_BUILD.md di root repo. Prioritas berikutnya adalah entry native dan
+kebijakan autentikasi yang benar-benar terjangkau, baru pengujian EFI minimal.
+Hadirnya file patch di folder annibale tidak menandakan port SuperFastboot
+tanpa efisp sudah selesai. Catat hasil runtime/log dan hash setiap revisi.
+
+Referensi primer format/sintaks yang diperiksa:
+https://github.com/msm8916-mainline/qtestsign/blob/0eef3b552b1ada848f22bad38ab2e40407307c5b/mbn/hashseg.py
+https://android.googlesource.com/platform/system/core/+/3c4123065410c700dc924796779f5c0559ab0ad1/fastboot/fastboot.cpp
+https://android.googlesource.com/platform/system/core/+/master/fastboot/README.md

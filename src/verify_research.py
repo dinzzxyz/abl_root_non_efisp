@@ -9,7 +9,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from fwlib import largest_pe, read_member
+from fwlib import largest_pe, read_member, sha256
 from map_bootstate import analyze_image
 from recover_patch import reproduce
 from trace_paths import audit_hash_segment
@@ -53,6 +53,24 @@ def main():
         require(sum(a != b for a, b in zip(eng, supplied)) == 9,
                 "Unexpected number of changed bytes")
         results.append("PASS: patch recovery is byte-identical; 9 changed bytes")
+        annibale = project / "annibale"
+        stock_elf = annibale / "src/OS3.0.307.0.WPKCNXM_abl.elf"
+        candidate_elf = annibale / "OS3.0.307.0.WPKCNXM_abl.elf"
+        with zipfile.ZipFile(args.archive) as archive:
+            require(stock_elf.read_bytes() == read_member(archive, "cn/abl.elf"),
+                    "Bundled annibale default differs from original ZIP member")
+        for script in ("patch.py", "verify_signature.py"):
+            run = subprocess.run([sys.executable, str(annibale / "src" / script), "--check"],
+                                 text=True, capture_output=True, timeout=120)
+            require(run.returncode == 0, "Annibale " + script + " failed:\n" + run.stdout + run.stderr)
+        repacked_pe = largest_pe(candidate_elf.read_bytes()).data
+        require(repacked_pe != cn,
+                "Repacked ELF still contains stock LinuxLoader")
+        require(sha256(repacked_pe) ==
+                "9b55fb1ee70b3519a947160033d4d9929edf6d045d6dbc0c4e39b23fdf8fffc5",
+                "Independent PE extraction differs from the previous CN candidate")
+        results.append("PASS: annibale stock equals ZIP; rebuilt ELF/report reproduce exactly; independent extraction matches CN candidate")
+        results.append("PASS: OEM stock ECDSA signature valid; research candidate invalid despite valid segment digests (not boot-ready)")
         maps = {tag: json.loads((generated / f"bootstate/{tag}_bootstate_map.json").read_text())
                 for tag in ("cn", "eng")}
         for tag, report in maps.items():
@@ -110,6 +128,10 @@ def main():
                 ebl["registrations"][0]["name"] == "loadfv" and
                 not ebl["custom_efi_entry_tested"] and not ebl["hardware_writes_or_reboots"],
                 "Ebl bridge evidence or execution boundaries differ")
+        pil = json.loads((generated / "entry/pil_binding.json").read_text())
+        require(pil["interface_method_0x08_target_rva"] == "0x1790" and
+                pil["consumer_argument"] == "ABL" and not pil["ebl_entry_established"],
+                "PIL protocol producer/consumer binding differs")
         results.append("PASS: early platform callback table and native Ebl RAM/file routes match pinned PEs")
         trace = json.loads((generated / "continued/boot_container_trace.json").read_text())
         for tag in ("cn", "eng"):

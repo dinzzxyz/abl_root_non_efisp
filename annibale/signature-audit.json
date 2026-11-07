@@ -1,0 +1,93 @@
+{
+  "cryptography_version": "50.0.0",
+  "stock": {
+    "elf_sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309",
+    "algorithm": "ECDSA secp384r1 with SHA-384",
+    "signed_file_range_start": "0x51000",
+    "signed_file_range_end_exclusive": "0x511b0",
+    "signed_size": 432,
+    "signed_data_sha384": "00598e9ca1a15f6a83d8af33e3de54b312ff84bbb414214b168e7ecfb8d2e36c8bc165158da16733cbfc8dfe3309ca37",
+    "signature_file_offset": "0x511b0",
+    "signature_block_size": 104,
+    "signature_der_size": 103,
+    "signature_zero_padding_size": 1,
+    "oem_image_signature_valid_with_embedded_leaf_key": true,
+    "certificate_file_offset": "0x51218",
+    "certificate_sizes": [
+      600,
+      689,
+      724
+    ],
+    "certificate_sha256": [
+      "2c2a1a828954062434bc11cd496fea487427fbdb6f79874ba204c33a0f9d71c3",
+      "565c7eed6f0576e970dca2053d9e09360af68736104459cf38089bbfb9c6c247",
+      "1c845b8080d4ce3edfc89649269e28627c8fa789cca6282a6828ac014940d063"
+    ],
+    "certificate_padding_ff_size": 1347,
+    "certificate_signature_links": [
+      {
+        "certificate_index": 0,
+        "issuer_key_index": 1,
+        "cryptographic_signature_valid": true
+      },
+      {
+        "certificate_index": 1,
+        "issuer_key_index": 2,
+        "cryptographic_signature_valid": true
+      },
+      {
+        "certificate_index": 2,
+        "issuer_key_index": 2,
+        "cryptographic_signature_valid": true
+      }
+    ],
+    "elf_header_and_payload_hashes_valid": true
+  },
+  "candidate": {
+    "elf_sha256": "bbf89327ec2060f83d5e9ec068fd77d2fe2010caee865be176c835bb6dc3447a",
+    "algorithm": "ECDSA secp384r1 with SHA-384",
+    "signed_file_range_start": "0x51000",
+    "signed_file_range_end_exclusive": "0x511b0",
+    "signed_size": 432,
+    "signed_data_sha384": "2d3c4f1d573172426d5d2751c0188219052b6b36d4c99bbf0e02857028bb995db63a1965fffa43ae20e0db0cb5c05a30",
+    "signature_file_offset": "0x511b0",
+    "signature_block_size": 104,
+    "signature_der_size": 103,
+    "signature_zero_padding_size": 1,
+    "oem_image_signature_valid_with_embedded_leaf_key": false,
+    "certificate_file_offset": "0x51218",
+    "certificate_sizes": [
+      600,
+      689,
+      724
+    ],
+    "certificate_sha256": [
+      "2c2a1a828954062434bc11cd496fea487427fbdb6f79874ba204c33a0f9d71c3",
+      "565c7eed6f0576e970dca2053d9e09360af68736104459cf38089bbfb9c6c247",
+      "1c845b8080d4ce3edfc89649269e28627c8fa789cca6282a6828ac014940d063"
+    ],
+    "certificate_padding_ff_size": 1347,
+    "certificate_signature_links": [
+      {
+        "certificate_index": 0,
+        "issuer_key_index": 1,
+        "cryptographic_signature_valid": true
+      },
+      {
+        "certificate_index": 1,
+        "issuer_key_index": 2,
+        "cryptographic_signature_valid": true
+      },
+      {
+        "certificate_index": 2,
+        "issuer_key_index": 2,
+        "cryptographic_signature_valid": true
+      }
+    ],
+    "elf_header_and_payload_hashes_valid": true
+  },
+  "expected_research_result_confirmed": true,
+  "interpretation": "Original OEM signature validates; retained signature fails on the modified signed bytes",
+  "device_fused_root_or_runtime_authentication_tested": false,
+  "hardware_writes_or_reboots": false
+}

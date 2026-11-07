@@ -17,7 +17,11 @@ do not mix those address spaces. Fixed offsets apply only to identified hashes.
 
 Keep firmware, EDL loaders, credentials, and device identifiers outside Git.
 Record hashes and private input acquisition notes instead of embedding secrets.
-Do not create a firmware flashing step from an unverified assumption.
+Exception explicitly requested by the user on 7 November: include the identified
+CN stock ABL and its reproducible research ELF in annibale/src and annibale.
+This does not authorize adding other firmware, private logs or EDL loaders.
+The requested fastboot notes must distinguish syntax/reference instructions
+from an image accepted by device authentication; do not claim bootability.
 
 For changes affecting extraction or patch reproduction, run the documented
 offline analysis and verification against the original input archive. Update

@@ -17,7 +17,8 @@ ketika workspace atau konteks percakapan hilang.
 - Basis source upstream: `4ef438cfde42943694fde5753bbf5d8c0b4ec02e` pada
   https://github.com/SuperTurtleDev/gbl_root_canoe.
 - Input asli: `gpt.zip`; hash dan seluruh nama file ada di `INPUTS.json`.
-  Byte firmware tidak dimasukkan ke source repo.
+  Atas permintaan eksplisit pengguna, CN ABL default dan kandidat ELF hasil
+  repack sekarang disertakan dalam annibale. Komponen/log privat lain tidak.
 
 Login GitHub dan ketersediaan kredensial bergantung pada sesi. Jangan
 menganggap plugin yang dapat membaca repo otomatis dapat melakukan push.
@@ -89,11 +90,24 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
 27. Menambahkan analyzer entry yang menolak hash berbeda, pelacak ADRP lokal
     yang mendukung instruksi terseling, pengujian negatif, byte/disassembly,
     referensi source primer dan ENTRY_FINDINGS.md. Verifikasi penuh berhasil.
+28. Memenuhi struktur paket annibale yang diminta: ELF kandidat bernama
+    OS3.0.307.0.WPKCNXM_abl.elf, default dalam src, script patch mandiri,
+    audit signature, notes.txt dengan referensi fastboot dan pemulihan.
+29. Mengemas kandidat PE CN menjadi ELF ukuran tetap: LZMA baru muat, ukuran
+    section/FFS dan checksum diperbarui, SHA-384 PT_LOAD dihitung ulang.
+    Hasil PE sama dengan kandidat 10 byte terdahulu; container bukan PE mentah.
+30. Memvalidasi signature stock ECDSA P-384/SHA-384 pada signed range ELF
+    [0x51000,0x511B0). Signature yang dipertahankan di ELF kandidat gagal,
+    walau digest dan rantai sertifikat valid. Ini bukan image OEM-resigned.
+31. Mengikat consumer ABL pada QcomBds 0x4F4C ke interface PILDxe 0x171B8,
+    method +8 → 0x1790 → helper 0x1FC0. Tidak menemukan launcher Ebl baru.
 
 ## Status yang belum boleh dianggap selesai
 
 - Belum ada bukti runtime BDS kustom berjalan di SM8750.
-- Belum ada image ABL baru yang dikemas, diautentikasi, dan diuji di HP.
+- Container ELF kandidat sudah dikemas dan diverifikasi offline; signature
+  OEM-nya invalid. Belum ada image diubah yang diterima autentikasi atau diuji
+  boot di HP. Berkas di annibale bukan port yang siap di-flash pada retail.
 - Belum ada log yang membuktikan penyebab brick atau keberhasilan fake lock.
 - Ukuran/LBA/GPT type GUID sudah tersedia dari collector v2; CRC GPT dan
   daftar variabel EFI belum diperiksa. Tidak ditemukan ESP pada data enam LUN.
@@ -102,7 +116,8 @@ Periksa koneksi yang berlaku saat melanjutkan; jangan menyimpan token dalam Git.
 - Empat lokasi kandidat CN sudah dipetakan, tetapi dataflow lintas seluruh
   CFG/alias dan efek runtime belum dibuktikan. Patcher upstream asli tetap
   gagal pada dua basis. Resep 9 byte lama khusus engineering yang dipin;
-  kandidat CN 10 byte tidak menyediakan container ABL atau entry SuperFastboot.
+  kandidat CN 10 byte kini punya container ELF riset terpisah dalam annibale,
+  tetapi signature invalid dan belum menyediakan entry SuperFastboot.
 - File `8750_noauth_Xiaomi.zip` adalah bahan pemulihan dari pengguna;
   kompatibilitas dan keberhasilan unbrick tidak diuji dalam pekerjaan ini.
 
@@ -139,6 +154,12 @@ aplikasi sebelum LinuxLoader. Jangan menganggap Shell yang tersedia sudah
 dapat dijalankan, atau logfs FAT12 sebagai ESP. NV volatile perlu diperhitungkan
 dalam usulan BootNext/BootOrder; itu tidak membuktikan semua storage TEE volatile.
 Baca ENTRY_FINDINGS.md dan evidence/entry_2026_11_07 untuk checkpoint terbaru.
+Baca ANNIBALE_BUILD.md dan annibale/notes.txt untuk checkpoint sesudahnya.
+ELF stock SHA-256 d6e9b411...; kandidat bbf89327...; manifest lengkap ada di
+annibale/build-report.json. Rebuild: python3 annibale/src/patch.py --check.
+Audit signature membutuhkan annibale/src/requirements.txt dan menghasilkan
+stock VALID versus kandidat INVALID. Jangan menyamakan lulus reproduksi atau
+sertifikat valid dengan signature kandidat valid. Tidak ada flashing otomatis.
 Jalur file/RAM Ebl sudah terpetakan, jadi prioritas adalah entry awal native
 pada PROD/Retail dan status autentikasi, bukan membuat partisi baru. Ide uji
 pertama setelah entry tersedia adalah aplikasi EFI diagnostik yang kembali ke

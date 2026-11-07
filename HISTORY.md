@@ -124,3 +124,26 @@ kustom/fake lock pada perangkat yang diverifikasi oleh penelitian ini.
 - Hipotesis lanjutan: entry Ebl native → probe EFI file/RAM → port BDS;
   entry, autentikasi, visibilitas filesystem dan pengganti SuperFbStore masih
   harus dibuktikan. Tidak ada flash atau eksekusi image kustom pada HP.
+
+## 2026-11-07 — paket annibale, repack ELF dan audit ECDSA
+
+- Mengikuti permintaan eksplisit pengguna: membuat annibale dengan kandidat
+  OS3.0.307.0.WPKCNXM_abl.elf, default dalam src, script patch, audit signature,
+  checksum dan notes.txt berisi reproduksi serta referensi fastboot/pemulihan.
+  Pengecualian dua file firmware ini dicatat di AGENTS.md dan .gitignore.
+- Mengemas empat rentang/10 byte kandidat PE CN ke ELF asli dengan panjang
+  tetap. LZMA baru 310149 byte muat dalam PT_LOAD, dibanding 311404 byte asli.
+  Ukuran section/FFS, checksum header dan digest payload SHA-384 diperbarui.
+  Re-ekstraksi dan hash keluaran dipin, bukan sekadar perubahan ekstensi.
+- Menemukan dan memvalidasi signature asli ECDSA P-384/SHA-384 atas signed
+  range ELF [0x51000,0x511B0). DER signature 103 byte dalam blok 104 byte.
+  Signature yang dipertahankan pada hasil patch INVALID, walau digest segmen
+  dan hubungan signature tiga sertifikat valid. Tidak membuat signature OEM
+  baru dan tidak menguji penerimaan firmware pada HP.
+- Mengikat consumer QcomBds 0x4F4C dengan argumen ABL ke interface PILDxe
+  0x171B8, method +8 → 0x1790 → helper 0x1FC0. Belum menemukan entry Ebl baru.
+- Menambahkan enam pengujian paket/DER/overwrite/signature; seluruh 24 unit
+  test lulus. Pipeline utama memeriksa pasangan ELF, reproduksi byte identik,
+  ekstraksi PE independen dan batas signature. Bukti di annibale serta
+  evidence/annibale_2026_11_07; panduan lanjutan pada ANNIBALE_BUILD.md.
+- Tidak menjalankan command flash, reboot, relock atau menulis partisi HP.

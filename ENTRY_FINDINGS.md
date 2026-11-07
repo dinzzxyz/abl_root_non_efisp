@@ -3,6 +3,11 @@
 Tanggal: 7 November 2026, Asia/Jakarta. **Hasil statis dan probe DT hanya baca;
 belum ada aplikasi EFI kustom yang berjalan pada HP.**
 
+Checkpoint berikutnya ada di ANNIBALE_BUILD.md: ELF kandidat CN sudah direpack
+dan disertakan dalam annibale atas permintaan pengguna, dengan default/script.
+Signature OEM kandidat terbukti invalid. Binding producer PIL juga dipetakan;
+entry awal Ebl masih belum ditemukan. Hasil entry di bawah tetap bersifat statis.
+
 Temuan baru memisahkan tiga persoalan: masuk ke lingkungan EFI sebelum
 LinuxLoader, memuat aplikasi dari media yang bisa dibaca UEFI, lalu menyimpan
 pilihan BDS. `efisp` bukan syarat yang terlihat pada jalur file/RAM milik Ebl

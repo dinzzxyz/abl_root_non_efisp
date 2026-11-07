@@ -1,0 +1,81 @@
+{
+  "device": "annibale",
+  "build": "OS3.0.307.0.WPKCNXM",
+  "status": "RESEARCH CANDIDATE; NOT OEM-RESIGNED; NO RUNTIME BOOT TEST",
+  "stock_elf_sha256": "d6e9b4111652bc0067547994a3f8396541383e093aee5d74b154e88f82342309",
+  "patched_elf_sha256": "bbf89327ec2060f83d5e9ec068fd77d2fe2010caee865be176c835bb6dc3447a",
+  "elf_size": 335672,
+  "stock_pe_sha256": "75e9d6122d708948c6a5f0b9774a061aa25ebb7a279fbe020ad8835400b065d2",
+  "patched_pe_sha256": "9b55fb1ee70b3519a947160033d4d9929edf6d045d6dbc0c4e39b23fdf8fffc5",
+  "pe_size": 1179648,
+  "pe_changed_byte_count": 10,
+  "edits": [
+    {
+      "pe_file_offset": "0x3a398",
+      "pe_rva": "0x3a398",
+      "expanded_buffer_offset": "0x3a450",
+      "before": "37a9ff97",
+      "after": "20008052",
+      "description": "BL getter -> MOV W0,#1"
+    },
+    {
+      "pe_file_offset": "0x3b774",
+      "pe_rva": "0x3b774",
+      "expanded_buffer_offset": "0x3b82c",
+      "before": "28008052",
+      "after": "08008052",
+      "description": "MOV W8,#1 -> MOV W8,#0"
+    },
+    {
+      "pe_file_offset": "0x3b7b8",
+      "pe_rva": "0x3b7b8",
+      "expanded_buffer_offset": "0x3b870",
+      "before": "ea030139",
+      "after": "ff030139",
+      "description": "STRB W10 -> STRB WZR, [SP,#0x40]"
+    },
+    {
+      "pe_file_offset": "0x45674",
+      "pe_rva": "0x45674",
+      "expanded_buffer_offset": "0x4572c",
+      "before": "e90200b029b12391",
+      "after": "6902009029253991",
+      "description": "address unlocked -> locked"
+    }
+  ],
+  "elf_payload_file_offset": "0x1000",
+  "elf_payload_size": 327680,
+  "lzma_file_offset": "0x1078",
+  "stock_lzma_size": 311404,
+  "patched_lzma_size": 310149,
+  "expanded_size": 1179848,
+  "expanded_pe_offset": "0xb8",
+  "compression": {
+    "id": 4611686018427387905,
+    "dict_size": 16777216,
+    "lc": 3,
+    "lp": 0,
+    "pb": 2,
+    "mode": 2,
+    "nice_len": 273,
+    "mf": 20,
+    "depth": 0
+  },
+  "outer_ffs_header_checksum": "0x4e",
+  "fv_and_ffs_header_checksums_valid": true,
+  "elf_program_headers_preserved": true,
+  "payload_digest_file_offset": "0x51150",
+  "payload_sha384": "777860601f98934d00ad5504e4d79d78fa44faa8834610a29bb0c76e55659b455bf5538524038635b6eda50bbf798eb8",
+  "oem_signed_range": [
+    "0x51000",
+    "0x511b0"
+  ],
+  "oem_signature_file_offset": "0x511b0",
+  "oem_signature_size": 104,
+  "oem_signature_and_certificates_preserved": true,
+  "oem_signature_regenerated": false,
+  "oem_signed_bytes_changed": true,
+  "signature_verification": "Run src/verify_signature.py; retaining OEM bytes does not re-sign changed data",
+  "gbl_or_superfastboot_entry_added": false,
+  "hardware_writes_or_reboots": false
+}

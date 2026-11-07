@@ -19,6 +19,7 @@ from map_bootstate import View, immediate, memory, reg, require
 
 QCOMBDS_SHA256 = "c15c9077837d13420a860a20a6480d9dd8ae76f31828890a598f38be47d2bd78"
 EBL_SHA256 = "306bed8aaca6c2a31b6bee8360d1e9c727440ed50664bf3e107420ec103c5761"
+PIL_SHA256 = "a9a04094e1685e5cbd06a2fe287da560410bd93852096be12d4d49c7f2ba82b6"
 UEFI_SHA256 = "1488a82e6735698f84bf0dcf05894723fba5cc2656fa1ed14dd91776b623481a"
 DXE_GUID = "05ad34ba-6f02-4214-952e-4da0398e2bb9"
 
@@ -225,6 +226,40 @@ def disassembly(view, windows):
     return "\n".join(lines) + "\n"
 
 
+def pil_binding(qcombds, pil):
+    """Bind the ABL pre-load consumer to the installed PILDxe protocol table."""
+    require(sha256(qcombds) == QCOMBDS_SHA256, "Unknown QcomBds PE hash")
+    require(sha256(pil) == PIL_SHA256, "Unknown PILDxe PE hash")
+    b, p = View(qcombds), View(pil)
+    guid = uuid.UUID("1f4f1da3-4d8d-4894-ba2a-13d3207f9739").bytes_le
+    require(b.data[0x1d288:0x1d298] == p.data[0x170c8:0x170d8] == guid,
+            "PIL protocol GUID binding differs")
+    require(struct.unpack_from("<Q", p.data, 0x171b8)[0] == 0x10005 and
+            struct.unpack_from("<Q", p.data, 0x171c0)[0] == 0x1790,
+            "PIL interface revision or first method differs")
+    refs = address_references(p)
+    require(any(x["file_offset"] == "0x1734" and x["target_rva"] == "0x171b8"
+                for x in refs), "PIL installer interface reference missing")
+    argument = b.data[0x17600:0x17608].decode("utf-16le").rstrip("\0")
+    require(argument == "ABL", "PIL consumer argument differs")
+    require(b.instructions(0x4f4c, 4)[0].mnemonic == "blr" and
+            memory(b.instructions(0x4f48, 4)[0], 1) == ("x8", 8, None),
+            "PIL consumer method call differs")
+    return {"qcombds_pe_sha256": sha256(qcombds), "pildxe_pe_sha256": sha256(pil),
+            "address_space": "Offsets/RVAs in each named PE, not UEFI ELF offsets",
+            "protocol_guid": str(uuid.UUID(bytes_le=guid)),
+            "consumer_guid_rva": "0x1d288", "producer_guid_rva": "0x170c8",
+            "producer_interface_rva": "0x171b8", "producer_interface_revision": "0x10005",
+            "interface_method_0x08_target_rva": "0x1790",
+            "producer_install": p.rows(0x1724, 0x28),
+            "consumer_call": b.rows(0x4f14, 0x40),
+            "consumer_argument": argument, "consumer_argument_rva": "0x17600",
+            "method_wrapper": p.rows(0x1790, 0x24),
+            "method_wrapper_helper_call": expect_call(p, 0x1798, 0x1fc0),
+            "interpretation": "The examined pre-default ABL load call uses PILDxe, not a newly found Ebl launcher",
+            "ebl_entry_established": False, "runtime_image_authentication_tested": False}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("archive", type=Path)
@@ -237,6 +272,7 @@ def main():
     bds, fv = analyze(images[QCOMBDS_SHA256], images[EBL_SHA256])
     write_json(args.out / "bds_entry.json", bds)
     write_json(args.out / "ebl_ram_fv.json", fv)
+    write_json(args.out / "pil_binding.json", pil_binding(images[QCOMBDS_SHA256], images[PIL_SHA256]))
     for name, digest, windows in [
         ("bds_entry", QCOMBDS_SHA256, [(0x1d44, 0x1e88), (0x2468, 0x248c),
           (0x1628, 0x1658), (0x59dc, 0x5b80), (0x6cdc, 0x6d80),

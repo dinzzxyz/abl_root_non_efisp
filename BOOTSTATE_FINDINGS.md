@@ -2,6 +2,11 @@
 
 Tanggal: 6 November 2026. **Status: kandidat statis, belum diuji di HP.**
 
+Update 7 November: kandidat CN yang dipetakan di sini kini direpack sebagai
+ELF riset terpisah dalam annibale, atas permintaan pengguna. Alat struktural
+di dokumen ini tetap hanya menghitung kandidat. Lihat ANNIBALE_BUILD.md untuk
+script/file baru dan bukti signature OEM kandidat invalid; belum ada uji boot.
+
 Temuan ini melengkapi BOOT_METADATA_FINDINGS.md. Hash prefix firmware HP
 cocok dengan image CN; karena itu pemetaan CN lebih relevan untuk perangkat
 pengguna daripada menyalin offset engineering. Hasil berikut belum menyediakan

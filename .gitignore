@@ -9,3 +9,7 @@ generated/
 *.img
 *.zip
 history.bundle
+
+# Explicit user-requested, hash-pinned annibale stock/research ABL pair.
+!annibale/OS3.0.307.0.WPKCNXM_abl.elf
+!annibale/src/OS3.0.307.0.WPKCNXM_abl.elf
